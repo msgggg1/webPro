@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<style>
+	/*링크 스타일 정의*/
+	/* css의 선택자 : 가상클래스 - a 클래스의 특정한 상태를 나타냄*/
+	/*link->visited->hover->active 순서로 설정해야한다. */
+	/* a:link{
+		text-decoration: none;
+		color: black;
+	}
+	a:visited{
+		color: yellow;
+	}
+	a:hover{
+		color: red;
+		text-transform: capitalize;
+	}
+	a:active{
+		text-decoration: underline overline;
+	} */
+	
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	a:hover{
+		color: red;
+		text-decoration: underline;
+		text-transform: capitalize;
+	}
+</style>
+</head>
+<body>
+
+<h3>링크 색상 변경 : css</h3>
+
+<a href="http://www.naver.com">naver</a><br>
+<a href="http://www.daum.net">daum</a><br>
+<a href="httpL//www.sist.co.kr">sist</a><br>
+
+<!-- 
+ 	방문한 적이 없으면 파란색
+ 	방문한 적이 있으면 자주색
+ 	활성			  빨간색
+ -->
+</body>
+</html>

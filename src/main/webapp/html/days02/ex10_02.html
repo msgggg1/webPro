@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<style>
+
+	span{
+		border: solid 1px gray;
+	}
+
+</style>
+</head>
+<body>
+ <span id="team1">
+	1조 -
+	<span id="s01">양재원</span>
+	<span id="s02">최승호</span>
+	<span>김승효</span>
+	<span>안준호</span>
+	<span>이정인</span>
+	<span style="display: inline;">최인석</span>
+ </span>
+ <br>
+  <span id="team2">
+	2조 -
+	<span id="s01">양재원</span>
+	<span id="s02">최승호</span>
+	<span>김승효</span>
+	<span>안준호</span>
+	<span>이정인</span>
+	<span style="display: none;">최인석</span>
+ </span>
+	<br>
+	<button id="btnHide">1조 숨기기</button>
+	<button id="btnShow" style="display: none">1조 보이기</button>
+
+<script>
+	//$("#아이디명")== document.getElementById("아이디명"); 제이쿼리 객체
+	$("#btnHide").click(function (){
+		//console.log("click~");
+		// $("#team1").css("display","none");
+		$("#team1").hide(); // 내부적으로 위 일이 일어남
+		$(this).hide();
+		/* $("btnShow").css("display","inline") = "none"; */
+		$("#btnShow").show();
+	});
+	
+	$("#btnShow").on("click",function(){
+		//console.log("test");
+		$("#team1").show();
+		$(this).hide();
+		$("#btnHide").show();
+	});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
