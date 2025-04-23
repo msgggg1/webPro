@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	a:link{
+		text-decoration: none;
+		color: black;
+		
+		border: solid 1px gray;
+		
+		display: inline-block;
+		width: 100px;
+		
+		text-align: center;
+	}
+	a:visited{
+		color: black;
+	}
+	a:hover{
+		color: red;
+		text-transform: capitalize;
+	}
+	a:active{
+		text-decoration: none;
+	}
+	
+	/* css selector = 스타일 적용할 대상 */
+	body > span {
+		display: block;
+		border: solid 1px gray;
+		width: 200px;		
+	}
+	
+	body > span > span{
+		display: inline-block;
+		/* width: 100px; */	
+		width: 50%; /* 기준 항상 부모 */
+		color: red;
+	    text-align: center;
+	}
+	
+</style>
+<script>
+	function hide() {
+		//Document.getElementById("아이디명")
+		const teamSpn = document.querySelector("body > span"); // var or const 둘다 사용해도 좋음 / 자바에서 상수일때 const
+		teamSpn.style.display = "none";
+		
+		event.preventDefault();
+	}
+	function show() {
+		//Document.getElementById("아이디명")
+		const teamSpn = document.querySelector("body > span"); // var or const 둘다 사용해도 좋음 / 자바에서 상수일때 const
+		teamSpn.style.display = "inline-block";
+		event.preventDefault();
+	}
+</script>
+</head>
+<body>
+
+<h3>javascript 사용</h3>
+<!-- a는 인라인모드 : 안의 내용물 따라서 크기 자동으로 잡힘-->
+<!--인라인모드 : width 속성 하나도 안먹음!!!
+	a, span
+-->
+
+<p>
+  <!-- <a href="javascript:void(0)" onclick="hide()">숨기기</a> -->
+  <a href="" onclick="hide()">숨기기</a>
+  <a href="" onclick="show()">보이기</a>
+</p>
+
+ <span>
+ 	<span>서재웅</span><span>박지웅</span>
+ 	<span>김예지</span><span>변상호</span>
+ 	<span>김현수</span><span>김민선</span>
+ </span>
+
+
+
+</body>
+</html>
