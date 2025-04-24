@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	html,body{
+		padding: 0;
+		margin: 0;
+	}
+	
+	ul#main{
+		border: solid 1px blue;
+		background-color: #333;
+		list-style-type: none;
+		padding:0;
+		margin: 0;
+		
+		overflow: hidden;
+	}
+	
+	ul#main li{
+		border: solid 1px green;
+		float: left;
+	}
+	
+	ul#main li a{
+		color: white;
+		text-decoration: none;
+		border: solid 1px red;
+		
+		padding: 16px;
+		display: block;
+	}
+	
+	ul#main li:nth-child(1){
+		background-color: red;
+	}
+	
+	ul#main li a.active{
+		background-color: #04AA6D;
+		color: white; 
+	}
+	
+	ul#main li a:hover:not(.active){
+		color: orange;
+		background-color: #111;
+	}
+	
+</style> 
+</head>
+<body>
+	<ul id="main">
+		<li><a href="#">Home</a></li>
+		<li><a href="#" class="active">News</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">About</a></li>
+	</ul>
+	
+	
+	
+</body>
+</html>

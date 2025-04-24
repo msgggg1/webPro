@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+</head>
+<body>
+
+<!-- 
+	[ picture ] 태그
+ 	ㄴ "반응형 웹"을 만들 때 사용
+ 	ㄴ "반응형 웹"? RWD
+ 	  - Responsive Web Design
+ 	  - 하나의 웹 사이트 -> 다양한 접속 기기에 
+ 	  				  ( PC, 테블릿, 폰 )
+ 	    출력( 화면 크기가 다 다르다 -> 자동으로 크기가 맞춰서 출력 )
+ 	ㄴ 다양한 기기마다 알맞은 이미지로 선택해서 출력하는 태그
+ 	ㄴ  picture 태그
+ 	   source 태그
+ 	   img 태그  
+ -->
+ <picture>
+ 	<source media="(min-width:650px)" srcset="../images/img_pink_flowers.jpg">
+ 	<source media="(min-width:450px)" srcset="../images/img_white_flower.jpg">
+ 	<img alt="" src="../images/img_orange_flowers.jpg">
+ </picture>
+
+</body>
+</html>

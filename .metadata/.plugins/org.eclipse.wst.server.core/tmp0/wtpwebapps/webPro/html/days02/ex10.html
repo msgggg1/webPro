@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<style>
+
+	span{
+		border: solid 1px gray;
+	}
+
+</style>
+<script>
+	function team1_hide() {
+		/*[1]
+		//console.log("team1_hide()")
+		// element(요소) 얻어와서 <span id="s01">양재원</span>
+		var spn1 = document.getElementById("s01");
+		//window.alert(spn1);
+		// css 코딩을 style="display: none;" js로 코딩
+		spn1.style.display = "none";
+		*/
+		
+		// 1조원 모두 컨테이너로 묶기 - span(컨테이너 역할)
+		var team1 = document.getElementById("team1");
+		team1.style.display = "none";
+		// 1조 숨기기 버튼 - X
+		document.getElementById("btnHide").style.display = "none";
+		// 1조 보이기 버튼 - O
+		document.getElementById("btnShow").style.display = "inline";
+	}
+	
+	function team1_show() {
+		var team1 = document.getElementById("team1");
+		team1.style.display = "";
+		// 1조 숨기기 버튼 - X
+		document.getElementById("btnHide").style.display = "inline";
+		// 1조 보이기 버튼 - O
+		document.getElementById("btnShow").style.display = "none";
+	}
+</script>
+</head>
+<body>
+<!-- 
+	[span] 태그
+	 ㄴ 인라인 모드 ***
+	 ㄴ 특정 시각적 기능 X
+	 ㄴ 주로 "특정 텍스트", 요소를 그룹화하여 스타일 적용 또는 js 처리
+	 					컨테이너 역할
+	 
+	 웹어플리케이션 실무 프로젝트
+ -->
+ <span id="team1">
+	1조 -
+	<span id="s01">양재원</span>
+	<span id="s02">최승호</span>
+	<span>김승효</span>
+	<span>안준호</span>
+	<span>이정인</span>
+	<span style="display: inline;">최인석</span>
+ </span>
+ <br>
+  <span id="team2">
+	2조 -
+	<span id="s01">양재원</span>
+	<span id="s02">최승호</span>
+	<span>김승효</span>
+	<span>안준호</span>
+	<span>이정인</span>
+	<span style="display: none;">최인석</span>
+ </span>
+	
+	<br>
+	<button id="btnHide" onclick="team1_hide();">1조 숨기기</button>
+	<button id="btnShow"onclick="team1_show();" style="display: none">1조 보이기</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

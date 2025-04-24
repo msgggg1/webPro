@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+pre : [pre]fprmatted text
+		미리 서식이 지정된(형식화된) 문자열
+		(공백, 줄바꿈 유지, 고정 너비 글꼴 Courier )
+ -->
+ <pre>
+<h3> pre<br>태그<br> 안</h3><!-- 적용O -->
+int i = 10;
+System.out.println(i);
+int j = 20;
+System.out.println(j);
+</pre>
+
+<hr>
+<!-- 
+	- html5 X
+	- 텍스트를 화면 그대로 출력하는 역할
+	- 즉, html 태그나 특수 문자가 브라우저에서 해석되지 않고 그대로 표시된다. 
+	- -> 더이상 사용되지 않음 -> pre 태그 사용.  되긴됨
+	차이점: 
+ -->
+ <xmp><!-- 경고: HTML5에는 없는  -->
+<h3> xmp 태그 안</h3> <!-- 적용x -->
+int i = 10;
+System.out.println(i);
+int j = 20;
+System.out.println(j);
+</xmp>
+
+</body>
+</html>
