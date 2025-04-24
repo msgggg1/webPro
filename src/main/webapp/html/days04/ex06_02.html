@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- 속성 연산자[] -->
+<!-- <div 속성명="속성값"속성명='속성값'속성명=속성값></div> but,속성값이 공백이 있는 경우에는 "" or ''꼭 붙여야 함.  --> 
+<div id="box1"></div>
+
+div[id]
+<div id=""></div>
+div[id="box1"]
+div[id='box1']
+div[id=box1]
+<div id="box1"></div>
+
+#box1
+<div id="box1"></div> <!-- 기본 div 태그 -> #속성명만 줘도됨 -->
+
+div[id=box1][class="class1"]
+div[id=box1 class="class1"]
+#box1.class1
+<div id="box1" class="class1"></div>
+#header[class="box1 box2 box3"]
+#header.box1.box2.box3
+<div id="header" class="box1 box2 box3"></div>
+
+.box1
+<div class="box1"></div>
+
+font[size=7 color=red face=궁서체]
+<font size="7" color="red" face="궁서체"></font>
+
+<hr>
+
+<!-- 항목 번호 매기기: $ -->
+<!-- h1*6 -->
+<!-- h$*6 -->
+<h1></h1>
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+
+<!-- 문제 -->
+ul>li[class=item$]*5
+ul>li.item$*5
+<ul>
+	<li class="item1"></li>
+	<li class="item2"></li>
+	<li class="item3"></li>
+	<li class="item4"></li>
+	<li class="item5"></li>
+</ul>
+
+ul>li.item$$$*15
+<ul>
+	<li class="item001"></li>
+	<li class="item002"></li>
+	<li class="item003"></li>
+	<li class="item004"></li>
+	<li class="item005"></li>
+	<li class="item006"></li>
+	<li class="item007"></li>
+	<li class="item008"></li>
+	<li class="item009"></li>
+	<li class="item010"></li>
+	<li class="item011"></li>
+	<li class="item012"></li>
+	<li class="item013"></li>
+	<li class="item014"></li>
+	<li class="item015"></li>
+</ul>
+
+ul>li.item$@-*5 : 뒤에서부터 번호 매기기
+<ul>
+	<li class="item5"></li>
+	<li class="item4"></li>
+	<li class="item3"></li>
+	<li class="item2"></li>
+	<li class="item1"></li>
+</ul>
+
+ul>li.item$@3*5
+<ul>
+	<li class="item3"></li>
+	<li class="item4"></li>
+	<li class="item5"></li>
+	<li class="item6"></li>
+	<li class="item7"></li>
+</ul>
+
+ul>li.item$@-3*5
+<ul>
+	<li class="item7"></li>
+	<li class="item6"></li>
+	<li class="item5"></li>
+	<li class="item4"></li>
+	<li class="item3"></li>
+</ul>
+
+<!-- {텍스트} -->
+div{홍길동}
+div>{홍길동}
+<div>홍길동</div>
+
+a[href]{click me}
+a{click me} 필수라 생략해도 생성
+<a href="">click me</a>
+
+ul>li{item}*5
+<ul>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+</ul>
+
+ul>li{item$}*5
+<ul>
+	<li>item1</li>
+	<li>item2</li>
+	<li>item3</li>
+	<li>item4</li>
+	<li>item5</li>
+</ul>
+
+
+a{click}+b{here}
+<a href="">click</a><b>here</b>
+
+a{click}>b{here}
+<a href="">click<b>here</b></a>
+
+p>{Click}+a{here}+{to continue}
+<p>Click <a href="">here</a> to continue</p>
+
+<hr>
+
+(header>ul.nav>li*5>{item$})+footer
+<header>
+	<ul class="nav">
+		<li>item1</li>
+		<li>item2</li>
+		<li>item3</li>
+		<li>item4</li>
+		<li>item5</li>
+	</ul>
+</header>
+<footer></footer>
+
+<hr>
+
+#page>.logo+ul#navigation>(li>a)*5
+#page>.logo+ul#navigation>li*5>a
+<div id="page">
+	<div class="logo"></div>
+	<ul id="navigation">
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+		<li><a href=""></a></li>
+	</ul>
+</div>
+
+
+</body>
+</html>
