@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<!-- <body onload: init()> -->
+<body>
+
+<body>
+	
+</body>
+
+<h3>html 양식</h3>
+<!-- 
+	사용자 입력 -> 수집
+	왜? 					서버 전송
+						서버 입력 처리
+    클라이언트		전송 		서버
+    		   submit
+ -->
+ <form action="ex05_ok.jsp" method="get"> <!-- form 테그안에 있어야만 서버에 데이터 넘김 . action="uri": 입력값 보낼 서버 주소 -->
+ 	<fieldset>
+ 	 <legend>로그인</legend>
+<!--아이디 <input type="text" id="id" value="admin"> 
+label: 입력태그와 동기화-->
+ <label for="id">아이디</label><input type="text" id="id" name="id" tabindex="1" autofocus="autofocus" autocomplete="name"> <!-- 같으면 생략가능  -->
+ 	<br>
+ <label for="passwd">비밀번호</label><input type="password" id="passwd" name="passwd" tabindex="2" maxlength="8"><!-- minlength는 없음 -> 코딩으로 체크  -->
+ 	<br>
+ 	<input type="submit" value="로그인" tabindex="3"><!-- submit 기능O -->
+ 	<input type="reset" value="초기화" tabindex="4">
+ 	
+ 	<!-- submit 기능X 일반 버튼 
+ 	<input type="button" value="로그인"> value 속성에 주어야 해당 영역 안에 나타남. 
+ 	<input type="reset" value="초기화">
+ 	-->
+ 	
+<!-- submit 기능 O -> 서버에 보냄, 처리 ->  ex05_ok.jsp 띄움 	
+	< button type="submit"> 기본값
+	<input type="submit" value="로그인">
+	<button>로그인</button> 
+ 	<button>회원가입</button> -->
+ 	<!-- submit 기능 없는 일반 버튼 
+ 	 <button type="button">로그인</button> --> 
+ 	
+ 	</fieldset>
+ </form> 
+
+<hr>
+<!-- form 태그 하나 페이지에 여러개 있어도 상관없음 -->
+<form action="">
+<!-- 선택할 수 있는 옵션 목록 지정 -->
+<!-- 있는 목록 중 하나 선택하겠다. -->
+<!-- form의 action 속성값 없으면 자기자신 요청해서 다시 갔다옴. 갈때 파라미터 ?만 (name 값 없어서)
+	? 뒤 age= 10 -> 액션속성값없으면 ?파라미터값까지 가지고 서버 갔다옴.  -->
+<input list="browser" name="browser" required="required">
+<datalist id = "browser">
+	<option value="IE">
+	<option value="Chrome">
+	<option value="Firefox">
+	<option value="Opera">
+</datalist>
+<br>
+<!-- Email: <input type="text" name="email"> -->
+Email: <input type="email" placeholder="sample@aa.com" name="email" required="required">
+<br>
+<p>좋아하는 동물?</p> <!-- name 같아도 상관없고, 그룹화 역할도 함 -->
+<input checked="checked" type='checkbox' id="dog" name="animals" value="dog">개<br><!-- 다중 선택 시 체크 박스 -->
+<input type='checkbox' id="pig" name="animals" value="dog">돼지<br>
+<input type='checkbox' id="cat" name="animals" value="dog">고양이<br>
+<input type='checkbox' id="lizard" name="animals" value="dog"><label for="lizard">도마뱀</label><br>
+
+<p>소속된 부서를 선택?</p> <!-- radio: 하나만 선택 가능 / name 속성 같아야 함. -->
+<input checked="checked" type='radio' name="deptno" value="10">ACCOUNTING<br><!-- 다중 선택 시 체크 박스 -->
+<input type='radio' name="deptno" value="20">RESEARCH<br>
+<input type='radio' name="deptno" value="30">SALES<br>
+<input type='radio' name="deptno" value="40"><label for="">MARKETING</label><br>
+
+<br>
+<p>좋아하는 색?</p>
+<select name="color">
+<option value="red">빨강</option>
+<option value="green">녹색</option>
+<option value="blue">파랑</option>
+</select>
+
+<br>
+<input type="submit">
+
+</form>
+
+<script>
+	function init() {
+		const id = document.querySelector("#id");
+		id.focus();
+	}
+</script>
+</body>
+</html>

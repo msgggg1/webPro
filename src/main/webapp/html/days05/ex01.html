@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 뷰포트(viewport)에 대한 설정을 정의  -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+/****중요매우중요****/
+	*{
+		box-sizing: border-box;
+	}
+	body {
+		font-family:  Arial, Helvetica, sans-serif; /*있으면 그 글꼴, 없으면 기본*/
+    }
+    header{
+    	color: white;
+    	background-color: #666;
+    	padding: 30px;
+    	text-align: center;
+    	font-size: 35px;
+    }
+    footer{
+    	color: white;
+    	background-color: #777;
+    	padding: 20px;
+    	text-align: center;
+    	font-size: 25px;
+    }
+    section{
+    	border: 1px solid red;
+    	display: flex;
+    }
+    section>nav{
+    	width: 30%; /* 너비 백분율 */
+    	background-color: #ccc;
+    	height: 500px;
+    	padding: 20px;
+    	
+    }
+    section> article{
+    	width: 70%;
+    	background-color: #f1f1f1;
+    	padding: 20px;
+    	min-height: 500px;
+    	/* height: 500px; */
+    	
+    }
+    
+</style>
+<style>
+	/* css2에 도입된 "미디어 쿼리" 규칙을 사용하면 미디어 유형마다 다른 스타일 규칙을 정의할 수 있다. 
+	   css3의 미디어 쿼리는 css2의 확장.
+	   - 장치 마다의
+	      ㄴ 뷰포트의 너비와 높이
+	      ㄴ 뷰포트의 가로 방향/세로 방향
+	      ㄴ 해상도
+	      에 따라서 맞춤형 스타일을 적용
+	   @media not|only mediatype and (적용규칙) and (적용규칙){
+	   		css 코딩된 스타일을 적용
+	   } 
+	   mediatype : all, print, screen
+	   적용규칙 : max-height, min-height, height
+	   		   max-width, min-width, width
+	   		   orientation
+	   */
+	/* css 미디어 쿼리 */
+	@media screen and (max-width:800px){
+		section{
+			flex-direction: column;
+		}
+		section> nav, section>article{
+			width: 100%;
+			height: auto;
+		}
+	}
+	
+</style>
+</head>
+<body>
+<!-- 시멘틱태그( sementic elements ) 
+			  의미있는    태그(요소)
+	 ㄴ 대상(브라우저, 개발자(사용자))에게 의미가 있는 태그
+	 ㄴ div, span 태그를 사용해서 배치 + 컨테이너 역할 -> 의미부여된 시맨틱 태그로 
+			  
+	 1) <header> 머릿말 		사이트 또는 섹션의 상단 부분
+	 2) <nav>	 네비게이션 	메뉴, 링크 모음 등
+	 3) <section>섹션
+	 	 ㄴ 일반적으로 제목이 있는 내용의 주제별 그룹
+	 	 ㄴ 챕터, 소개, 뉴스 항목, 연락처 정보 등
+	 4) <article>기사
+	 	 ㄴ 독립적인 내용을 지정
+	 	 ㄴ 그 자체가 의미, 독립적으로 배포 가능
+	 	 ㄴ 포럼 게시물, 블로그 게시물, 사용자 의견, 신문 기사 등
+	 	 예) 
+	 	 	A섹션
+	 	 	  기사
+	 	 	  	ㄴ섹션
+	 	 	  	ㄴ섹션
+	 	 	  기사
+	 	 	  기사
+	 	 	B섹션
+	 	 	  기사
+	 	 	  기사
+	 	 	  기사
+	 5) <footer> 바닥글		페이지나 섹션의 하단 영역
+	 6) <main>   주요 콘텐츠 	페이지의 중심 콘텐츠
+	 7) <aside>  보조 콘텐츠 	사이드바, 관련 링크 등
+	 8) <mark>				표시, 강조 내용 (텍스트) 정의
+	 9) <details> 상세정보		사용자가 보거나 숨길 수 있는 추가 세부 정보를 정의
+	 10) <figcaption> 
+	 	 <figure> 			요소의 캡션을 정의 - 그림, 사진, 도표, 목록 내용을 정의하는 태그
+	 11) <figure>  	사진, 도표
+	 12) <summary> 	요약
+	 13) <time> 	날짜/시간 정의
+	 
+-->
+
+<header>
+	<h2>Cites-시멘틱태그(sementic elements)</h2>
+</header>	
+
+<section>
+   <nav>
+      <ul>
+         <li><a href="#">London</a></li>
+         <li><a href="#">Paris</a></li>
+         <li><a href="#">Seoul</a></li>
+      </ul>
+   </nav>
+   <article>
+      <h2>London</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores nulla soluta sunt aut assumenda fugiat deleniti magnam sequi minima explicabo debitis perspiciatis iusto amet corporis minus illo aperiam quasi numquam!</p>
+      <p>Aliquid laudantium ducimus assumenda sequi dolore blanditiis temporibus esse iure! Veniam numquam aspernatur excepturi ipsum nemo inventore! Quaerat autem inventore voluptatibus deserunt dolores iste explicabo odit eum asperiores saepe dolor.</p>
+      <h2>Paris</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur corrupti itaque aliquid magni porro aspernatur possimus est nulla doloribus dignissimos modi nam nemo! Maiores veniam inventore sequi aliquid aut omnis!</p>
+      <p>Eveniet quod cupiditate ratione soluta sed maxime vitae consequatur placeat consectetur fuga ipsum repellat laborum reiciendis cumque aperiam atque provident inventore quia assumenda aliquam. Quas dolor accusantium possimus ex maiores!</p>
+      <h2>Seoul</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde asperiores commodi aperiam hic. Dolorum asperiores nemo voluptates quo architecto ullam. Delectus aut quas facere. Voluptas fugiat omnis veritatis in fuga!</p>
+      <p>Dolorem tempora aperiam nam ullam vel expedita maiores magnam labore ratione vitae adipisci laboriosam cumque tenetur possimus hic est eum necessitatibus nulla minus dolore dignissimos autem quam distinctio omnis quia.</p>
+   </article>
+</section>
+<footer>
+	<h2>footer</h2>
+</footer>
+
+<!-- #section>(#nav>ul>li>a[href="#"]{lorem1})+#article>(h2{lorem1}+p{lorem}*2)*3 -->
+
+</body>
+</html>

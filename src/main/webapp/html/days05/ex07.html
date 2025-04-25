@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form action="">
+
+	<div>
+		설문조사시작일:<input type="date" id="servey_start"><br>
+		설문조사종료일: <input type="date" id="survey_end"><br>
+		<input type="button" id="btnSurvey" value="설문조사 확인" onclick="test01();">
+		<div></div>
+		<script>/* 자바스크립트 코딩 아무데나 있어도 됨 */
+		  function test01() {
+			//alert("test01")
+			// 모든 input 테그의 값은 value 속성에 있다. 
+			let s_start = document.querySelector("#survey_start").value;
+			let s_end = document.querySelector("#survey_end").value;
+			this.nextElementSibling.innerText = s_start; // this  윈도우 객체임 
+		}
+		</script>
+	</div>
+	<p>
+		색상 : <input type='color' id='color'>
+		<br>
+		<input type="button" id="btnColor" value="색 확인">
+		<div id="demo"></div>
+	</p>
+	
+	<p>하고싶은 말</p>
+	<textarea rows="10" cols="30">입력</textarea>
+	
+	<p>
+		<select name="" id="" size="5" multiple="multiple">
+			<option value="옵션1" selected>옵션1</option><!-- value 속성 안주면 text값 자동 들어감 -->
+			<option selected >옵션2</option>
+			<option>옵션3</option>
+			<option selected="selected">옵션4</option> <!-- selected 여러개 -> 마지막걸로 잡힘. -->
+			<option>옵션5</option>
+		</select>
+	</p>
+	
+	
+</form>
+
+<script>
+/*// JS
+	const btnColor = document.getElementById("btnColor");
+	btnColor.addEventListener("click",function(){
+		//alert("이벤트 확인")
+		//alert(document.querySelector("#color"));
+		let color = document.querySelector("#color").value; /* value 속성으로 값 가져옴 */
+/*		document.querySelector("#demo").innerText = color;
+		document.querySelector("#demo").style.color = color;
+		document.querySelector("#demo").style.fontSize = "20px";
+	});*/
+	
+	//jquery
+	$("#btnColor").on("click", function(){
+		//alert("이벤트 확인"	);
+		// val() value 속성값 얻어오거나 설정하는 함수
+		let color = $("#color").val();
+		$("#demo").text(color)
+				  .css({
+					  "color":color,
+					  "font-size": "30px",
+					  "border":"solid 2px red"
+				  })
+					//.css("color", color)
+					//.css("font-size", "30px");
+		
+	});
+</script>
+</body>
+</html>

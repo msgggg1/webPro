@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	/* div{ */
+	/* #team1,#team2,#team3{ */
+	.teamGroup{
+		border: solid 1px red;
+	}
+	.teamGroup .teamLeader{
+		font-weight: bold;
+		color: red;
+	}
+	
+	.teamLeader{
+		border: solid 1px gray;
+	}
+</style>
+</head>
+<body>
+<!-- class 속성 설명 
+	 ㄴ 클래스명도 대소문자 구분한다. 
+-->
+<!-- id 속성 설명 
+	 ㄴ 아이디명 대소문자 구분한다.
+	 ㄴ 중간에 공백 사용할 수 없다.
+	 ㄴ 숫자 시작X
+	 ㄴ 요소의 고유한 이름 ( 아이디 중복 X )
+-->
+<!-- .team$*2>ul>li*5 -->
+<div id="team1" class="teamGroup">
+	<ul>
+		<li>양재원</li>
+		<li>최승호</li>
+		<li>김승효</li>
+		<li class="teamLeader classLeader">안준호</li>
+		<li>이정인</li>
+		<li>최인석</li>
+	</ul>
+</div>
+<div id="team2" class="teamGroup">
+	<ul>
+		<li>안우혁</li>
+		<li class="teamLeader">김유미</li>
+		<li>서주원</li>
+		<li>권태정</li>
+		<li>김도훈</li>
+	</ul>
+</div>
+<div id="team3" class="teamGroup">
+	<ul>
+		<li>서재웅</li>
+		<li>박지웅</li>
+		<li>김예지</li>
+		<li>변상호</li>
+		<li class="teamLeader">김현수</li>
+		<li>김민선</li>
+	</ul>
+	
+</div>
+	<div>
+		<div>홍길동</div>
+		<div class="teamLeader">김길동</div>
+		<div>박길동</div>
+	</div>
+	<div>다른 내용</div>
+	
+<script>
+
+	//javascript
+	const t2List = document.querySelectorAll("#team2 > ul > li")
+	// console.log(t2List.length);
+	/*
+	for (var i = 0; i < t2List.length; i++) {
+		//console.log(t2List[i].innerText); // <시작태그>문자열</닫기태그>
+		t2List[i].addEventListener("click", function () {
+			//this.remove();
+			// 클릭한 li 태그의 다음 li 태그를 삭제
+			this.nextElementSibling.remove(); //nextElementSibling 해당요소의 다음 형제 요소
+		});
+	} // for 
+	*/
+	
+	t2List.forEach(li => {
+		li.addEventListener('click', function(){
+			// li.remove(); 
+			this.remove();
+			});	
+	});
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	.clock{
+		witdh: 10em;
+		font-size: 20px;
+		text-align: center;
+	}
+</style>
+</head>
+<!-- unload 보통 초기화 많이함.  -->
+<body onload="init();" onunload="">
+<div id="clock" class="clock"></div>
+
+<script>
+	function init() {
+		//alert("초기화 작업");
+		dispClock();
+	}
+	
+	function dispClock() {
+		// js: var, const, let 키워드
+		let clockDiv = document.querySelector("#clock");
+	
+		const now = new Date();
+		
+		// 연도, 월, 일, 시, 분, 초를 따로 추출
+		const year = now.getFullYear();
+		const month = now.getMonth() + 1;
+		const day = now.getDate();
+		const hours = now.getHours();
+		const minutes = now.getMinutes();
+		const seconds= now.getSeconds();
+		// 벡틱연산자: JS에서 내가 원하는 형식으로 출력
+		clockDiv.innerText = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+		
+		// 재귀함수 1초 후에 dispClock() 호출
+		window.setTimeout(dispClock, 1000); // 괄호 없어야 함. 함수 호출하는게 아니라 등록하는 과정
+	}
+</script>
+</body>
+</html>
