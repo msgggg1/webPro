@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body onload="init()">
+
+<form action="a.html" method="get">
+
+<input type="hidden" name="nickname" value="admin"><br>
+<input type="hidden" name="age" value="20"><br><!-- 용도: 화면상에 보이지 않고 숨겨져있지만 form태그에 submit 했을때 값을 가지고 있다가 다음 페이지에 넘기기 위함. 상태관리 방법 중 하나. 다시 요청한 새로운 페이지. 이전 입력값 유지 안됨 -->
+
+<br>
+<input type="image" src="../images/programming.gif">
+<input type="image" src="../images/programming.gif">
+<br>
+<input type="month">
+<br>
+국어: <input type="number" min="0" max="100" value="0"><!-- 숫자만을 입력, 선택 가능  -->
+<br>
+<input type="button" id="exec" value="입력값 확인 후 서브밋">
+
+<hr>
+볼륨 : <input type="range" min="0" max="100" value="10">
+<div id="demo"></div>
+<br>
+
+</form>
+
+<script>
+	function init() {
+		const range = document.querySelector('input[type="range"]');
+		   range.addEventListener('input', function(e) { 
+		/* range.addEventListener('change', function(e) { */
+			  console.log('값이 바뀜:', e.target.value);
+			  demo.innerHTML = `<span style='color:red'>${range.value}</span>`;
+			});	
+
+		const demo = document.querySelector('#demo');
+		demo.innerHTML = `<span style='color:red'>${range.value}</span>`;
+		
+	}
+
+/* 	range.addEventListener('input', function() {
+		const range = document.querySelector('input[type="range"]');
+		const demo = document.querySelector('#demo');
+	    demo.textContent = range.value;
+	}); */
+	
+	document.querySelector("#exec").addEventListener("click",function(){
+		//alert("입력값에 대한 유효성 검사한 후");
+		// js 코딩으로 서브밋(암기)
+		document.forms[0].submit();/* forms 컬렉션 */
+	});
+</script>
+
+</body>
+</html>
