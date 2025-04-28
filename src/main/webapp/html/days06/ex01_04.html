@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+	
+<form action="a.html" method="get" enctype="application/x-www-form-urlencoded"><!-- 기본값  -->
+	<label for="phone">Enter a phone number:</label>
+	<input type="tel" id="phone" name="phone" required="required" pattern="[0-9]{3}-\d{4}-\d{4}", placeholder="000-0000-0000">
+	<br><br>
+	<input type="submit" value="Submit" formaction="b.html" formmethod="get" formnovalidate="formnovalidate" formenctype="multipart/form-data"></input><!-- 바꿀일 있음 -->
+</form>
+	
+</body>
+</html>

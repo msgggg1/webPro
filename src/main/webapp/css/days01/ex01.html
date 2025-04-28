@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	/* css 적용방법 1. head > style 태그 
+	   = 내부적(internal) CSS 적용 방법
+	   
+	   css 선택자(selector)
+	   (1) 태그명
+	   (2) #아이디명
+	   
+	   [ CSS 특이성 ]
+	   특이성? 동일한 CSS 규칙이 두 개 이상 있는 경우
+	   , 특이성이 가장 높은 선택자가 html 요소에 적용된다. 
+	   특이성? 어떤 스타일 선언을 결정하는 계층 구조.
+	   	== 점수 == 순위
+	   	최종적으로 어떤 스타일이 적용될지 결정하는 점수
+	   	
+	   [CSS 특이성 규칙]
+	   (1) 동일 특이성
+	   		p{color:red} 
+	   		p{color:blue} 최신 규칙이 적용된다. (나중의 것)
+	   (2) 특이성 점수 계산
+	   		태그명
+	   		p{}         1점
+	   		#아이디명		100점
+	   		범용 선택자 	0점
+	   		.클래스명		10점
+	*/
+	
+	body p {  /* 1점+1점 */
+	}
+	
+/* 	#id     p#first .last{
+		100점 + 1점 + 100점 + 10점
+	}; */
+	
+	p.second{		/* 1점 + 10점 */
+		border-color: green;
+	}
+	
+	.second{		/* 10점 */
+		border: 1px solid red;
+	}
+	
+	
+	p#first{   /* 1점 + 100점 */
+		color: yellow;
+	}
+	
+	#first{	   /* 100점 */
+		color:green; /* 나중에 것 안먹음 */
+	}
+	
+	/* * 범용 선택자 */
+	*{
+	}
+	
+	/* 태그명 */
+	/* 같은 태그 이름으로 스타일 여러개 지정 시 -> 나중에 지정된게 먹음 */
+	p{
+		color: red;
+		text-align: center;
+	}
+	p{
+		color: blue;
+		/* text-align 위 설정으로 먹음 */
+	}
+	
+</style>
+</head>
+<body>
+<!-- 웹 표준 기술 = 1) 웹 페이지 구성 ( html )
+			   + 2) 스타일 지정 (css)
+			   + 3) 사용자 반응 처리(javascript)
+	[ CSS ]
+	 ㄴ Cascading Style Sheets 약어
+		계단식
+		작은 폭포
+		단계적으로 행하다.
+		떨어뜨리다.
+	 ㄴ 문서 스타일 지정하는 언어
+	 ㄴ html 문서의 요소가 화면, 종이, 기타 미디어에 표시되는 방법을 지정
+	 ㄴ 여러 웹 페이지의 레이아웃을 한번에 제어할 수 있다.
+	 
+	 CSS 구문
+	 	
+	 	스타일적용대상{ == 선택자, css selector
+	 		속성명:속성값;
+	 		속성명:속성값;
+	 		속성명:속성값;
+	 		속성명:속성값;
+	 	} 	 	
+	 	
+	 html 단위 생략하면 px 기본
+	 css 단위 생략하면 안됨. 값이 0일 경우에는 생략 가능
+ -->
+ 
+<!--  p*2>lorem5^div*4>lorem4 -->
+<p id="first">Lorem ipsum dolor sit amet.</p>
+ <p class="second">Obcaecati eos cupiditate ullam blanditiis?</p>
+ 
+ <div>Lorem ipsum dolor sit.</div>
+ <div class="second">Deleniti ipsa cumque quisquam.</div>
+ <div>Fugit nesciunt perferendis nobis?</div>
+ 
+ <!-- inline 식 CSS 적용방법 : 1000점 (웬만하면 모든 것들보다 우선순위 높다) -->
+ <div style="color: navy;">Optio commodi illum blanditiis!</div>
+ 
+</body>
+</html>

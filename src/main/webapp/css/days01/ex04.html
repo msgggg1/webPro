@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	*{ /*범용선택자 0점*/
+		padding: 20px;
+	}
+	/* 5) 그룹화 선택자 */
+	h1, h2, h3, h4, h5, h6{
+		border: 1px solid gray;
+	}
+	/* ㄴ. 조합 선택자 */
+	/* div a { */
+/* 	div > a { */
+/* 	div + p { */
+	p ~ div {
+		color: red;
+		font-size: 40px;
+	}
+	
+</style>
+</head>
+<body>
+<!-- 
+	[CSS 선택자]
+	ㄱ. 단순 선택자		
+		1) 태그명
+		2) #아이디명
+		3) .클래스명
+		4) *범용 선택자 0점
+		5) 그룹화 선택자	h1, h2, h3{}
+	*** ㄴ. 조합 선택자
+		: 요소 간의 특정 관계를 기반으로 하는 선택자
+		1) 요소   요소		div   a (div 태그 안의 모든 a 태그. 직계, 후손도 포함)
+		2) 요소 > 요소		div   a (div 태그 안의 모든 a 태그. 직계자식만 포함)
+		3) 요소 + 요소		div + p (div 바로 뒤의 p 요소)
+		4) 요소 ~ 요소		p ~ div ( p 요소 뒤에 따라오는 모든 div 형제 요소)
+ -->
+<!--  a*3>lorem1 -->
+ <a href="">Lorem.</a>
+ <a href="">Fuga!</a>
+ <a href="">Fugit.</a>
+ 
+ <div>
+ 	111
+ 	<a href="#">XXX</a>
+ 	<a href="#">XXX</a>
+ 	
+ 	<p>
+ 	 222
+ 	 <a href="#">YYY</a>
+ 	</p>
+ 	<a href="#">XXX</a>
+ </div>
+ 
+ <p id="p1" class="second">Lorem.</p>
+ <p id="p2" class="second">Rerum.</p>
+ <!-- p ~ div ( p 요소 뒤에 따라오는 모든 div 형제 요소) -->
+  <div>Lorem.</div>
+ <div class="Second">ZZZ</div>
+ <div>Lorem.</div>
+ 
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	img {
+	opacity: 0.5;
+	border: 1px solid gray;
+	}
+	img:hover{
+	opacity: 1.0; /*불투명*/
+	border-color: red;
+	cursor: pointer;
+	}
+	
+	div {
+	background-color: rgb(4,170, 109);
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<!--  p테그안에는 block모드 못 씀 -> 자동적으로 
+	<p></p>
+		<div></div>
+	<p></p> 
+	 
+	 마찬가지로 inline안에 block 못 씀
+	-->
+	
+	
+<p>
+	<div></div>
+</p>
+
+<!-- opacity 자식(p태그)은 투명도 상속받음 -->
+<!-- div[class][style='opacity:0.]*4>p>{opacity 0.} -->
+<div class="first" style="background-color: rgba(4,170, 109, 0.1);">
+	<p>opacity 0.1</p>
+</div>
+<div class="second" style="background-color: rgba(4,170, 109, 0.3);">
+	<p>opacity 0.3</p>
+</div>
+<div class="third" style="background-color: rgba(4,170, 109, 0.6);">
+	<p>opacity 0.6</p>
+</div>
+<div class="fourth" style="background-color: rgba(4,170, 109, 1.0);">
+	<p>opacity 1.0(기본값))</p>
+</div>
+
+<!-- [CSS 투명도] 
+	opacity : 자식 투명도 상속된다. 
+			0.0(완전투명) ~ 1.0(완전불투명)
+-->
+<hr>
+<!-- opacity 자식(p태그)은 투명도 상속받음 -->
+<!-- div[class][style='opacity:0.]*4>p>{opacity 0.} -->
+<div class="first" style="opacity:0.1">
+	<p>opacity 0.1</p>
+</div>
+<div class="second" style="opacity:0.3">
+	<p>opacity 0.3</p>
+</div>
+<div class="third" style="opacity:0.6">
+	<p>opacity 0.6</p>
+</div>
+<div class="fourth" style="opacity:1.0">
+	<p>opacity 1.0(기본값))</p>
+</div>
+
+<!-- [CSS 투명도] 
+	opacity : 자식 투명도 상속된다. 
+			0.0(완전투명) ~ 1.0(완전불투명)
+-->
+<hr>
+<!-- img[width=170 height=100]*3 -->
+<img src="../images/img_forest.jpg" alt="" width="170" height="100" />
+<img src="../images/img_mountains.jpg" alt="" width="170" height="100" />
+<img src="../images/img_5terre.jpg" alt="" width="170" height="100" />
+
+</body>
+</html>

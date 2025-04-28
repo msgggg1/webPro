@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	/* css 주석 */
+	
+</style>
+</head>
+<body>
+<!-- html 주석  -->
+<pre style="background-color:rgba(255,30,50,0.3)"> 
+<!-- <pre function="init();"> -->
+	[CSS 색상 ]
+	1. 140개의 미리 정의된 표준 색상명 gray, blue, red 등
+	2. hex    #16진수
+				#00 00 00
+				 R   G  B
+				 0~255
+				 00~FF
+	3. RGB 색의 3원색
+	   rgb(빨, 녹, 파)
+	     0~255,0~255,0~255
+	4. RGBA(빨, 녹, 파, 0.0   ~ 1)
+		  A : 투명도	  완전투명  완전불투명
+	5. HSL(색상, 채도, 명도)
+	   색상 0~360( 0~120 빨, 121~240 녹색, 241~360 파란색 )
+	   채도   백분율값	  0% 회색음영 ~ 100% 풀컬러
+	   명도(밝기)		  0% 검은색 ~ 100% 흰색
+ </pre>
+ 
+<div id="controls">
+빨강 : <input id="r" type="range" min="0" max="255" ><span></span><br><!-- span : 스크롤바 위치 나타내기 위해 -->
+녹색 : <input id="g"  type="range" min="0" max="255" ><span></span><br> 
+파랑 : <input id="b" type="range" min="0" max="255" ><span></span><br>
+투명도 : <input id="a" type="range" min="0" max="100" ><span></span><br>
+</div>
+
+<script>    
+  var backgroundColor = $("pre").css("background-color"); 
+  //console.log(backgroundColor);
+  
+  if (backgroundColor.startsWith("rgba")) {
+       var rgbaValues = backgroundColor.match(/^rgba?\((\d+), (\d+), (\d+), ([0-9\.]+)\)$/);
+       
+       if (rgbaValues) {
+           var red = rgbaValues[1];      // 빨강
+           var green = rgbaValues[2];    // 녹색
+           var blue = rgbaValues[3];     // 파랑
+           var alpha = rgbaValues[4];    // 투명도
+
+/*         console.log("빨강:", red);
+           console.log("녹색:", green);
+           console.log("파랑:", blue);
+           console.log("투명도:", alpha); */
+           
+          $("#r").val(red);         $("#r").next().text(red);
+          $("#g").val(green);       $("#g").next().text(green);
+          $("#b").val(blue);        $("#b").next().text(blue);
+          $("#a").val(alpha*100);   $("#a").next().text(alpha);
+           
+       }
+  }
+  
+
+  $("#controls > input[type=range]").on("input", function (){
+     //let value = $(this).val();
+     //console.log(value);
+     
+     let rval = $("#r").val();       $("#r").next().text(rval);
+     let gval = $("#g").val();       $("#g").next().text(gval);
+     let bval = $("#b").val();       $("#b").next().text(bval);
+     let aval = $("#a").val()/100;   $("#a").next().text(aval);
+     
+     $("pre").css("background-color", `rgba(${rval},${gval},${bval},${aval})`);
+     
+  });
+</script> 
+
+<!-- <script>  내 gpt
+	let bgColor = $('pre').css('background-color');
+	
+	let rgba = bgColor.match(/[\d.]+/g);
+
+	if (rgba) {
+	  let r = rgba[1]; // 빨강
+	  let g = rgba[2]; // 초록
+	  let b = rgba[3]; // 파랑
+	  let a = rgba[4] // 알파 (없으면 1로 기본 설정)
+	  
+		let rval = $("#r").val(); $("#r").next().text(rval);
+		let gval = $("#g").val(); $("#g").next().text(gval);
+		let bval = $("#b").val(); $("#b").next().text(bval);
+		let aval = $("#a").val()/100; $("#a").next().text(aval);
+	}
+
+	$("#controls > input[type=range]").on("input",function(){
+		//let value = $(this).val();
+		//console.log(value);
+		
+		("#r").val(r); $("#r").next().text(r);
+		("#g").val(g); $("#g").next().text(g);
+		("#b").val(b); $("#b").next().text(b);
+		("#a").val(a)/100; $("#a").next().text(a);
+		
+		$("pre").css("background-color", `rgba(${rval},${gval},${bval},${aval})`);
+	});
+</script> -->
+ 
+ 
+ <!-- 빨강: <input id="red" type="range" min="0" max="255"><div id= red></div><br>
+ 녹생: <input id="green" type="range" min="0" max="255"><div id= green></div><br>
+ 파랑: <input id="blue" type="range" min="0" max="255"><div id= blue></div><br>
+ 
+ <script>
+ 
+ 	function init() {
+ 		const range = document.querySelector('input[type="range"]');
+		   range.addEventListener('input', function(e) { 
+			  red.innerHTML = `<span style='color:red'>${range.red.value}</span>`;
+			  green.innerHTML = `<span style='color:green'>${range.green.value}</span>`;
+			  red.innerHTML = `<span style='color:red'>${range.red.value}</span>`;
+			}	
+
+		const demo = document.querySelector('#demo');
+		demo.innerHTML = `<span style='color:red'>${range.value}</span>`;
+		
+		const bgcolor= document.querySelector('pre');
+		bgcolor = rgba(red, green, blue, 0.3);
+	}
+ 
+ </script> -->
+ 
+<script>
+	// js주석
+	/*js 주석*/
+
+</script>
+
+</body>
+</html>

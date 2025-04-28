@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script>
+	function hide() {
+		/* alert("c") */
+		/* var leader = document.getElementById("l"); */
+		var wish = document.getElementById("wish");
+		wish.style.display="none";
+		document.getElementById("btnHide").style.display= "none";
+		document.getElementById("btnShow").style.display= "inline";
+		
+	}
+	
+	function show(){
+		
+		var wish = document.getElementById("wish");
+		wish.style.display="inline";
+		document.getElementById("btnHide").style.display= "inline";
+		document.getElementById("btnShow").style.display= "none";
+	}
+	
+</script> -->
+</head>
+<body>
+
+<span id="wish">
+	<span id="l">오시온</span>
+	<span>리쿠</span>
+	<span>유우시</span>
+	<span style="display:inline;">재희</span>
+	<span>료</span>
+	<span>사쿠야</span>
+</span>
+<br>
+<span id="NCT NewTeam">
+	<span id="l">오시온</span>
+	<span>리쿠</span>
+	<span>유우시</span>
+	<span style="display:none;">재희</span>
+	<span>료</span>
+	<span>사쿠야</span>
+</span>
+
+<br>
+<button id="btnHide" onclick="hide()">숨기기</button>
+<button id="btnShow" onclick="show()" style="display:none;">보이기</button>
+
+<script>
+	$("#btnHide").click(function () {
+		$("#wish").css("display","none");
+		$(this).css("display","none");
+		$("#btnShow").css("display", "inline");
+	});
+	$("#btnShow").click(function () {
+		$("#wish").show();
+		$(this).hide();
+		$("#btnHide").show();
+	});
+</script>
+
+</body>
+</html>

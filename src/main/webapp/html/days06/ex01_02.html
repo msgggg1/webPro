@@ -20,6 +20,22 @@
   </form>
   
   <p id="demo"></p>
-
+  
+  <script>
+  	// jquery 코딩
+	$("#btnRun").on("click", function(){
+		// alert("이벤트 확인")
+		let color = $("#color").val();/* value 속성값 가져오는 함수 */
+		let servey_start = $("#servey_start").val();
+		let servey_end = $("#servey_end").val();
+		
+		/* $("#demo").text(`${color} ${servey_start}~${servey_end}`) */
+		$("#demo")
+			.css("color", color)
+			.html(`색상 : ${color}<br> 설문시작일: ${servey_start}<br> 설문종료일: ${servey_end}`);/* innerHTML = .html */
+			
+					
+	});
+	</script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	function location_naver() {
+		location.href="https://www.naver.com/";
+	}
+	
+	function click_coffee() {
+		alert("휴대폰영역을 누르셨습니다");
+		location.href="ex08_phone.html";
+	}
+</script>
+
+</head>
+
+<body>
+
+<!-- <button onclick="location_naver();">네이버로 이동</button> -->
+
+<img usemap="#workmap" alt="workmap" src="../images/workplace.jpg">
+
+<map name="workmap">
+	<area alt="coffee" shape="circle" coords="337, 300, 44" href="ex08_coffee.html">
+	<area alt="computer" shape="rect" coords="34,44,270,350" href="ex08_computer.html">
+	<area onclick="click_coffee();" alt="phone" shape="rect" coords="290, 172, 333, 250" href="ex08_phone.html">
+</map>
+
+</body>
+</html>
