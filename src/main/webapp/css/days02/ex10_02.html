@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	.imgbox{
+		width: 120px;
+		border: 1px solid gray;
+		
+		padding: 6px;
+		margin: 4px;
+		text-align: center;
+
+		/* float: left; */
+		/* flex */
+	}
+	.imgbox img{
+		width: 100%;
+	}
+</style>
+
+</head>
+<body>
+
+<h3>display, visibility 속성 차이점 + js</h3>
+
+<div style="display:flex">
+
+<!-- #imgbox$.imgbox*3>{Box$}+img[src='../images/.jpg']+button -->
+<div id="imgbox1" class="imgbox">Box1<img src="../images/img_5terre.jpg" alt="" /><button>Remove</button></div>
+<div id="imgbox2" class="imgbox">Box2<img src="../images/img_lights.jpg" alt="" /><button>Hide</button></div>
+<div id="imgbox3" class="imgbox">Box3<img src="../images/img_forest.jpg" alt="" /><button>ResetAll</button></div>
+
+</div>
+
+<script>
+	const btnRemove = document.querySelector("#imgbox1 > button");
+	const btnHide = document.querySelector("#imgbox2 > button");
+	const btnResetAll = document.querySelector("#imgbox3 > button");
+
+	btnRemove.addEventListener("click", function () {
+		//alert("1"); 
+		//alert(btnRemove.parentElement);
+		btnRemove.parentElement.style.display = "none"; //꼭 양쪽 쌍따옴표. 공간 유지x
+		
+	});
+	btnHide.addEventListener("click", function () {
+		//alert("2"); 
+		btnHide.parentElement.style.visibility = "hidden"; /*차지하고 있던 공간 유지*/
+	});
+	btnResetAll.addEventListener("click", function () {
+		//alert("3");
+		btnRemove.parentElement.style.display = "block"
+		btnHide.parentElement.style.visibility = "visible";
+	});
+</script>
+
+</body>
+</html>

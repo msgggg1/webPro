@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+	body{
+		color: blue;
+		background: lightblue;
+	}
+	
+	h3{
+		color: white;
+		background: black;
+	}
+	
+	div{
+		color: red;
+		
+		/*텍스트 방향*/
+		direction: rtl;
+	}
+	
+	p#p1{
+		border: 1px solid black;
+		padding: 5px;
+		width: 250px;
+		height: 100px; /* 안주면 auto */
+		
+		/* 컨테이너에 내용물이 넘친 경우 : overflow */
+		overflow: hidden;
+		
+		/* 텍스트의 한 행을 끝을 맞춰서 정렬 */
+		text-align: justify;
+		
+	}
+	
+	/*요소의 수직 정렬을 설정하는 속성: vertical-align*/
+	img.a{ vertical-align: baseline;}
+	img.b{ vertical-align: text-top;}
+	img.c{ vertical-align: text-bottom;}
+	img.d{ vertical-align: super;}
+	img.e{ vertical-align: sub;}
+</style>
+
+</head>
+<body>
+<h3>CSS 텍스트 서식 지정</h3>
+<!-- 
+	[텍스트 서식]
+	텍스트 색상
+	텍스트 정렬
+	text-align : center, right, left, justify
+	text-align-last 속성: 텍스트의 마지막 줄을 정렬.
+	텍스트 장식
+	텍스트 변환
+	텍스트 간격
+	텍스트 그림자
+ -->
+ <div>Lorem ipsum dolor sit amet.</div>
+ <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nam maxime dolor non culpa harum voluptas velit porro illum adipisci doloribus architecto incidunt nobis facilis ut temporibus cupiditate. Odit cumque.</p>
+ <p>Lorem <img src="../images/sqpurple.gif" alt="" class="a" style="width:9px; height:9px"> ipsum dolor sit amet.</p>
+ <p>Quas <img src="../images/sqpurple.gif" alt="" class="b" style="width:9px; height:9px">tenetur assumenda iusto veniam.</p>
+ <p>Dolore <img src="../images/sqpurple.gif" alt="" class="c" style="width:9px; height:9px"> ut ratione non eveniet!</p>
+ <p>Laudantium <img src="../images/sqpurple.gif" alt="" class="d" style="width:9px; height:9px"> facere officiis ducimus aliquid.</p>
+ <p>Deleniti <img src="../images/sqpurple.gif" alt="" class="e" style="width:9px; height:9px"> adipisci placeat possimus aliquid.</p>
+</body>
+</html>

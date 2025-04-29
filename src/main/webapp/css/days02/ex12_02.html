@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	/* div:last-child{} */
+	/* div:last-of-type{} */
+	/* div:nth-of-type(2){} */
+	div:nth-child(3){
+		padding-bottom: 2000px;
+		border: 1px solid gray;
+	}
+	
+	div.sticky_test{
+		border: 2px solid #4caf50;
+		background-color: #cae8ca;
+		padding : 3px;
+		text-align: center;
+		
+		/* 일정 스크롤 위치에 도달하면 고정시켜라. */
+		position: sticky;
+		position: -webkit-sticky; /* 구형 브라우저에서도 인식하도록 webkit 붙임 */
+		top: 0; /*top이 아니여도 됨*/
+	}
+</style>
+</head>
+<body>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste velit ullam animi explicabo eos voluptatum atque fugiat voluptas praesentium nihil fugit in beatae asperiores odio harum dicta quibusdam voluptates corporis.</p>
+<div class="sticky_test">hello world</div>
+<div>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni porro adipisci repellat voluptatum necessitatibus soluta harum repudiandae dolores iste cupiditate nam impedit exercitationem sapiente iusto maxime architecto quos commodi dignissimos!</p>
+   <p>Vel obcaecati blanditiis illo itaque cumque deleniti consequuntur possimus mollitia omnis fuga consequatur neque tempora perferendis! Aut aliquam labore ab ipsam vel maiores minus illum explicabo nemo iure consequatur nostrum?</p>
+   <p>Architecto magni vitae culpa voluptatem maxime adipisci eos dolore obcaecati laboriosam excepturi quia nemo qui dolorem assumenda rem nihil quod quos nulla eius totam sed fugit itaque inventore fuga animi.</p>
+</div> 
+
+
+</body>
+</html>

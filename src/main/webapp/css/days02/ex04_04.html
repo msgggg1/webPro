@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	p{
+		border: 1px solid red;
+		width: 200px;
+		
+		/* 너비보다 한 단어의 길이가 길다면 다음라인으로 강제 줄바꿈 시키는 속성 */
+		word-wrap: break-word;
+		
+		/*각 라인마다 끝에 단어 끊어서 출력*/
+		word-break: break-all; 
+	}
+</style>
+<style>
+	/* 텍스트 그림자 효과 : text-shadow 속성 */
+	h1{
+		/*		 가로위치 세로위치 그림자흐림효과 그림자색상*/
+		/* text-shadow: 2px 2px 5px green; */
+		
+		/* 여러개의 그림자 효과 줄 수 있다. */
+		/* text-shadow: 0 0 3px green, 0 0 5px pink; */
+		
+		color: white;
+		text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	}
+</style>
+</head>
+<body>
+
+<h1>텍스트 그림자 효과</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur 
+adipisicing elit. Repellendus reiciendisvoluptasinsolutaaspernatur ipsum perferendis deserunt 
+dolorum nulla hic labore non expedita sed omnis 
+nostrum cumque laudantium alias blanditiis!</p>
+
+</body>
+</html>

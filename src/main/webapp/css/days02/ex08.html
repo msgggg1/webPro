@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	.pagination{
+		/* border: 1px solid red;  */
+		text-align: center;
+		width: 50%;
+		margin: 0 auto;
+		
+		overflow: auto;
+	}
+
+	.pagination a{
+		text-decoration: none;
+		color: black;
+		
+		display: inline-block;
+		float: left;
+		width: 9%; /*in-line모드에서는 안먹음*/
+	}
+	.pagination a:hover{
+		background: #ddd;
+	}
+	.pagination a.active{
+		background-color: dodgerblue;
+		color: white;
+	}
+</style>
+</head>
+<body>
+<h3>CSS 페이징 처리 블럭 구현</h3>
+<!-- [1] 2 3 4 5 6 7 8 9 10 > -->
+
+<div class="pagination">
+	<!-- ex08.html?page=3& -->
+	<a href="1">1</a>
+	<a href="2">2</a>
+	<a href="3">3</a>
+	<a href="4">4</a>
+	<a href="5">5</a>
+	<a href="6">6</a>
+	<a href="7">7</a>
+	<a href="8" class="active">8</a>
+	<a href="9">9</a>
+	<a href="10">10</a>
+	<a href="11">&gt;</a>
+</div>
+
+<script>
+/*
+[1]	$(".pagination > a").attr("href", function () {
+		let page = $(this).attr("href");
+		return `ex08.html?page=${page}`;
+	});	
+*/ 
+//[2]
+	$(".pagination > a").attr("href", function (i, val) {
+		return `ex08.html?page=${val}`;
+	});
+	$(".pagination > a").on("click", function name() {
+		/* alert("이벤트 확인") */
+		// console.log($(this).text() );
+		
+		// 클릭한 a링크 태그의 href 속성값을 얻어오기
+		// jquery 메서드: attr(), prop()
+		/* let page = $(this).attr("href");
+		console.log(page); */
+		
+		//jquery 메서드: class='active' 속성 추가
+		// 		ㄴ  addClass()/ removeClass()
+		//      ㄴ  toggleClass()
+		
+		//JS
+		/* // active 클래스를 가진 a 태그를 찾음
+		const activeLink = document.querySelector('a.active');
+
+		// active 클래스가 존재하면 제거
+		if (activeLink) {
+		    activeLink.classList.remove('active');
+		} */
+		
+		$(".active").removeClass("active"); /*6번 연속 -> 제거후 다시 추가*/
+		$(this).addClass("active");
+		
+		event.preventDefault();
+	});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

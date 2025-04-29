@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	#panel, .flip{
+		background-color: #4acf50;
+		color: white;
+		
+		text-align: center;
+		
+		font-size: 16px;
+		padding: 10px;
+		
+		margin: auto;
+		
+		border: 1px solid #a6d8a8;
+	}
+	#panel{
+		display: none;
+	}
+	
+	.flip:hover{
+		cursor: pointer;
+		color: red;		
+	}
+</style>
+
+</head>
+<body>
+
+<p class="flip">Click to show panel</p> 
+ <div id="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ipsum possimus maxime sapiente laboriosam! Officiis possimus deserunt facilis repellat dolores voluptatum aliquam alias ipsum asperiores sed earum impedit quas molestiae.</p>
+    <p>Suscipit harum doloribus corrupti ab omnis officia saepe deserunt est aliquid dolores tempora nesciunt sed voluptatem porro hic ea dolorum eum expedita deleniti quam! Iste consequuntur facilis numquam perferendis eum.</p>
+    <p>Obcaecati perspiciatis omnis ipsam illo in enim incidunt quod explicabo error eos autem dolores? Molestiae blanditiis nulla numquam id natus. Accusamus necessitatibus quae quod et consequatur quo quas doloribus! Mollitia?</p>
+ </div>
+ XXX
+<script>
+ 	//js
+ 	const flip = document.querySelector(".flip");
+ 	const panel = document.querySelector("#panel");
+ 	
+ 	let sw = true;
+ 	
+ 	flip.addEventListener("click", function () {
+		if (sw) {
+			panel.style.display = "block";
+		} else{
+			panel.style.display = "none";
+		} // if
+		sw =!sw;
+	});
+ </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+div{	/*특이성 1점*/
+	border: 1px solid gray;
+	background: lightblue;
+	/*
+	padding-top: 50px;
+	padding-right: 30px;
+	padding-bottom: 50px;
+	padding-left: 80px;
+	*/
+	
+	/* 약식  */
+	/* padding: 50px 30px 50px 80px; */
+	/* padding: 50px; */
+		     /* t    r     b   l */			
+	/* padding: 50px 80px 50px 80px; */ 
+	/* padding: 50px 80px */
+	
+	/* padding : 50px 100px 30px */ 
+	/* padding: 50px 100px 30px 100px */
+	
+	/* padding: 1) 단위: px, pt, cm 등 */
+	/*  		2) 부모요소의 너비 기준으로 백분율  % */
+	/*          3) inherit 상속                       */
+}
+
+	.demo{/* 10점 */
+		width: 200px;
+		/* 202 px 
+		   10px+10px+25*2px+200px
+		*/
+	}
+	
+	div.demo.second{ /* 1+10+10 */
+		color: white;
+	}
+
+	/* div:nth-child(2){ */
+	div:nth-of-type(2){
+		color: red;
+	}
+
+	/* div:nth-of-type(3){  1+10(가상클래스) -> 적용 안됨
+		color: blue;
+	} */
+	
+	/* div:last-of-type{  */
+	div:last-child{ /* last는 p 태그임 */
+		color: green;
+		border: 10px solid red;
+		padding: 25px;
+	}
+	
+	*{ /* 0점 */
+		box-sizing: border-box; /*border, width 먹어도 상관없이 고정. border, padding 상관없이 200px로 고정. 너비에는 영향 없음*/
+	}
+	
+</style>
+</head>
+<body>
+<!-- 
+	[ 패딩(padding) ]
+	테두리(border) : 안쪽 여백 <-> 내용물(content)
+	top, right, bottom, left
+	px, pt, cm, % 등등 (음수 X)
+ -->
+ 
+ <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cumque tempore voluptates illum minima neque necessitatibus alias ipsam dolores non accusamus provident quaerat? Voluptatibus doloribus temporibus hic magni culpa nihil?</div>
+ 
+ <div class="demo">Lorem ipsum dolor sit amet.</div>
+ <div class="demo second">Lorem ipsum dolor sit amet.</div>
+ 
+ <p>
+ 	xxx
+ </p>
+</body>
+</html>
