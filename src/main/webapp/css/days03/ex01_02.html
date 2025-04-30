@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	.box{
+		border: 1px solid gray;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		
+		color : red ;
+	}
+</style>
+</head>
+<body>
+<!-- <div class="box">Box - 1</div> -->
+<!-- 
+	[ 동적으로 요소 생성 ] - html DOM+ 필드/메서드 ( DOM(document object model: 객체 모델 - dom method 통해 문서 조작) )
+	js 변수 선언: var, const, let 키워드
+	
+ -->
+ 
+ <script>
+ /* html 문서가 dom으로 만들어진 것 -> document */
+ 	const divElement = document.createElement
+ 	
+ 	function init() {	}
+ 	
+ 	// load 이벤트 등록 -> {}X
+ 	document.body.onload = addElement;
+ 
+ 	function addElement() {
+ 	// <div></div> 생성
+	const divElement = document.createElement("div");
+ 	
+ 	/*[2]
+ 	// DOM textNode 생성
+	const content = document.createTextNode("Hello World");
+	// 얖 요소의 자식으로 추가
+ 	divElement.appendChild(content);
+	*/
+	
+	//[2]
+	divElement.innerText = " Hello World!!";
+	
+	// js 스타일 적용
+	/*
+	divElement.style.border = "1px solid gray "; // 반드시 양쪽 쌍따옴표
+	divElement.style.width = "100px"; // js 다 문자열 임
+	divElement.style.height = "100px ";
+	divElement.style.textAlign = "center";
+	*/
+	
+	divElement.classList.add("box");
+	
+	
+	
+	// <body>요소
+	// 첫번째 자식으로 추가
+	//document.body.insertBefore(divElement, document.body.firstChild);
+	document.body.prepend(divElement);
+	// appendChild: 가장 마지막 자식으로 추가
+/* 	divElement.appendChild(content);
+	document.body.appendChild(divElement);
+ */	
+ 
+ 	// 이벤트 등록처리
+ 	divElement.addEventListener("click", function(){
+ 		this.classList.remove("box");
+ 	});
+ 	 
+ 	
+ 	}
+ </script>
+</body>
+</html>

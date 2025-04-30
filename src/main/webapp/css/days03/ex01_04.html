@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+	div.out{
+		width: 400px;
+		height: 200px;
+		border: 3px solid #73ad21;
+		
+		position: relative; /*자식 컨테이너의 절대좌표 absolute 기준됨*/
+		left: 200px;
+	}
+	div.in{
+		width: 100px;
+		height: 100px;
+		border: 3px solid #73ad21;
+		
+		position: absolute; /* 절대좌표 */
+		left: 50px;
+		top: 50px;
+	}
+</style>
+</head>
+<body>
+
+<h3>position설명</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni voluptates debitis deserunt vel distinctio excepturi reprehenderit aut delectus non adipisci dolorem tenetur similique repudiandae. Explicabo ex sapiente dignissimos quo ea!</p>
+<div class="out">OUT
+	<div class="in">IN</div>
+</div>
+<p>Reprehenderit aspernatur maxime reiciendis corrupti molestias sint id assumenda totam hic ut officiis temporibus rem voluptas vitae non repellendus optio fuga cum. Explicabo consectetur hic aperiam dolor dolores illo culpa?</p>
+<p>Aliquid animi hic dicta tenetur rerum quas odio possimus saepe ad explicabo sint perspiciatis quam rem odit non beatae nemo! Iste commodi deserunt eos minima eligendi fugiat a incidunt iusto.</p>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    /* p:특정상태{ */
+    p:empty{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+
+    /* input[type=text]:특정상태{ */
+    input[type=text]:disabled{
+        background-color: #ddd;
+    }
+    input[type=text]:enabled{ /*활성화*/
+        background-color: blue;
+    }
+    input[type=radio]:checked, input[type=checkbox]:checked{
+            height: 50px;
+            width: 40px;
+    }
+
+    /* p요소를 제외한 모든 요소 */
+    :not(p){
+        color: red;
+    }
+</style>
+</head>
+<body>
+    name : <input type="text" value="비활성" disabled="disabled"><br> <!--disabled submit 할때 데이터 안가져감-->
+    age : <input type="text" ><br>
+    addr : <input type="text" ><br>
+    tel : <input type="text" ><br>
+    
+    <form action="">
+      <input type="radio" checked="checked"> male<br>
+      <input type="radio"> female<br>
+      
+      <input type="checkbox" checked="checked"> bike<br>
+      <input type="checkbox"> car<br>
+    </form>
+    
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <p></p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>Lorem ipsum dolor sit amet.</div>
+    
+    <a href="#">SiSt</a>
+</body>
+</html>

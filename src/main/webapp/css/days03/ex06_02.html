@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div.center{
+        border: 3px solid #72ad21;
+        width: 50%;
+        text-align: center; /*수평가운데*/
+
+        /* 수직 가운데 */
+        /* 첫번째 방법 
+         1. 조건: line 한 줄 일때만 가능.
+         2. height == line-height*/
+        /* height: 200px;
+        line-height: 200px;  */
+        /*두번째 방법 */
+        /* padding: 70px; */
+
+        /*세번째 방법*/
+        height: 200px;
+        position: relative;
+
+        /* display: flex;                 
+        justify-content: center;      
+        align-items: center;    
+         */
+    }
+
+    div.center>div{
+        border: 1px solid red;
+
+        position: absolute; /*width 내용물 사이즈로 바뀜*/
+        left: 50%;
+        top: 50%;
+
+        /* 좌표 변환 */
+        /* 현재 요소 크기의 50%만큼 왼쪽, 위쪽으로 이동
+        translate(x,y): 요소를 x축, y축으로 이동동 */
+        transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+<h3>세로(수직) 정렬</h3><div class="center">
+    <div>Hello world!</div>
+   </div>
+
+</body>
+</html>

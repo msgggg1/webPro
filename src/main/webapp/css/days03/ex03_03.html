@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    div{
+        border: 3px solid #4caf50;
+        padding: 5px;
+        
+        /* [1] 첫번째 방법
+        overflow: auto; */
+    }
+    /* ::의사요소       :의사클래스 */
+    .clearfix::after{
+        content: "";
+        clear: both; 
+        display: table;
+        /* 가상 콘텐츠가 뒤에 추가된다. 그 추가되는 요소가 테이블 레벨의 요소처럼 동작 
+            float 요소의 높이를 인식하게 된다. 
+        */
+    }
+    
+    div>img.img1{
+        float: left;
+        /* 부모요소의 높이 X */
+    }
+
+  </style>
+
+</head>
+<body>
+    <!-- 
+        부동요소 (float 속성이 주어진 요소)가 포함된 부모요소보다 크면
+        컨테이너 외부에 오버플로우가 발생한다.
+        이 때 해결방법 2가지
+    -->
+    <div class="clearfix">
+        <img class="img1" src="../images/pineapple.jpg" alt=""
+        width=170 height="170"/>
+         Aspernatur eos magni nisi explicabo eaque voluptatem optio nemo aliquid odit illo pariatur voluptate molestias dicta earum omnis quam voluptates quia facilis.
+      </div>
+
+</body>
+</html>

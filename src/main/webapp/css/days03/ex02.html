@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+  div{
+    backgorund: coral;
+    border: 1px solid;
+
+    /* overflow: visible; 기본값 */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    overflow: auto;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    width: 300px;
+    height: 65px;
+  }
+
+</style>
+
+</head>
+<body>
+  <!-- 
+    [CSS Overflow]
+      ㄴ 영역에 콘텐츠(내용)이 맞지 않는 경우(넘치는 경우)
+      1. visible : (기본값) 잘리지 않는다. 넘치는 대로 놔둠.
+                    영역 밖에 넘쳐서 랜더링됨.
+      2. hidden : 넘치는 부분 잘린다. 넘친 부분은 안보임
+      3. scroll: 넘치는 부분 잘린다. 스크롤바가 항상 추가 + 넘친부분 보여짐
+      4. auto   : scroll 속성과 동일. 
+                  차이점: 필요할 때만 스크롤 바가 생성
+
+      높이가 지정된 블록모드인 요소 에만만: overflow 속성 적용
+  -->
+
+<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptatibus nulla, veritatis, voluptatum distinctio tempora aut quo facere minus reiciendis nemo quisquam, eos adipisci inventore. Magni explicabo voluptate iure atque.</div>
+<br>
+<div>Lorem ipsum dolor sit amet.</div>
+</body>
+</html>
