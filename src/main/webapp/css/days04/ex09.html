@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    button{
+        display: inline-block;
+        padding: 5px;
+        border: none;
+
+        background-color: red;
+        color: white;
+
+        cursor: pointer;
+    }
+    /*
+    button:hover{
+        opacity: 0.7;
+    }*/
+
+
+</style>
+</head>
+<body>
+<!-- [마우스 롤오버 효과] -->
+ <button type="button">마우스 롤오버 효과</button>
+ <button>마우스 롤오버 효과</button>
+ <button>마우스 롤오버 효과</button>     
+
+ <script>
+    //js
+    /*
+    var btns = document.querySelectorAll("button");
+    // alert(btns.length) // nodelist like 배열
+    // btns.onclick = function(){} x d/t btns 노드리스트
+    for (let i = 0 ;  i < btns.length; i++){
+        btns[i].onmouseover = function(){
+            this.style.backgroundColor = "blue";
+        }
+        btns[i].onmouseout = function(){
+            this.style.backgroundColor = "red";
+        }
+    }
+        */
+ </script>
+ <script>
+    //jquery
+    $("button").on("mouseover", function(){
+        $(this).css("background-color","blue")
+    });
+    $("button").on("mouseout", function(){
+        $(this).css("background-color","red")
+    });
+
+    $("button").hover(
+        function(){
+            $(this).css("background-color", "blue");
+        },
+        function () {
+            $(this).css("background-color", "red")
+        }
+    );
+                
+ </script>
+</body>
+</html>

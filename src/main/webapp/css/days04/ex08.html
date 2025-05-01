@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    #navlist{
+        position: relative;
+    }
+    #navlist li{
+        position: absolute;
+        top: 0;
+
+        margin: 0;
+        padding: 0;
+
+    }
+    #navlist li, #navlist li a{
+        width: 43px;
+        height: 44px;
+        display: block;
+    }
+
+    #navlist li#home{
+        left: 0;
+        background: url(../images/img_navsprites_hover.gif) 0 0;
+    }
+    #navlist li#prev{
+        left: 63px;
+        background: url(../images/img_navsprites_hover.gif) -47px 0;
+    }
+    #navlist li#next{
+        left: 129px;
+        background: url(../images/img_navsprites_hover.gif) -91px 0;
+    }
+
+    #navlist li#home:hover{
+        background: url(../images/img_navsprites_hover.gif) 0 -45px;
+    }
+    #navlist li#prev:hover{
+        background: url(../images/img_navsprites_hover.gif) -47px -45px;
+    }
+    #navlist li#next:hover{
+        background: url(../images/img_navsprites_hover.gif) -91px -45px;
+    }
+
+</style>
+</head>
+<body>
+<!-- 
+    [이미지 스프라이트(sprites)]    
+    단일 이미지에 여러 개의 이미지 모음
+    이미지가 많은 페이지인 경우
+    로딩하는데 서버에 많은 요청을 하는 문제를 해결(성능)
+
+-->
+
+<img src="../images/img_navsprites_hover.gif" alt="">
+
+<ul id="navlist">
+    <li id="home"><a href="#"></a></li>
+    <li id="prev"><a href="#"></a></li>
+    <li id="next"><a href="#"></a></li>
+</ul>
+
+</body>
+</html>

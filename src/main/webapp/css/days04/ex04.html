@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    span.fa{
+        font-size: 25px;
+        /* color: orange; */
+    }
+
+
+    span.fa.checked{
+        color: orange;
+    }
+</style>
+
+</head>
+<body>
+<h3> 상품 평점</h3>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+
+<script>
+
+    //js
+    //  NodeList
+    const stars = document.querySelectorAll('span.fa.fa-star');
+    // console.log(stars);
+    // alert(stars.length);
+    /*
+    stars.forEach(star => {
+        star.onclick = function(){
+        alert("이벤트 확인")
+    }
+    })
+    */
+
+    /*
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].onclick = function(){
+            // alert(`${i}번째 이벤트 확인`);
+                for (let j = 0; j < stars.length ; j++) {
+                    stars[j].classList.remove("checked");       
+                }
+                for (let j = 0; j <= i ; j++) {
+                    stars[j].classList.add("checked");       
+                }
+            };
+        }
+    */
+
+    //jquery
+    alert($("span.fa.fa-star").length );
+    $("span.fa.fa-star").on("click", function(){
+        // alert("이벤트 확인");
+        $("span.fa.fa-star").removeClass("checked");
+        $(this).addClass("checked")
+                .prevAll("span.fa.fa-star")
+                .addClass("checked");
+    });
+
+    /*
+    $(".fa").on("click", function(){
+        // alert("확인")
+        $(".checked").removeClass("checked");
+        $(this).prevAll().addBack().addClass("checked");
+    });
+   */
+
+    $(".fa").on("mouseover", function(){
+        // alert("확인")
+        $(".checked").removeClass("checked");
+        $(this).prevAll().addBack().css("color", "orange");
+    });
+
+    $(".fa").on("mouseout", function () {
+    $(".fa").css("color", ""); 
+    $(".checked").css("color", "orange"); // 선택된 것만 다시 칠함
+    });
+
+</script>
+</body>
+</html>

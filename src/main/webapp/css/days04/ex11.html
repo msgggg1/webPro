@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    p{
+        width: 200px;
+        height: 200px;
+        border: 1px solid green;
+        padding: 20px;
+    }
+
+    /* p:nth-child(1){
+    p:nth-of-type(1){
+    p:first-child{ */
+    p:first-of-type{
+        background-color: red;
+
+        /*
+        border-top-left-radius: 15px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 30px;
+        */
+        /* 약식 */
+        /* border-radius: 15px 50px 5px 30px; */
+        
+        /* border-radius: 15px 15px 15px 15px; */
+        border-radius: 15px;
+        }
+
+    p:nth-child(2){
+        background: url('../images/paper.gif') left top repeat;
+        /* border-radius: 50%; */
+        border-radius: 0 50%;
+    }
+
+    /* p:last-child */
+    p:last-of-type{
+        border: 2px solid #73da21;
+
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+</style>
+</head>
+<body>
+
+<!-- 
+    [둥근 모서리 : border-radius 속성]    
+-->
+<p>Lorem, ipsum dolor.</p>
+<p>Doloremque, velit inventore.</p>
+<p>Iusto, quae molestias?</p>
+
+</body>
+</html>

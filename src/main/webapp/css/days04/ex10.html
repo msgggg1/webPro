@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    *{
+        box-sizing: border-box; 
+    }
+    
+    /* input{ 속성x 태그명이 선택자(selector) */
+    /* input[type]{ (1) input 태그 이면서 속성값은 상관없고, type 속성이 있으면 */
+    /* input[type=submit]{ (2) */
+    /* where title = 'flower'
+    [title=flower]{ */
+
+    /* where title LIKE 'flower%'
+    [title ^=flower]{ */
+    /* where title LIKE '%flower'
+    [title $=flower]{ */
+    /* where title LIKE '%flower%'
+    [title *=flower]{  */
+    /* ~ flower    단어자체를 포함한, 공백으로 구분된
+    [title ~=flower]{   */
+    /*
+    flower
+    flower-??? (-)뒤에 오는것만 포함
+    */
+    [title |=flower]{   
+        width: 200px;
+        border: 1px solid red;
+        padding: 0;
+    }
+</style>
+</head>
+<body>
+
+<!-- [속성을 사용하는 CSS 선택자]
+   /********암기*********/
+   1. [속성명]
+   2. [속성명=속성값]  
+   3. [속성명^=속성값]
+   4. [속성명$=속성값]
+   5. [속성명*=속성값]
+   6. [속성명~=속성값]
+   7. [속성명|=속성값] 
+
+   예) 여러 속성이 조합된 선택자
+   [title$=속성값][title~=속성값]
+   
+-->
+
+<a href="#" title="klematis flower">naver</a><br>
+<a href="#" title="flower">daum</a><br>
+<a href="#" title="flower-kbs">daum</a><br>
+<a href="#" title="kbsflower">sist</a><br>
+<a href="#" title="kbs-flower">taeyo</a><br>
+<a href="#" title="flowers">admin</a><br>
+<hr>
+<input><br>
+<input><br>
+<input type="text"><br>
+<input type="text"><br>
+<input type="text"><br>
+<input type="submit"><br>
+<input type="reset"><br>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    ul{ /*block모드*/
+         background-color: #f1f1f1;
+         list-style-type: none;
+         width: 25%;
+
+         margin: 0;
+         padding: 0;
+         
+         height: 100%;
+
+         /* 기준이 부모(body) X, 브라우저 창 전체에 고정 */
+         position: fixed;
+         overflow: auto;
+
+         /*[1]
+         height: 100vh;
+         float: left;
+         */
+    }
+    ul a{
+        color: black;
+        text-decoration: none;
+
+        display: block; /*block 모드여야 padding 먹음*/
+        padding: 8px 16px;
+
+        }
+
+    ul a.active{
+        background-color: #04aa6d;
+        color: white;
+    }
+    ul a.active:not(.active){
+        background-color: #04aa6d;
+        color: white;
+    }
+    ul a:hover{}
+
+</style>
+
+</head>
+<body>
+
+<!-- 
+    [ CSS 탐색바]    
+    - 메뉴바
+    - 웹 사이트 탐색 기능 구현
+    - ul, li , a
+    - 수평 탐색바(네비게이션바)
+    - [ 수직 탐색바 ]
+
+-->
+
+<ul>
+    <li class="active"><a href="">Home</a></li>
+    <li class="#news"><a href="">News</a></li>
+    <li class="#contact"><a href="">contact</a></li>
+    <li class="#about"><a href="">about</a></li>
+</ul>
+
+<div style="margin-left: 25%;padding: 1px 16px;height: 1000px;">
+    <h2>Fixed full-height Side Nav</h2>
+    <h3>Try to scroll~~~~~~~</h3>
+        <p>some text</p>
+        <p>some text</p>
+        <p>some text</p>
+        <p>some text</p>
+        <p>some text</p>
+        <p>some text</p>
+        <p>some text</p>
+    
+</div>
+
+</body>
+</html>
