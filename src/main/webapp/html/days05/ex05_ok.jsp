@@ -1,4 +1,4 @@
-<!-- %@ 페이지 지시자. 서버에서 자바쓴다.그런데 자바밖에 없어서 안써도 됨 -->
+<!--  %@ 페이지 지시자. 서버에서 자바쓴다.그런데 자바밖에 없어서 안써도 됨  -->
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
