@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        width: 300px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid;
+    }
+
+    div#box{
+        /* CSS 3D 변환 */
+        /* transform: rotateX(180deg); */
+        /* transform: rotateX(90deg); */
+        /* transform: rotateX(110deg); */
+                            /* xyz angle */
+        transform: rotate3d(1,1,1,45deg);
+    }
+  </style>
+</head>
+<body>
+<!-- 
+    CSS 2D 변환 : X, Y 축
+    ㄴ 이동, 회전, 크기조정, 기울기
+    ㄴ transform 속성 : translate, rotate, scale, skew
+    
+    CSS 3D 변환 : X, Y, Z 축
+    ㄴ transform 속성
+    ㄴ      이동     translate3d(x,y,z)
+                     translateX(), translateY(), translateZ()
+            회전     rotate3d(x,y,z)
+                     rotateX(), rotateY(), rotateZ()
+            크기조정 scale3d(x,y,z)
+                     scaleX(), scaleY(), scaleZ()
+            기울기   X
+
+    약식
+    matrix3d(n,n,n,n,n,n,n,n,n)
+-->
+
+<button>회전 시작</button>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<div>Lorem ipsum dolor sit.</div>
+<div id="box">Lorem ipsum dolor sit.</div>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<script>
+    var angle = 1;
+    var timer ;
+
+    document.querySelector("button").onclick = function(){
+        // alert(event.srcElement);
+        // 이벤트 받은 객체(요소) : [Object HTMLButtonElement]
+
+        timer = setInterval(()=>{
+            let target = document.querySelector("#box");
+            target.style.transform =`rotateY(${angle}deg)`;
+            angle++;
+        }, 10)
+    }
+</script>
+</body>
+</html>

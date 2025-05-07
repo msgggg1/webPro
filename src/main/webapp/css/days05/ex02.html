@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        width: 200px;
+        height: 150px;
+    }
+    #grad1{
+        /* [ 선형 그라데이션 효과 ]
+            background-image: linear-gradient(방향, 색상 정지점1, 색상 정지점2) 색상 최소 2개 이상
+                                              각도
+                    방향 생략: 기본은 위 -> 아래로
+        */
+        /* background-image: linear-gradient(red,yellow);  */
+                                    /* 위 -> 아래로 180deg */
+        /* background-image: linear-gradient(180deg, red,yellow);  */
+        /* background-image: linear-gradient(to right, red,yellow); */
+        /* background-image: linear-gradient(to bottom right, red,yellow); */
+        
+        /* background-image: linear-gradient(180deg, red,yellow, green); */
+
+        /* 브라우저에서 그라데이션 효과를 지원하지 않으면 첫번째 red가 적용된다. */
+
+        /* 투명도 사용 */
+        background-image: linear-gradient(to bottom right, rgba(0,255,0,0), rgba(0,255,0,1));
+
+    }
+
+    #grad2{
+        /*  방사형 그라데이션 효과 
+        /* 가운데에서 바깥쪽으로 */ 
+        /* background-image: radial-gradient(모양, 색상, 색상,..); */
+      /* background-image: radial-gradient(red, yellow, green); */
+        /* background-image: radial-gradient(red 5%, yellow 15%, green 80%); */
+        /* 묘양(shape) : 타원, 원 지정할 수 있다. 
+        기본값: [ellipse] */
+        background-image: radial-gradient(circle, red 5%, yellow 15%, green 80%);
+   } 
+   
+    
+  </style>
+</head>
+<body>
+<!-- 
+    [그라데이션 효과]    
+    ㄴ 두 개 이상의 지정된 색상 간에 부드러운 전환
+    ㄴ 선형, 방사형, 원뿔 그라데이션 효과 3종류
+
+-->
+<div id="grad1"></div>
+<div id="grad2"></div>
+</body>
+</html>

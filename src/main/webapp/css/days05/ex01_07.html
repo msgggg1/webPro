@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        border: 10px dotted;
+        padding: 35px;
+        background: yellow url('../images/img_flwr.gif') no-repeat;
+    }
+
+    #demo1{
+        background-clip: border-box; /*기본값*/
+        background-origin: border-box;
+    }
+    #demo2{
+        background-clip: padding-box;
+        background-origin: padding-box;
+    }
+    #demo3{
+        background-clip: content-box;
+        background-origin: content-box;
+    }
+  </style>
+</head>
+<body>
+    <!-- 
+        [background-size 속성]
+        background-clip 속성
+                    ㄴ 자르다, 깎다.
+                    배경의 페이팅(그리는) 영역을 지정하는 속성
+                    border-box(기본값), padding-box, content-box 속성값을 사용
+
+        background-origin 속성
+                    ㄴ 기원, 유래, 출처
+                    배경 이미지의 위치를 지정하는 속성
+                    background-position 속성X left/top -> background-origin은 left, top 같은 위치 값을 주는 속성이 아니라,
+                                                          그런 위치 값(background-position)이 어디서부터 시작되는지를 결정하는 속성
+                    border-box, padding-box(기본값), content-box 속성값을 사용
+    -->
+<div id="demo1">
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis modi, illum assumenda cumque accusantium eaque aut culpa tempora exercitationem consequatur labore blanditiis nisi illo harum quis perferendis fugiat? Laudantium, quae.</p>
+</div>
+<div id="demo2">
+    <h1>Quod molestiae aperiam soluta aut.</h1>
+    <p>Fuga unde repudiandae natus voluptatem perferendis deserunt fugit expedita doloremque rem architecto, debitis reprehenderit soluta totam similique obcaecati vitae necessitatibus ipsam commodi? Et exercitationem ea neque odit eligendi dicta minima.</p>
+</div>
+<div id="demo3">
+    <h1>Quam repellat tenetur corrupti molestiae!</h1>
+    <p>Tempora animi repellendus obcaecati sed, magnam a quibusdam libero iure nesciunt voluptas cumque possimus dolores corrupti molestiae doloribus adipisci voluptatum, consectetur quod mollitia soluta natus, quae porro. Minima, aspernatur distinctio?</p>
+</div>
+</body>
+</html>

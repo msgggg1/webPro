@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    .test1{
+        writing-mode: horizontal-tb;
+    }
+    .test2 > span{
+        writing-mode: vertical-rl;
+    }
+    .test3{
+        writing-mode: vertical-rl;
+    }
+  </style>
+</head>
+<body>
+<!-- 
+        
+-->
+<!-- writing-mode 속성 : 텍스트 가로 쓰기/세로 쓰기 -->
+<p class="test1">Lorem ipsum dolor sit amet.</p>  
+<p class="test2">lorem1<span>Lorem.</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti repudiandae in doloremque, quis quasi commodi ut maxime ea, voluptas quibusdam, mollitia dolorum eveniet minus quas dolore aliquid est illo asperiores.</p>   
+<p class="test3">Lorem ipsum dolor sit amet.</p>
+</body>
+</html>

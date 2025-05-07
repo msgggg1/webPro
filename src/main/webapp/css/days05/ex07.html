@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+        /* 애니메이션 효과 처리 + 속성 */
+        animation-name: sample;
+        /* 애니메이션 효과를 완료하는데 걸리는 시간 */
+        animation-duration: 4s;
+        /* 애니메이션 속도 곡선 : 등속 */
+        animation-timing-function: linear;
+        
+        animation-delay: 2s;
+
+        /* 애니메이션 효과 반복 횟수 */
+        animation-iteration-count: 3;
+        /*animation-iteration-count: infinite; */
+
+        /* 애니메이션 시작 전, 종료 후 요소의 스타일
+        forwards: 종료 시 마지막 키 프레임 스타일 유지
+        backwards: 시작 시 키프레임 스타일 유지 */
+        animation-fill-mode: forwards;
+
+        /* normal(기본값)/reverse(뒤에서) /alternate-reverse(왔다갔다) */
+        /* 애니메이션 재생될 때 뒤 -> 앞으로 재생 */
+        animation-direction: alternate-reverse;
+
+        /* 위의 애니메이션 설정 약식 */
+        animation: sample 4s linear 2s 3 alternate-reverse;
+
+    }
+
+    /* 규칙이름 : sample */
+    @keyframes sample{
+        from{   /*0%*/
+            background-color: red;
+        }
+        to{ /*100%*/
+            background-color: yellow;
+        }
+    }
+  </style>
+</head>
+<body>
+<!-- 
+    [CSS 애니메이션(Animation)]    
+    js 사용해서 애니메이션 효과
+    html 요소를 애니메이션 효과 처리
+    애니메이션? 하나의 스타일에서 점차적으로 다른 스타일로 변환되는 것. 
+    ㄴ CSS 애니메이션 처리 : 키 프레임을 지정
+    ㄴ 키 프레임 ? 특정 시간에 가지는 요소의 스타일
+    A 타입 -> B 타입 -> C타입 스타일
+    ㄴ 애니메이션 효과
+     키 프레임(keyframe)+키 프레임(keyframe)+키 프레임(keyframe)
+    @keyframes 규칙 내에서 css 스타일 지정
+        ㄴ animation-name
+        ㄴ animation-duration
+        ㄴ animation-delay
+        ㄴ animation-iteration-count
+        ㄴ animation-direction
+        ㄴ animation-timing-function
+        ㄴ animation-fill-mode
+        약식 animation
+
+-->
+
+<div></div>
+</body>
+</html>

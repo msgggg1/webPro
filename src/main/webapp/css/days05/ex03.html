@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    p{
+        width: 200px;
+        border: 1px solid;
+    }
+
+    p.to2{
+        white-space: nowrap; /*자동 줄바꿈 X*/
+        overflow: hidden;
+
+        /* 너비로 인해서 표시되지 않은, 넘친 텍스트를 사용자에게 알려주는 방법 */
+        /* text-overflow: clip;기본값, 텍스트 넘치는것 잘라내기 */
+        text-overflow: ellipsis; /* ... 붙음*/
+    }
+
+    /*의사클래스*/
+    p.to2:hover{
+        overflow: visible;
+    }
+
+    p.to1, p.to4{
+        word-break: break-word;
+        word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+<!-- 
+    [CSS 텍스트 효과 속성]    
+    1) text-overflow 속성
+    2) word-wrap 속성   - 줄바꿈
+    3) word-break 속성  - 줄바꿈 규칙
+    4) writing-mode 속성 - 쓰기 모드 ex03_02.html
+-->
+<p class="to1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat pariatur.</p>
+<p class="to2">Ullam optio et dignissimos? Hic blanditiis temporibus unde perferendis eos.</p>
+<p class="to3">Eius nobis minus sapiente quae error repellendus labore. Minima ullam.</p>  
+<p class="to4">Eius nobisminussapientequaeerrorrepellendus labore. Minima ullam.</p> 
+   
+</body>
+</html>

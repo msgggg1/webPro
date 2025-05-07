@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        display: inline-block;
+
+        /*전환*/
+        /* transition-property: width;
+        transition-duration: 2s;
+        transition-delay: 1s;
+        transition-timing-function: ease; */
+
+        /*
+        transition-property: height;
+        transition-duration: 2s;
+        transition-delay: 1s;
+        transition-timing-function: ease;*/
+
+        /* 전환 */
+        /* transition: width 2s ease, height 2s, transform 2s; */
+        transition : 2s sec;
+
+        /* ransition-timing-function: ease;
+         전환효과 속도 곡선
+         ease 기본값 느리게 시작~빠르게 ~느리게 끝 
+         linear : 등속갑
+         ease-in: 천천히 시작
+         ease-out : 천천히 끝
+         */
+    }
+    div:hover{
+        width: 200px;
+        height: 200px;
+
+        /* transform: rotate(45deg); */
+    }
+  </style>
+</head>
+<body>
+<!-- 
+    1. CSS 2D/3D 변환 (transform) : 이동, 회전, 크기, 기울기
+        + js
+    2. CSS 전환 (transition) : 지정된 시간 동안 속성값을 부드럽게 변경하는 것.
+        예) width: 100px -> 마우스 올릴 때 hover -> 200px
+    3. 전환 속성    
+      1) transition : p d tf delay
+      2) transition-delay : 기다린 후에 전환 시작
+         transition-property : 전환 속성
+         transition-duration : 전환 지속 시간
+          지속시간을 설정하지 않으면 기본값은 0
+         transition-timing-function : 지속 속도 (효과)
+-->
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+</body>
+</html>

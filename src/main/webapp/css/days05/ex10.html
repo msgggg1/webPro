@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    div{
+        border: 1px solid #bcbcbc;
+    }
+    .jb-table{
+        width: 100%;
+        display: table;
+    }
+    .jb-table-row{
+        display: table-row;
+    }
+    .jb-table-cell{
+        display: table-cell;
+        height: 150px;
+        padding: 0 20px;
+    }
+
+    .jb-top{
+        vertical-align: top;
+    }
+    .jb-middle{
+        vertical-align: middle;
+    }
+    .jb-bottom{
+        vertical-align: bottom;
+    }
+  </style>
+</head>
+<body>
+<!-- 
+    [ 배치(layout) 방법 ]
+    1. position 속성
+    2. inline / block 모드 배치
+    3. table 배치
+    4. float 배치
+    
+    css flex 배치
+    css grid 배치
+-->
+    <div class="jb-table">
+        <div class="jb-table-row">
+            <div class="jb-table-cell">
+                <p>lorem1</p>
+            </div>
+            <div class="jb-table-cell">
+                <p>lorem1</p>
+            </div>
+            <div class="jb-table-cell">
+                <p>lorem1</p>
+            </div>
+        </div>
+        <div class="jb-table-row">
+            <div class="jb-table-cell jb-top">
+                <p>lorem1</p>
+            </div>
+            <div class="jb-table-cell jb-middle">
+                <p>lorem1</p>
+            </div>
+            <div class="jb-table-cell jb-bottom">
+                <p>lorem1</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
