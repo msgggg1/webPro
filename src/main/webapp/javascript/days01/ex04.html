@@ -17,6 +17,8 @@
     div#demo{
         border: 1px solid gray;
         height: 120px;
+
+        overflow: auto;
     }
     div.item{
       color: red;
@@ -40,19 +42,31 @@
 <div>
 이름 입력 : <input type="text" id="name" placeholder="이름" autofocus>
 <br>
-<button id="btnAdd">추가</button>
+<button class="add">추가</button>
+<button class="edit">수정</button>
+<button class="del">삭제</button>
+<button class="search">검색</button>
+<button class="alldel">모두 삭제</button>
 <br>
 <br>
 <div id="demo"></div>
 </div>
 
 <script>
-  const btnAdd = document.querySelector("#btnAdd");
+  const btnAdd = document.querySelector("button.add");
+  const btnEdit = document.querySelector("button.edit");
+  const btnDel = document.querySelector("button.del");
+  const btnSearch = document.querySelector("button.search");
+  const btnAllDel = document.querySelector("button.alldel");
   const txtName = document.querySelector("#name");
   const demo = document.querySelector("#demo");
   
   
   btnAdd.onclick = function() {
+    itemAdd();
+  };
+
+  function itemAdd() {
     let name = txtName.value;
     
     const divs = document.querySelectorAll("#demo > div.item");
@@ -60,8 +74,29 @@
       d.classList.remove("item");
     });
 
-    demo.innerHTML += `<div>${name}</div>`;
-  };
+    demo.innerHTML += `<div class='item'>${name}</div>`;
+
+    const observer = new MutationObserver((mutationsList, observer) => {
+      for (const mutation of mutationsList) {
+         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+             // demo.scrollTop = demo.scrollHeight;
+            demo.scrollTo({
+                  top: demo.scrollHeight,
+                  behavior: 'smooth'
+                });
+         }
+       }
+    });
+    observer.observe(demo, { childList: true });
+
+    txtName.select();
+  }
+
+  txtName.addEventListener('keydown',function (event) {
+    if (event.key === 'Enter') {
+        btnAdd.click();
+    }
+  })
 
 
 </script>
