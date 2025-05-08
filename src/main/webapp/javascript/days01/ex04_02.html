@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+<style>
+    div#demo{
+        border: solid 1px gray;
+        height: 100px;
+
+        overflow: auto;
+    }
+    div.item{
+        color:red;
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <label for="name">이름 입력 : </label>
+  <input type="text" name="name" id="name" autofocus>
+  <br>
+  <br>
+  <div class="group">
+  <button class="add">추가</button>
+  <button class="edit">수정</button>
+  <button class="del">삭제</button>
+  <button class="search">검색</button>
+  <button class="alldel">모두 삭제</button>
+</div>
+<br>
+<div id="demo"></div>
+
+</div>
+
+<script>
+    const txtName= document.querySelector("#name");
+    const btnAdd= document.querySelector("button.add");
+    const btnEdit= document.querySelector("button.edit");
+    const btnDel= document.querySelector("button.del");
+    const btnSearch= document.querySelector("button.search");
+    const btndelAll= document.querySelector("button.alldel");
+    const demo =  document.querySelector("#demo");
+    // const demoAll = document.querySelectorAll("#demo>div.item last~~")
+    
+    btnAdd.onclick = function () { itemAdd();}
+    btnEdit.onclick = function () { 
+        // alert("Edit 이벤트 확인인")
+        if (selectedItem) {
+        selectedItem.textContent = txtName.value;
+        }
+    }
+    btnDel.onclick = function () { 
+        // alert("Del 이벤트 확인인")
+     }
+    btnSearch.onclick = function () { 
+        // alert("Search 이벤트 확인인")
+     }
+    btndelAll.onclick = function () { 
+        // alert("delAll 이벤트 확인인")
+        const confirmDelete = confirm("정말 삭제하시겠습니까?");
+        if (confirmDelete) {
+            demo.innerHTML = "";
+        }
+
+     }
+
+     txtName.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {  // Enter 키가 눌렸을 때
+        //    add();
+        btnAdd.click(); // btnAdd에 클릭이벤트를 발생 시키겠다. 이벤트 자체를 발생시키겠다.
+        }
+    });
+
+    demo.addEventListener("click", function(e){
+        const demoAll = document.querySelectorAll("#demo > div.item")
+        demoAll.forEach ( d => d.classList.remove("item"));
+        e.target.classList.add("item");
+
+        document.querySelector("input#name").value = e.target.textContent;
+
+        selectedItem = e.target; 
+    });
+
+    // 중복 -> 함수로 뺀다. 
+    function itemAdd() {
+        const demoAll = document.querySelectorAll("#demo > div.item")
+        let name = txtName.value;
+
+        // item 속성값 모두 제거
+        demoAll.forEach ( d => d.classList.remove("item"));
+        demo.innerHTML += `<div class='item'>${name}</div>`
+
+        txtName.select();
+
+        // [2] 부드럽게 스크롤 이동     
+      const observer = new MutationObserver((mutationsList, observer) => {
+      for (const mutation of mutationsList) {
+         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+             // demo.scrollTop = demo.scrollHeight;
+            demo.scrollTo({
+                  top: demo.scrollHeight,
+                  behavior: 'smooth'
+                });
+         }
+       }
+      });
+      observer.observe(demo, { childList: true });
+    }
+</script>
+</body>
+</html>

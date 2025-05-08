@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    /* 전역변수 선언 */
+    /* CSS 선택자임 */
+    :root{
+        --blue: 1e90ff;
+        --white: #fff;
+    }
+
+    body{
+        background-color: var(--blue);
+    }
+    h2{
+        border-bottom: 2px solid var(--blue);
+    }
+    .container{
+        /* css 지역변수 선언 */
+        --fontsize: 25px;
+    }
+    .container{
+        /* 1. 전역변수 --blue => 지역변수 재정의 할 수 있다. */
+        --blue: #0000ff;
+        /* 2. 새로운 지역변수만 선언 */
+        --button-blue: #0000ff;
+
+        color: var(--button-blue);
+        background-color: var(--button-blue);
+        padding: 15px;
+
+        font-size: var(--fontsize);
+    }
+    button{
+        background-color: var(--white);
+        color: var(--blue);
+        border: 1px solid var(--blue);
+        padding: 5px;
+    }
+    
+  </style>
+  <style>
+    /* 미디어쿼리는 여러 장치에 맞게 다양한 스타일을 
+    적용하기 위해서 사용하는 규칙을 정의한 것. */
+    @media screen and (min-width:450px) {
+        .container{
+            --fontsize: 50px; /*css 지역변수 변경*/
+        }
+    }
+  </style>
+</head>
+<body>
+
+<h1>The Traditional Way</h1>
+
+<div class="container">
+    <h2>Lorem, ipsum.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, porro reiciendis dicta sed tenetur id deleniti natus quas error itaque, temporibus nulla vitae ipsam molestiae. Nihil molestias suscipit obcaecati dolorum!</p>
+    <p>Tempore vel suscipit illum. Architecto laudantium harum est suscipit nisi iste molestias nesciunt magnam odio? Harum enim, beatae at non culpa animi voluptatibus? Unde fuga consequuntur alias veniam est et!</p>
+    <p>
+        <button onclick="getFunc();">CSS 변수 값을 얻어오기</button>
+        <button onclick="setFunc();">CSS 변수값을 설정하기기</button>
+    </p>
+</div>
+
+<script>
+var r = document.querySelector(":root");
+
+function getFunc(){
+    // r로부터 스타일지정(속성: 속성값)을 얻어오는 함수
+    var rs = getComputedStyle(r);
+    var color = rs.getPropertyValue("--blue");
+    alert(color);
+}
+function setFunc(){
+    r.style.setProperty("--blue", "red");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert title here</title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    /* 전역변수 선언 */
+    :root{
+        --blue: 1e90ff;
+        --white: #fff;
+    }
+
+    body{
+        background-color: var(--blue);
+    }
+    h2{
+        border-bottom: 2px solid var(--blue);
+    }
+    .container{
+        /* 1. 전역변수 --blue => 지역변수 재정의 할 수 있다. */
+        --blue: #0000ff;
+        /* 2. 새로운 지역변수만 선언 */
+        --button-blue: #0000ff;
+
+        color: var(--blue);
+        background-color: var(--button-blue);
+        padding: 15px;
+    }
+    button{
+        background-color: var(--white);
+        color: var(--blue);
+        border: 1px solid var(--blue);
+        padding: 5px;
+    }
+    
+  </style>
+</head>
+<body>
+
+<h1>The Traditional Way</h1>
+
+<div class="container">
+    <h2>Lorem, ipsum.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, porro reiciendis dicta sed tenetur id deleniti natus quas error itaque, temporibus nulla vitae ipsam molestiae. Nihil molestias suscipit obcaecati dolorum!</p>
+    <p>Tempore vel suscipit illum. Architecto laudantium harum est suscipit nisi iste molestias nesciunt magnam odio? Harum enim, beatae at non culpa animi voluptatibus? Unde fuga consequuntur alias veniam est et!</p>
+    <p>
+        <button>Yes</button>
+        <button>No</button>
+    </p>
+</div>
+
+</body>
+</html>

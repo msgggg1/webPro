@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <input type="text" id="txtContent" class="long" placeholder="내용 입력" autofocus="autofocus">
+
+  <button class="add" onclick="showResult();">실행(execute)</button>
+
+  <div id="demo" class="code">결과: </div>
+</div>
+
+  <script>
+    // const, let, var 키워드 - 변수 선언
+    const btnExec = document.querySelector("button.add");
+    const txtContent = document.querySelector("#txtContent");
+    const demo = document.querySelector("#demo");
+
+    // btnExec.addEventListener("click", function(){});
+    btnExec.onclick = function(){
+        // alert("이벤트확인");
+        let content = txtContent.value;
+        // alert(content);
+        //demo.innerText= content;
+        // demo.innerText= `결과 : ${content}`;
+        demo.innerHTML= `결과 : <span style="color:red"><b>${content}</b></span>`
+
+        // 다시 입력 받을 수 있도록 초기화 코딩
+        /* [1]
+        txtContent.value="";
+        txtContent.focus();
+        */
+       txtContent.select();
+    }; //onclick
+
+    //   function showResult() {
+    //     var result = document.getElementById('demo').innerHTML;
+        
+    //     result += document.getElementById('txtContent').value;
+    //     document.getElementById('demo').innerHTML = result;
+    //   }
+  </script>
+</body>
+</html>
