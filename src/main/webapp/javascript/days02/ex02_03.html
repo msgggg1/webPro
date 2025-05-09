@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+  </xmp>
+  <label for="name">RED : </label>
+  <input type="range" id="redRange" class="long" min="0" max="255" step="1">
+    <br>
+  <label for="name">GREEN : </label>
+  <input type="range" id="greenRange" class="long" min="0" max="255" step="1">
+    <br>
+  <label for="name">BLUE : </label>
+  <input type="range" id="blueRange" class="long" min="0" max="255" step="1">
+    <br>
+    <p>홍길동</p>
+
+</div>
+
+<script>
+  const rangeInputs = document.querySelectorAll('input[type="range"][id$="Range"]'); // input태그이면서 type range, id -range로 끝나야 함. 
+ 
+  rangeInputs.forEach((input)=>{
+    input.oninput = change ;
+  });
+
+  let cred, cgreen , cblue ;
+  
+  const pelem = document.getElementsByTagName("p")[0];
+  pelem.style.height = "200px";  
+  pelem.style.fontSize = "30px";
+  
+  function change(){
+     cred = rangeInputs[0].value;
+     cgreen = rangeInputs[1].value;
+     cblue = rangeInputs[2].value;
+
+     pelem.style.backgroundColor = `RGB(${cred},${cgreen},${cblue})`;
+     pelem.innerText = `RGB(${cred},${cgreen},${cblue})`;
+  }
+  
+  change(); // 첫 번째 초기화할 목적으로 호출..
+</script>
+</body>
+</html>

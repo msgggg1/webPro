@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    div 태그 안에 
+    radio 버튼을 5개 생성
+    실행 버튼을 클릭하면 
+    demo라는 출력 p 태그에 체크된 라디오 버튼의 value 속성값을 출력.
+  </xmp>
+  <input type="radio" name="group" value="Lorem">Lorem<br>
+  <input type="radio" name="group" value="ipsum">ipsum<br>
+  <input type="radio" name="group" value="dolor">dolor<br>
+  <input type="radio" name="group" value="lorsitem1">lorsitem1<br>
+  <input type="radio" name="group" value="consectetur">consectetur<br>
+  <br>
+  <button>실행</button>
+  <p id="demo"></p>
+
+</div>
+
+<script>
+    //js
+    document.querySelector("button").onclick = function () {
+        let checkedRadioValue;
+        // :checked
+        // document.querySelectorAll('input[name="group"]');
+        
+        const radioList = document.getElementsByName("group"); // nodeList
+        for (let i = 0; i < radioList.length; i++) {
+            if(radioList[i].checked){
+                checkedRadioValue= radioList[i].value;
+                break;
+            }       
+            }; // for
+            // js undefined => false 취급한다. (기억)
+            if (checkedRadioValue == undefined) {
+                alert("한 개 선택하세요.");
+            } else{
+                document.querySelector("#demo").innerText = checkedRadioValue;
+            }        
+        }
+        
+    
+</script>
+</body>
+</html>

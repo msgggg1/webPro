@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+<style>
+    #colorprt{
+        width: 50%;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<div>
+    <label for="red">RED : </label>
+    <input type="range" id="redRange" name="redRange" min="0" max="255" step="1">
+    <output id="redOut">0</output>
+    <br>
+    <label for="red">GREEN : </label>
+    <input type="range" id="grRange" name="grRange" min="0" max="255" step="1">
+    <output id="grOut">0</output>
+    <br>
+    <label for="red">BLUE : </label>
+    <input type="range" id="blueRange" name="blueRange" min="0" max="255" step="1">
+    <output id="blueOut">0</output>
+    <p></p>
+    <div id="colorprt"></div>   
+</div>
+
+<script>
+    const colorprt = document.querySelector("#colorprt");
+    const range = document.querySelectorAll("input");
+    
+    range.forEach(r => {
+            r.addEventListener("input", function(){
+
+            const redValue = document.querySelector("#redRange").value;
+            const grValue = document.querySelector("#grRange").value;
+            const blueValue = document.querySelector("#blueRange").value;
+
+            colorprt.style.background = `rgb(${redValue},${grValue},${blueValue})`;
+            colorprt.innerHTML = `RGB(${redValue},${grValue},${blueValue})`;
+            document.querySelector("#redOut").innerText = redValue;
+            document.querySelector("#grOut").innerText = grValue;
+            document.querySelector("#blueOut").innerText = blueValue;
+        });
+    });
+
+</script>
+</body>
+</html>

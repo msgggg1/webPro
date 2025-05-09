@@ -55,99 +55,79 @@
 </div>
 
 <script>
-   const txtName = document.querySelector("#name");
-   const btnAdd = document.querySelector("button.add");
-   const btnEdit = document.querySelector("button.edit");
-   const btnDel = document.querySelector("button.del");
-   const btnSearch = document.querySelector("button.search");
-   const btnAllDel = document.querySelector("button.alldel");
-   const demo = document.querySelector("#demo");
+   const txtName = $("#name");
+   const btnAdd = $("button.add");
+   const btnEdit = $("button.edit");
+   const btnDel = $("button.del");
+   const btnSearch = $("button.search");
+   const btnAllDel = $("button.alldel");
+   const demo = $("#demo");
   
    function itemAdd(){
     //alert("Add 이벤트 확인")
-      let name = txtName.value;
+      let name = txtName.val();
       // (가정) 입력값에 대한 유효성 검사 O
       
       // item 클래스 속성을 모두 제거.
-      const divs = document.querySelectorAll('#demo > div.item');
-      // 각 div에서 item 클래스 제거
-      divs.forEach(div => {
-        div.classList.remove('item');
+      const divs = $('#demo > div.item');
+      // 각 div에서 item 클래스 제거 each도 사용 x
+      divs.each(function(){ 
+        $(this).removeClass("item");
       });
       
-      // 
-      demo.innerHTML += `<div class='item'>${name}</div>`;
+      // 누적
+      // demo.html( demo.html() + `<div class='item'>${name}</div>`);
+      demo.append(`<div class='item'>${name}</div>`); // js의 appendChild
       
-      // [1]
-      // demo.scrollTop = demo.scrollHeight;      
-      
-      // [2] 부드럽게 스크롤 이동     
-      const observer = new MutationObserver((mutationsList, observer) => {
-      for (const mutation of mutationsList) {
-         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-             // demo.scrollTop = demo.scrollHeight;
-            demo.scrollTo({
-                  top: demo.scrollHeight,
-                  behavior: 'smooth'
-                });
-         }
-       }
-      });
-   
-      observer.observe(demo, { childList: true });
-           
-      // 
+      // 부드럽게 스크롤 이동     
+      // jquery method : animate(), prop() == attr()
+      demo.animate({scrollTop: demo.prop("scrollHeight")}, 1000);
+     
       txtName.select();
    }
    
-   btnAdd.onclick = function (){
+   btnAdd.on( "click" , function (){
            itemAdd(); 
-   };
-   btnEdit.onclick = function (){
+   });
+   btnEdit.on( "click" , function (){
       //alert("Edit 이벤트 확인") 
-      updateItem.innerText = txtName.value;
-   };
-   btnDel.onclick = function (){
+      updateItem.text( txtName.val());
+   });
+   btnDel.on("click" , function (){
       //alert("Del 이벤트 확인")
-   };
-   btnSearch.onclick = function (){
+      updateItem.remove();
+   });
+   btnSearch.on( "click" ,function (){
       //alert("Search 이벤트 확인")
-   };
+   });
    
-   btnAllDel.onclick = function (){
+   btnAllDel.on( "click" , function (){
       //alert("AllDel 이벤트 확인")
       const isConfirmed = confirm('정말로 삭제하시겠습니까?');
       if (isConfirmed) {
-         demo.innerHTML = "";      
+         demo.html("");      
       } // if
-   };
+   });
    
-   // 
-   txtName.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {  // Enter 키가 눌렸을 때
-        // itemAdd();
-         btnAdd.click();  // btnAdd에 클릭 이벤트를 발생시키겠다.
+   txtName.on ('keydown', function(event) {
+      if (event.key === 'Enter') {  
+         btnAdd.click(); 
       }
     });
-
-    function select_item() {
-      document.querySelectorAll
-    }
-   
 
    // 이벤트 버블링 *** : 자식에게 클릭 이벤트 발생 -> 부모에게도 클릭 이벤트 전달 / 자식에서 처리 x -> 부모에게 전달
    // 이벤트 위임: container가 자식 div의 클릭을 감지
    let updateItem;
-   demo.addEventListener('click', (event) => {
+   demo.on('click', (event) => {
       if (event.target.tagName === 'DIV') {
         updateItem = event.target;
 
-        // [1] item 클래스 속성 모두 제거거
-        const demoAll = document.querySelectorAll("#demo > div.item")
-        demoAll.forEach ( d => d.classList.remove("item"));
+        // [1] item 클래스 속성 모두 제거
+      $("#demo > div.item").removeClass("item");
 
-        txtName.value = event.target.textContent;
-        event.target.classList.add("item");
+      //[2] jquery method : addClass, removeClass
+        txtName.val(event.target.textContent);
+        $(event.target).addClass('item');
       }
     });
    

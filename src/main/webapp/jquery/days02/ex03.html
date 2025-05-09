@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+  .box{
+    color: red;
+    font-size: 30px;
+    border: 1px solid gray;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ 아래 3개의 스타일 지정 ]
+    1. 글 색상 color
+    2. 글 크기 font-size
+    3. 테두리  border
+
+    마우스를 올릴 때 - mouseover 이벤트 처리
+  </xmp>
+
+  <div id="demo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum excepturi ex rerum necessitatibus enim suscipit dolores nihil facilis eius assumenda at itaque provident eveniet, dolorum vitae quasi soluta blanditiis quae.</div>
+
+</div>
+<script>
+    $("#demo").on("mouseover",function () {
+      // alert(this); //[object HTMLDivElement]
+      // css()
+      /*
+      $(this).css("color", "red");
+      $(this).css("font-size", "30px");
+      $(this).css("border", "1px solid gray");*/
+      // $(this).css("color", "red").css("font-size", "30px").css("border", "1px solid gray");
+
+      /*
+      $(this).css({
+        "color":"red",
+        "font-size":"30px",
+        "border":"1px solid gray"
+      })
+        */
+
+        // jquery method : addClass(), removeClass()
+        //                 hasClass(), toggleClass()
+        //$(this).addClass("box");
+        // $(this).prop("class", "box");
+        $(this).attr("class", "box");
+
+    });
+        // console.log(event.srcElement + "/" + event.target +"/" + event.type);
+        // alert(this); //[object HTMLDivElement]
+
+        /* 여러개의 스타일 지정
+        [1]
+        this.style.color = "red";
+        event.srcElement.style.fontSize = "30px";
+        event.target.style.border = "1px solid gray" */
+
+        //[2]
+        // this.classList.add ("box");
+        // this.className = "box";
+        // this.setAttribute("class", "box");
+
+</script>
+</body>
+</html>

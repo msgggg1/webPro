@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
+<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+  </xmp>
+
+  <!-- 동적으로 요소를 생성 + 이벤트 처리 
+  <button>Turn On</button>
+  <button>Turn Off</button>
+  <br>
+  <img src="../images/pic_bulboff.gif" alt=""> 
+  -->
+  <!-- <img src="../images/pic_bulbon.gif" alt=""> -->
+
+</div>
+
+<script>
+   const container = $("body > div");
+
+  // <button>Turn On</button>
+   const btnTurnOn = $("<button>Turn On</button>");
+    btnTurnOn.on("click", function(){
+        bulb_onoff(true);
+    });
+   container.append(btnTurnOn);
+    
+    // <button>Turn Off</button>
+    const btnTurnOff = $("<button>Turn Off</button>");
+    btnTurnOff.on("click", function(){
+        bulb_onoff(false);
+    }).css( "display","none");
+    container.append(btnTurnOff);
+    
+
+    // <br> 빈요소
+    container.append($("<br>"));
+
+    // <img>
+    // const imgBulb = $('<img src="../images/pic_bulbon.gif" alt="">');
+    var imgBulb = $('<img>', {
+      src: '../images/pic_bulboff.gif',
+      alt: ''
+    });
+    
+    container.append(imgBulb);
+
+    // const imgBulb = document.createElement("img");
+    // imgBulb.src = "../images/pic_bulboff.gif";
+    // imgBulb.setAttribute("alt", "");
+    // container.appendChild(imgBulb);
+    
+    function bulb_onoff(flag){
+      imgBulb.attr("src", `../images/pic_bulb${flag ? "on" : "off"}.gif`);
+    
+      btnTurnOff.css("display", flag ? "inline" : "none");
+      btnTurnOn.css("display", flag ? "none" : "inline");
+
+    }
+
+    // 
+    imgBulb.hover(
+      //mouseover
+      function(){
+        btnTurnOn.click();
+      },
+      //mouseout
+      function(){
+        btnTurnOff.click();
+      }
+    );
+</script>
+</body>
+</html>

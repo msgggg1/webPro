@@ -97,6 +97,15 @@
         btnAdd.click();
     }
   })
+  function item_click() {
+    const divs = document.querySelectorAll("div");
+    divs.forEach((e)=>{e.classList.remove("item")});
+
+    let updateItem = event.target;
+    updateItem.classList.add("item");
+    let itemName = event.target.innerHTML;
+    txtName = updateItem.value;
+  }
 
 
 </script>
