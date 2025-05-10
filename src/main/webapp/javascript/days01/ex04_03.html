@@ -110,7 +110,8 @@
 
         // item 속성값 모두 제거
         demoAll.forEach ( d => d.classList.remove("item"));
-        demo.innerHTML += `<div class='item' onclick='item_click();'>${name}</div>`
+        // demo.innerHTML += `<div class='item' onclick='item_click();'>${name}</div>`
+        demo.innerHTML += `<div class='item'>${name}</div>`
 
         txtName.select();
 
@@ -130,19 +131,20 @@
     }
 
     let updateItem;
-    function item_click() {
 
-      // [1] item 클래스 속성 모두 제거거
-      const demoAll = document.querySelectorAll("#demo > div.item")
-      demoAll.forEach ( d => d.classList.remove("item"));
+    // function item_click() {
+
+    //   // [1] item 클래스 속성 모두 제거거
+    //   const demoAll = document.querySelectorAll("#demo > div.item")
+    //   demoAll.forEach ( d => d.classList.remove("item"));
        
-      // [2]
-      updateItem = event.srcElement;
-      event.srcElement.classList.add("item");
-      let itemName = event.srcElement.innerText;
-      txtName.value = itemName;
+    //   // [2]
+    //   updateItem = event.srcElement;
+    //   event.srcElement.classList.add("item");
+    //   let itemName = event.srcElement.innerText;
+    //   txtName.value = itemName;
 
-    }
+    // }
 </script>
 </body>
 </html>

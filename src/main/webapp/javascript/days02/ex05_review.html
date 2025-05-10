@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex05_review</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+  .box{
+    background-color: aquamarine;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <fieldset>
+      <legend>html 적용 여부</legend>
+    <form action="">
+    <input type="radio" id="hyes" name="htmlApply" checked>
+    <label for="hyes">적용</label>
+    <input type="radio" id="hno" name="htmlApply">
+    <label for="hno">미적용</label><br>
+    <input type="text" class="long" value="<span class='box'>사쿠야</span>"><br>
+    <button type="button" id="exec">실행</button>
+    </form>
+  </fieldset>
+  <div id="demo"></div>
+</div>
+
+<script>
+    document.querySelector("body>div>fieldset>form>button").addEventListener("click", function () {
+        const checkedRadioID = document.querySelector("input[type=radio]:checked").id;
+        
+        let content = document.querySelector("input[type=text]").value;
+        if (checkedRadioID == "hyes") {
+            document.querySelector("#demo").innerHTML = content;
+        } else {
+            document.querySelector("#demo").innerText = content;
+        }
+    })
+</script>
+</body>
+</html>

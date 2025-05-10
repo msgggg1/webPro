@@ -26,34 +26,29 @@
   <xmp class="code">
   </xmp>
 
-  <button>Turn On</button>
-  <button>Turn Off</button>
-  <br>
+  <button id="btnOn">Turn on</button>
+  <button id="btnOff">Turn off</button><br>
   <img src="../images/pic_bulboff.gif" alt="">
-  <!-- <img src="../images/pic_bulbon.gif" alt=""> -->
-
 </div>
 
 <script>
-    const btnTurnOn = document.querySelector("button:first-of-type");
-    const btnTurnOff = document.querySelector("button:last-of-type");
-    const imgBulb = document.querySelector("img");
+    const btnOn = document.querySelector("button:first-of-type");
+    const btnOff = document.querySelector("button:last-of-type");
+    const img = document.querySelector("img");
 
-    btnTurnOff.style.display = "none";
+    btnOff.style.display = "none";
 
-    btnTurnOn.onclick = function (){
-        // imgBulb.src = "../images/pic_bulbon.gif"
-        imgBulb.setAttribute("src", "../images/pic_bulbon.gif");
+    btnOn.addEventListener("click", function () {
+        img.setAttribute("src","../images/pic_bulbon.gif");
 
-        btnTurnOff.style.display = "inline";
-        btnTurnOn.style.display = "none";
+        btnOff.style.display = "inline";
+        btnOn.style.display = "none";
+    });
+    btnOff.addEventListener("click", function () {
+        img.setAttribute("src","../images/pic_bulboff.gif");
 
-    }
-    btnTurnOff.addEventListener("click", function (){
-        imgBulb.setAttribute("src", "../images/pic_bulboff.gif");
-
-        btnTurnOn.style.display = "inline";
-        btnTurnOff.style.display = "none";
+        btnOff.style.display = "none";
+        btnOn.style.display = "inline";
     });
 </script>
 </body>

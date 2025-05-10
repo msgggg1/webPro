@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+  div > #demo{
+    height: 120px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+  </xmp>
+
+<div>
+  RED: <input type="range" id="color" name="red" min="0" max="255"><output id="redout"></output><br>
+  GREEN: <input type="range" id="color" name="green" min="0" max="255"><output id="greenout"></output><br>
+  BLUE: <input type="range" id="color" name="blue" min="0" max="255"><output id="blueout"></output>
+  <div id="demo"></div>
+</div>
+</div>
+
+<script>
+    const inputs = document.querySelectorAll("input[id=color]");
+
+    inputs.forEach(i => {
+        i.addEventListener("input", function () {
+            const red = document.querySelector("input[name=red]");
+            const green = document.querySelector("input[name=green]");
+            const blue = document.querySelector("input[name=blue]");
+
+            const vred = red.value;
+            const vgreen = green.value;
+            const vblue = blue.value;
+
+            document.querySelector("#redout").innerText = vred;
+            document.querySelector("#greenout").innerText = vgreen;
+            document.querySelector("#blueout").innerText = vblue;
+
+            document.querySelector("#demo").style.background = `rgb(${vred},${vgreen},${vblue})`;
+            document.querySelector("#demo").innerText = `rgb(${vred},${vgreen},${vblue})`;
+        })
+    })
+
+</script>
+</body>
+</html>

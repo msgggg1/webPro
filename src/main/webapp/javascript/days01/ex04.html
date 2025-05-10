@@ -49,7 +49,18 @@
 <button class="alldel">모두 삭제</button>
 <br>
 <br>
-<div id="demo"></div>
+<div id="demo">
+  <div>오시온</div>
+  <div>오시온</div>
+  <div>마에다 리쿠</div>
+  <div>마에다 리쿠</div>
+  <div>토쿠노 유우시</div>
+  <div>토쿠노 유우시</div>
+  <div>히로세 료</div>
+  <div>히로세 료</div>
+  <div class="item">후지나가 사쿠야</div>
+  <div class="item">후지나가 사쿠야</div>
+</div>
 </div>
 
 <script>
@@ -61,10 +72,47 @@
   const txtName = document.querySelector("#name");
   const demo = document.querySelector("#demo");
   
-  
+  // 버튼 클릭
   btnAdd.onclick = function() {
     itemAdd();
   };
+
+  btnEdit.onclick = function () {
+    selectedItem.innerHTML = txtName.value;
+  }
+
+  btnDel.onclick = function(){
+    selectedItem.remove();
+    selectedItem = null; // 선택 상태 초기화 (안 하면 이전 요소 계속 참조)
+    txtName.value = ""; // input 내용 비우기 (ux 차원)
+  }
+  
+  btnSearch.onclick = function(){
+    const divs = document.querySelectorAll("#demo>div");
+    let firstMatch = null;
+    divs.forEach((d)=>{
+
+      if (d.innerText.includes(txtName.value)) {
+        d.classList.add("item");
+        if (!firstMatch) firstMatch = d;
+      } else{
+        d.classList.remove("item");
+      }
+      if (firstMatch) {
+        firstMatch.scrollIntoView( {
+          behavior: "smooth",
+        })
+      }
+    });
+  }
+
+  btnAllDel.onclick = function(){
+    const isConfirmed = confirm('정말로 모두 삭제 하시겠습니까?');
+    if (isConfirmed) {
+      demo.innerHTML = "";
+    }
+  }
+
 
   function itemAdd() {
     let name = txtName.value;
@@ -97,15 +145,21 @@
         btnAdd.click();
     }
   })
-  function item_click() {
+
+  let selectedItem;
+  demo.addEventListener("click", function item_click(event) {
+    if (event.target.tagName ==='DIV') {
+      selectedItem = event.target;
+
+    }
     const divs = document.querySelectorAll("div");
     divs.forEach((e)=>{e.classList.remove("item")});
 
-    let updateItem = event.target;
-    updateItem.classList.add("item");
-    let itemName = event.target.innerHTML;
-    txtName = updateItem.value;
-  }
+    selectedItem.classList.add("item");
+    let itemName = selectedItem.textContent;
+    txtName.value = itemName;
+
+  });
 
 
 </script>

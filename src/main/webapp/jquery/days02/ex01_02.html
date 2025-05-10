@@ -47,15 +47,16 @@
     out.text(parseInt(fontSize));
     fsrange.val(parseInt(fontSize));
    
+    
+    fsrange.on("input", function () {
+      out.text($(this).val());
+      demo.css("font-size",`${$(this).val()}px`);
+    })
+ 
     txtName.on('keydown', function (e) {
       if (e.which === 13 ) {  // Enter 키가 눌렸을 때
           demo.text($(this).val());
         }
-    })
-
-    fsrange.on("input", function () {
-      out.text($(this).val());
-      demo.css("font-size",`${$(this).val()}px`);
     })
 
 </script>
