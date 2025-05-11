@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>ex02</title>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
@@ -70,30 +70,51 @@
 	</div>
 	<div>다른 내용</div>
 	
-<script>
+	
+	<script>
+		// 복습
+		// document.querySelectorAll(".teamGroup>ul>li").forEach((li) =>{
+		// 	li.addEventListener("click", function(){
+		// 		li.remove();
+		// 	})
+		// });
+		$(".teamGroup>ul>li").on("click", function(){
+				$(this).remove();
+			});
+		// $(".teamGroup>ul>li").each((index, element) =>{
+		// 	$(element).on("click", function(){
+		// 		$(element).remove();
+		// 	})
+		// });
 
-	//javascript
-	const t2List = document.querySelectorAll("#team2 > ul > li")
-	// console.log(t2List.length);
-	/*
-	for (var i = 0; i < t2List.length; i++) {
-		//console.log(t2List[i].innerText); // <시작태그>문자열</닫기태그>
-		t2List[i].addEventListener("click", function () {
-			//this.remove();
-			// 클릭한 li 태그의 다음 li 태그를 삭제
-			this.nextElementSibling.remove(); //nextElementSibling 해당요소의 다음 형제 요소
+		
+	</script>
+
+
+	<!-- <script>
+	
+		//javascript
+		const t2List = document.querySelectorAll("#team2 > ul > li")
+		// console.log(t2List.length);
+		/*
+		for (var i = 0; i < t2List.length; i++) {
+			//console.log(t2List[i].innerText); // <시작태그>문자열</닫기태그>
+			t2List[i].addEventListener("click", function () {
+				//this.remove();
+				// 클릭한 li 태그의 다음 li 태그를 삭제
+				this.nextElementSibling.remove(); //nextElementSibling 해당요소의 다음 형제 요소
+			});
+		} // for 
+		*/
+		
+		t2List.forEach(li => {
+			li.addEventListener('click', function(){
+				// li.remove(); 
+				this.remove();
+				});	
 		});
-	} // for 
-	*/
-	
-	t2List.forEach(li => {
-		li.addEventListener('click', function(){
-			// li.remove(); 
-			this.remove();
-			});	
-	});
-	
-	
-</script>
+		
+		
+	</script> -->
 </body>
 </html>

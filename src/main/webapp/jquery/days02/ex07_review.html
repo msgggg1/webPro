@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ex07_jquery</title>
+<title>ex07_review_jquery</title>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link rel="stylesheet" href="http://localhost/webPro/resources/cdn-main/example.css">
-<script src="http://localhost/webPro/resources/cdn-main/example.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
 <style>
   span.material-symbols-outlined {
     vertical-align: text-bottom;
@@ -25,7 +25,7 @@
 <div>
   <xmp class="code">
   </xmp>
-  좋아하는 과목을 모두 선택하세요 ? 
+  좋아하는 과목을 모두 선택하세요.
   <br>
   <input type="checkbox" name="subject" id="kor" value="kor">
   <label for="kor">국어</label>
@@ -35,26 +35,42 @@
   <label for="mat">수학</label>
   <input type="checkbox" name="subject" id="pe" value="pe">
   <label for="pe">체육</label>
-  
   <br>
   <button>확인</button>
-  <p id="demo"></p> 
+  <p id="demo"></p>
 </div>
 
 <script>
-  // jquery
-  $("button").on("click", function(){
-    // $("input[type=checkbox]")
-    // jquery selector :checkbox
-    const ul = $("<ul></ul>");
-    $(":checkbox[name=subject]:checked").each(function (index, element){
-      // let li =$("<li>"+ element.value +"</li>");
-      let li =$(`<li>${element.value}</li>`);
-      ul.append(li);
-    });// each 
-     
-    $("#demo").append(ul);
-  }); // onclick
+  // const boxes = document.querySelectorAll("input[name=subject]");
+  
+  // document.querySelector("button").addEventListener("click", () => {
+    
+  //   let content ="<ul>";
+  //   boxes.forEach((element)=>{
+        
+  //     if (element.checked) {
+  //       content += `<li>${element.value}</li>`;
+  //     }
+  //   });
+  //   content += "</ul>"
+
+  //   document.querySelector("#demo").innerHTML = content;
+  // });
+
+  
+  $("button").on("click", () => {
+    
+    let ul =$("<ul></ul>");
+
+    $("input[name=subject]:checked").each((index, element) =>{
+      ul.append($(`<li>${element.value}</li>`));
+    });
+
+    $("#demo").html( ul );
+  });
+
+
+
 </script>
 </body>
 </html>

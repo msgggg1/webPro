@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ex06</title>
+<title>ex06_review</title>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="../../resources/cdn-main/example.css">
@@ -24,38 +24,39 @@
 </header>
 <div>
   <xmp class="code">
-    div 태그 안에 
-    radio 버튼을 5개 생성
-    실행 버튼을 클릭하면 
-    demo라는 출력 p 태그에 체크된 라디오 버튼의 value 속성값을 출력.
+
   </xmp>
   <input type="radio" name="group" value="Lorem">Lorem<br>
   <input type="radio" name="group" value="ipsum">ipsum<br>
   <input type="radio" name="group" value="dolor">dolor<br>
-  <input type="radio" name="group" value="lorsitem1">lorsitem1<br>
-  <input type="radio" name="group" value="consectetur">consectetur<br>
+  <input type="radio" name="group" value="sit">sit<br>
+  <input type="radio" name="group" value="amet">amet<br>
   <br>
-  <button>실행</button>
-  <p id="demo"></p>
+  <button name="exec">실행</button>
+  <div id="demo"></div>
 
 </div>
 
 <script>
-    // jquery 
-    $("button").on("click",function () {
-        let checkedRadioValue;
-        // :checked
-        // document.querySelectorAll('input[name="group"]');
-        
-        $("input[name='group']").each(function(index, element){
-          if(element.checked){
-              $("#demo").text ( element.value );
-              // break; // jQuery의 each문에서는 사용불가
-              return false;
-          }       
-        });
+
+    // $("button").on("click", function () {
+    //     let radioCheckedValue = $("input[name=group]:checked").val();
+
+    //     if (radioCheckedValue) {
+    //         $("#demo").text(radioCheckedValue);
+    //     } else{
+    //         alert("한 개 선택하세요.")
+    //     }
+    // })
+    $("button").on("click", function () {
+      let inputs = $("input[name=group]");
+      inputs.each((index, element) => {
+        if (element.checked) {
+          $("#demo").text(element.value);
+          return false;
+        }
+      })
       });
-        
     
 </script>
 </body>

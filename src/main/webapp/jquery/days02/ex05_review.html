@@ -45,16 +45,16 @@
 </div>
 
 <script>
-    document.querySelector("body>div>fieldset>form>button").addEventListener("click", function () {
-        const checkedRadioID = document.querySelector("input[type=radio]:checked").id;
+    $("body>div>fieldset>form>button").on("click", function () {
+        const checkedRadioID = $("input[type=radio]:checked").prop("id");
         
-        let content = document.querySelector("input[type=text]").value;
+        let content = $("input[type=text]").val();
         if (checkedRadioID == "hyes") {
-            document.querySelector("#demo").innerHTML = content;
+            $("#demo").html( content );
         } else {
-            document.querySelector("#demo").innerText = content;
+            $("#demo").text(content);
         }
-    })
+    });
 </script>
 </body>
 </html>
