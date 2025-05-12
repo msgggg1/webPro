@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex02 js</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 출력(표시) 방법 ]
+    1. innerText, innerHTML
+        text()      html()   jquery method
+    2. console.log()    F12 개발자모드 - 디버깅
+    3. document.write
+        html 문서가 로드된 후에 document.write() 메서드 호출하면 기존 html이 모두 삭제된다.
+        -> (테스트 용도로만 사용)
+    4. window.alert("경고창");
+  </xmp>
+
+  <button onclick="document.write('홍길동!!!');">확인</button> <!-- ; 없어도 오류 안남-->
+  <button onclick="window.print();">인쇄</button> <!--브라우저에서 제공공-->
+  <p id="demo"></p>
+</div>
+
+<script>
+    document.querySelector("#demo").innerText = "홍길동";
+    console.log("홍길동");
+
+    // window 객체는 BOM(browser object model)의 최상위 부모객체이다. 
+    // 전역 범위 객체 - 변수, 속성, 메서드
+    // window.alert("test"); window 생략가능
+    // alert("test");
+</script>
+</body>
+</html>

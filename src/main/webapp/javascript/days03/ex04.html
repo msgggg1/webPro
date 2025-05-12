@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 변수를 사용하는 4가지 방법 ]
+    1. js 변수 선언 X 
+        ㄴ 항상 변수는 선언하고 사용하는 것을 권장
+    2. var 키워드
+        ㄴ 1995~2015(ES6) 모든 js 코드에 사용되었다.
+    3. let 키워드
+    4. const 키워드
+  </xmp>
+</div>
+
+<script>
+    // let kor;
+    // let eng;
+    // let mat;
+
+    let kor, eng, mat ; // 위와 값음
+
+</script>
+
+<script>
+    // let kor ; // undefined <- 변수 선언 후 값 할당하지 않았을때
+    // var kor ;
+    // alert(kor); // undefined
+</script>
+
+<script>
+    // 전역변수
+    // window 전역객체의 멤버변수가 된다. -> 전역 변수가 된다.
+    let name = "홍길동";
+
+    // document.write(window.name); // let으로 선언했지만 전역변수 됨. 
+    // 이런 경우 var, let 차이가 없음. 똑같다. 
+
+    // java : final double PI = 3.14 
+    const pi = 3.14;
+    //alert(pi);
+
+   // pi=4.14;
+   // alert(pi);
+</script>
+
+<script>
+    // 전역변수
+    // window 전역객체의 멤버변수가 된다. -> 전역 변수가 된다.
+    var x = 10;
+    var y = 20;
+    var z = x + y ;
+    // document.write(window.z);
+</script>
+<script>
+    // 1. 변수 선언 X
+    // name = '홍길동';
+    // alert(name);
+
+    // x = 10 ;
+    // y = 20 ;
+    // z = x + y ;
+    // document.write(z);
+
+</script>
+</body>
+</html>

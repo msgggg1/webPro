@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex03 js</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    1. js 서버 실행 X 
+       클라이언트( 브라우저 )에서 실행
+    2. js 명령문(statement)은 작성된 순서대로 실행된다.
+    3. js 모든 명령문은 세미콜론 권장. <!--그러나 없어도 오류 안남.-->
+    4. 대소문자 구분 O 
+       let a, b 
+       A = 5;
+       b = 10;
+    5. js 주석처리          //  /* ~ */
+    6. js 코딩에서 여러 공백은 무시된다. 
+       let      name               = "홍길동";
+       let name="홍길동";
+       let name = "홍길동"; // 권장
+       // 연산자 앞 위에 공백 1개 붙이는 것을 권장
+       a+b+c 
+       a + b + c ; //권장
+    7. 블럭
+        {
+        - - 들여쓰기 2칸 // 권장
+        }
+    8. js 예약어
+        for 
+        while 
+        if 
+        function 
+
+        var     변수 선언 
+        let     블럭(지역) 변수 선언
+        const   블럭(지역) 상수 선언
+ 
+        abstract   arguments   await*   boolean 
+        break   byte   case   catch 
+        char   class*   const   continue 
+        debugger   default   delete   do 
+        double   else   enum*   eval 
+        export*   extends*   false   final 
+        finally   float   for   function 
+        goto   if   implements   import* 
+        in   instanceof   int   interface 
+        let*   long   native   new 
+        null   package   private   protected 
+        public   return   short   static 
+        super*   switch   synchronized   this 
+        throw   throws   transient   true 
+        try   typeof   var   void 
+        volatile   while   with   yield
+    
+    9. js 두 가지 유형의 값
+       1) 고정 값 (리터럴)
+           숫자     100   3.14  
+           js 문자열    "홍"의" 이름" -> '홍"의" 이름' , '홍의 이름'
+                        "홍' s~"    , '홍' s~' -> X
+           true, false
+
+       2) 변수 값
+            데이터 값을 저장하는 저장공간의 이름
+            java 자료형 변수명[초기값];
+            [ js 변수 선언 형식 ]
+
+            ㄱ. 1995 ~ 2015 (ES6) 지역변수/전역변수
+            var     변수명
+
+            ㄴ. 블럭(지역)변수
+            let     변수명
+            const   변수명      상수
+
+        ** js는 변수를 선언하지 않고 사용가능하다.
+
+        10. js 식별자를 명명하는 규칙
+          - 첫 문자는 숫자 사용 X
+          - 알파벳 대소문자 구분해서 사용 가능
+          - $   _ 기호 사용 가능
+          let $name; jquery아니고 변수명이 $name일 뿐. 
+            jquery  객체를 저장할 변수 앞에 $변수명. 
+            let_name; 
+        11. js 식별자도 Camel Case
+            firstNameAsdf
+        12. js는 유니코드 문자 집합(전세계 대부분 문자)를 사용
+
+        예) 
+        let first_name; O 
+        let first-name; 하이픈X 
+        
+  </xmp>
+</div>
+
+<script>
+    //var name = '홍길동';
+
+    name = "박기수"; // 변수 선언 없이 사용 가능
+
+    // alert(name);
+
+
+</script>
+</body>
+</html>

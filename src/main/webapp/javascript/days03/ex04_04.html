@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+<script>
+    //2
+    // java class Person {필드, 메서드 등등}
+    //      Person p1 = new Person();
+    //              p1.name
+    //              p1.method()
+
+    // [ js 객체 선언 ] []배열 {}객체
+    const person = { 
+                    name:"홍길동"
+                   , age:20 
+                    } ; // 객체! 
+    console.log(person.name);
+    console.log(person["name"]);
+    person.age = 30;
+</script>
+<script>
+    // 1
+    /*
+    const PI = 3.14;
+    PI = 4.14;
+    */
+
+    /* 상수는 선언과 동시에 초기값을 할당해야 된다.
+   Uncaught SyntaxError: Missing initializer in const declaration (at ex04_04.html:37:10)
+   const PI;
+   PI = 3.14;
+   */
+
+   // (기억) const 상수는 언제 사용하나 ?
+   // 1.    새로운 Array(배열) 선언, 사용 시
+   // 2.    새로운 Object(객체) 선언 시
+   // 3.    새로운 Function(함수)
+   // 4.    새로운 RegExp(정규표현식)
+
+   // java에서의 배열
+   // int [] m = new int [3];
+   // int [] m = {1,2,3};
+
+   //[ js 배열 선언 ] 배열크기 필요없다.
+   /*
+   const m = []; // js의 배열
+   m[0] = 1;
+   m[1] = 2;
+   m[2] = 3; */
+
+   // 배열 m에 const 키워드를 사용해서 (사실 다른 것도 가능함.)
+   // 상수
+   // 베열[0]의 요소가 상수인것은 아님 -> 값 할당, 변경 가능. 주소가 상수다.
+   const m = [1,2,3];
+   m[0] = 100;
+   console.log(m[0]);
+
+//    m[100]=100; // 나머지 방 자동으로 생성됨.
+    // m[3] = 4; == m.push(4);       
+
+
+</script>
+</body>
+</html>

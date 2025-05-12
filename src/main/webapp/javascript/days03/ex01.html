@@ -1,0 +1,79 @@
+<script>
+    //js 선언할 수 있는 곳 [1]
+    document.write("홍길동-1");
+    document.write("<br>");
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex01 js</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+<script>
+    //js 선언할 수 있는 곳 [2]
+    document.write("홍길동-2<br>");
+    // document.write("<br>");
+</script>
+<script src="ex01_script.js"></script>
+</head>
+<body>
+    <script>
+    //js 선언할 수 있는 곳 [3]
+    document.write("홍길동-3<br>");
+    // document.write("<br>");
+</script>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 선언 위치 ]
+
+    script type = "text/javascript" 속성 필수 X
+    두 군데 
+        ㄴ /body - 스트립트 해석의 표시 속도가 향상된다. 
+        ㄴ head - 
+        body, header태그 안 경고는 안띄운다.
+
+        js파일을 외부에 만들어두고 참조할 수 있다.
+         ㄴ html 코딩과 js 코딩을 분리
+         ㄴ 가독성 향상/ 유지 보수 용이
+         ㄴ 외부 js 파일 캐싱 되어서 페이지의 로딩 속도가 향상된다.(링크태그로 참조)
+    </xmp>
+<!-- 
+    html 속성 = "속성값"
+    html 속성 = '속성값'
+    html 속성 = 속성값
+
+    js 문자열  "" , ''  상관없다.  -->
+
+
+    <button onclick="nameAlert('홍길동')">외부 js 파일 사용 버튼</button>
+    <!--     html        js "" "" -> 내부 충돌  -->
+
+</div>
+<script>
+    //js 선언할 수 있는 곳 [4]
+    document.write("홍길동-4<br>");
+    // document.write("<br>");
+</script>
+</body>
+</html>
+<script>
+    //js 선언할 수 있는 곳 [5]
+    document.write("홍길동-5<br>");
+    // document.write("<br>");
+</script>

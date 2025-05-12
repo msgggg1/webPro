@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex09 jquery</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+
+  #items-container{
+    height: 200px;
+    overflow: auto;
+    border: 1px solid gray;
+    padding: 3px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    js 동적 요소 생성, 추가, 수정, 삭제
+
+    생성 : createElement()
+    추가 : appendChild(), insertBefore()
+    삭제 : removeChild()
+    교체 : replaceChild()
+
+           hasChildNodes()
+
+        설문조사 등록 시 항목 수를 선택하면 입력텍스트 박스 생성
+
+        4
+        <!-- 
+        항목1 : <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+        -->
+  </xmp>
+
+  항목수:
+  <select name="itemCount" id="itemCount">
+    <option>선택</option>
+  </select>
+<!-- 동적 요소 생성
+  <div id="items-container"></div> 
+-->
+
+</div>
+
+<script>
+   for (let i = 0; i <= 20; i++) {
+    $("#itemCount").append($(`<option>${i}</option>`));    
+   } // for
+
+   const container =  $('<div id="items-container"></div>')
+   $("body > div").append(container) ;
+
+   $("#itemCount").on("change", function () {
+      container.empty();
+
+      let count = $(this).val();
+      for (let i = 1; i <=count; i++) {
+        // jquery method : append(): 마지막 자식 요소로 추가
+        // jquery method : prepend(): 첫 자식 요소로 추가
+        cotainer.append(`아이템 : ${i} : <input type="text" class="long" id="item-${i}"><br>`);
+      }
+   });
+</script>
+</body>
+</html>

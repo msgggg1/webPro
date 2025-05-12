@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <button>실행</button>
+  <p id="demo" style="border: 1px solid"></p>
+
+<script>
+    let content = "";
+
+content += "<table border='1' width='300'>";
+content += "    <tr>";
+content += "        <td>Lorem</td>";
+content += "        <td>ipsum</td>";
+content += "        <td>dolor</td>";
+content += "    </tr>";
+content += "    <tr>";
+content += "        <td>sit</td>";
+content += "        <td>amet</td>";
+content += "        <td>consectetur</td>";
+content += "    </tr>";
+content += "    <tr>";
+content += "        <td>adipisicing</td>";
+content += "        <td>elit.</td>";
+content += "        <td>Aliquam.</td>";
+content += "    </tr>";
+content += "</table>";
+
+document.querySelector("button").onclick = ()=>{
+   document.write( content );
+}
+
+</script>
+
+
+</div>
+</body>
+</html>
