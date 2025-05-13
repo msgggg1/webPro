@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <input type="radio" id="rdbp" name="group" value="1" checked="checked"> p 요소
+  <input type="radio" id="rdbs" name="group" value="2"> select 요소
+  
+  
+  <br>
+  팀원 이름 입력 : 
+  <input type="text" id="name" name="name" autofocus="autofocus">
+  
+  <p id="demo">
+  </p>
+  
+  <select>
+  </select>
+</div>
+
+<script>
+    // 모든 라디오버튼
+    //document.querySelectorAll("input[name=group]")
+    const radios = document.getElementsByName("group");
+    const sel = $("select");
+    const p = $("#demo");
+
+    $("#name").on(keyup , function(){
+      if (event.which == 13) {
+
+         let checkedRadioValue  = $(":radio[name=group]:checked").val();
+          if (checkedRadioValue == 1 ) {
+            p.append($(`<li>${$(this).val()}</li>`));
+          } else if(checkedRadioValue == 2){
+              $("<option></option>").text($(this).val());
+              sel.append(option);
+              // sel.append( `<option>${$(this).val}</option>`);
+          }
+      }
+    });
+
+    /*
+    let content = "";
+    let option = "";
+    
+    document.querySelector("#name").addEventListener("keydown", function(event){
+        const chkradio = document.querySelector("input[type=radio]:checked");
+        const item = document.querySelector("#name").value;
+            if ( event.key ==='Enter') {
+                if (chkradio.id == "rdbp") {
+                    content += `<li>${item}</li>`;
+                    document.querySelector("#demo").innerHTML = content;
+                }else{
+                    option += `<option>${item}</option>`;
+                    document.querySelector("select").innerHTML = option;
+                }
+            }
+            // 가장 나중에 추가한 option 요소 보이기 
+            document.querySelector("select").selectedIndex = document.querySelector("select").options.length - 1;
+        });
+        */
+</script>
+</body>
+</html>

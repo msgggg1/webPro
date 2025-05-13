@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    js 객체 -> JSON 변환 -> js 객체 변환
+  </xmp>
+</div>
+
+<script>
+    // js 객체 다다
+    const person ={
+        // 속성(필드)
+        name: "홍길동",
+        age : 20,
+        birth:{ // birth 객체
+            year: 2000,
+            month: 4,
+            day: 7
+        },
+        // 메서드
+        info: function(){
+            return this.name + "/"+this.age;
+        }
+    };
+
+    //JSON 변환
+    let personJson = JSON.stringify(person); // JSON으로 바꾸기기
+    // alert(typeof personJson); // string 문자열 ==> "json은 문자열" jsObjectnotation / jsObject를 문자열로 표기하는 방법
+    // alert(personJson); 
+    // JSON data 문자열
+    /*
+    let str = '{
+                    "name":"홍길동"
+                    ,"age":20
+                    ,"birth":{
+                                    "year":2000,
+                                    "month":4,
+                                    "day":7}
+                                }';
+                                */
+
+    // 비동기적으로 서버간 데이터 주고받을때:  xml, json(더 가벼움) 
+
+    //json -> js object 변환
+    const parsePerson = JSON.parse(personJson);
+    // alert(parsePerson.name);
+
+    // [js 객체]로부터 모든 속성명을 얻어오는 반복문
+    // forin 문을 사용
+    let content = "";
+    for (const pn in person) {
+        // content += pn + "\n";        //이름
+        content += person[pn] + "\n";   //값
+    }
+
+    alert(content);
+
+</script>
+</body>
+</html>

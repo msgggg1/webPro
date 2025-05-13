@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [js 객체 생성자 함수]
+    - 동일한 유형의 많은 객체를 생성할 때 사용되는 함수
+    - 생성자 함수의 이름은 대문자로 시작 ( 권장 )
+
+
+    // 필드 + 메서드 선언 + 추가 + 제거
+    const person = {};
+    const person = new Object();
+
+    // js 내장된 [객체 생성자]
+    new Object();
+
+    const m = []; // 아래와 같은 코딩이지만 이 코딩 권장
+    const m = new Array(); // 객체 생성자로 배열 생성. 권장 x
+
+    new Date();
+    new RegExp();
+    new Function();
+    new Map();
+    new Set();
+
+    ** 연산자 2**3
+    전역객체 Math.pow(2,3) //객체 생성자X, 이미 사용할 수 있도록 생성되어있는 내장된 전역 객체
+  </xmp>
+</div>
+
+<script>
+    // js 함수
+    function Person(name, age, gender) { // 함수명이 대문자로 시작 -> 생성자 함수(객체 생성 시 사용)
+        // 객체 자기 자신 나타내는 this
+        // alert(this); // [object Object]
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        // 메서드
+        this.info = function () {
+            return this.name + "/" + this.age ;
+        }
+    }
+
+    const p1 = new Person("홍길동1", 20, true);
+    const p2 = new Person("홍길동2", 21, false);
+    const p3 = new Person("홍길동3", 22, true);
+
+    // 새로운 멤버(필드(속성)+메서드) 추가 : 2가지 방법
+    // 1) 객체를 사용 (p1,p2,p3)
+    p1.address = "서울 강남구";
+    p1.changeName = function (name) {
+        this.name = name ;
+    }
+    // 2) 객체 생성자에 새로운 멤버를 추가 X
+    //  예) Person.address = "주소"; ==> 불가능
+    //  => 해결방법 prototype 속성으로 추가가
+    Person.prototype.address = "주소"; // 객체 생성자 통해 멤버 추가하는 코딩
+    Person.prototype.changeName = function (name) {
+        this.name = name;
+    }
+
+</script>
+</body>
+</html>
