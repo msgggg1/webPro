@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<script>
+    // ES5 (ES = js의 공식명칭)
+    var x = function (a,b) {
+        return a+b;
+    }
+
+    alert( x() ); // NaN
+
+    // ES6 화살표 연산자 => 람다식
+    // var x = (a,b) => {return a+ b}
+    // var x = (a,b) => a+b ;
+    // (기억) 화살표 함수도 호이스팅되지 않는다.
+
+    // js 함수의 매개변수 앞에 let, var, const 키워드 사용하지 않는다.
+    /*
+    function test(let x, const y) {
+        
+    }
+    */
+
+    // 매개변수의 초기값 할당 가능
+   function test(x,y = 0) {
+    alert(`x=${x}, y=${y}`);
+   }
+
+   test(10,20);
+   test(10); // 10 undefined -> 초기값 할당
+</script>
+</body>
+</html>

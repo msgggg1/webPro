@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<script>
+    /*자체 호출 함수 (함수 클로저 이해 )
+    (function(){})()
+    reply.js 파일을 호출함과 동시에 (function(){})() 자체 호출함수 호출
+    */
+    (function (a,b) {
+        alert("익명 함수");
+    })()
+
+    /*
+    func();
+
+    // 익명함수 호이스팅 X 
+    const func = function () {
+        alert("익명함수: 이름이 없는 함수") // 변수에 담겨져있거나, 이벤트 시 호출
+    }
+    */
+
+    // [ js 호이스팅 ]
+    // 함수 호출 부분
+    test();
+
+    // 함수 선언 부분
+    function test() {
+        alert("test()호출완");
+    }
+
+    alert(test.toString()); // 함수 통째로 문자열로 잡힘
+    alert( typeof test ); // function
+
+    // js 자료형 8가지 : string, number, nbigint, boolean, undefined
+    //                   object - function, array, map, set, Date
+
+</script>
+</body>
+</html>

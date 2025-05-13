@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<script>
+    // class Car{
+    //     Engine engine = new Engine();
+    // }
+    // js 객체 - 나중에 JSON하고 헷갈림
+    //
+    // 객체 속성, 메서드 추가, 삭제 가능
+    const person ={
+        // 속성(필드)
+        name: "홍길동",
+        age : 20,
+        birth:{ // birth 객체
+            year: 2000,
+            month: 4,
+            day: 7
+        },
+        // 메서드드
+        info: function(){
+            return this.name + "/"+this.age;
+        }
+    };
+
+    person.name = "박지웅";
+    // alert(person.name);
+
+    // 새로운 속성(필드)을 추가할 수 있다.
+    person.gender = "남자";
+
+    // 속성(필드) 제거
+    delete person.age;
+    // delete person["age"];
+
+    // 중첩 클래스(객체) 개념으로 속성/메서드 사용
+    // person.birth.year
+    // person.birth["year"];
+    // person["birth"]["year"];
+
+    let info = person.info();
+    alert(info);
+
+    // 새로운 메서드 추가할 수도 있다.
+    person.disp = function(){
+        // 구현현
+    }
+
+</script>
+
+</body>
+</html>

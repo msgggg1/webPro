@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+
+  input[type=text]{
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+  <div style="display: flex; justify-content: space-around; align-items: baseline;">
+    <input type="text" autofocus>
+    <select name="operator" id="operator">
+      <option value="">선택</option>
+      <option value="+">+</option>
+      <option value="">-</option>
+      <option value="">*</option>
+      <option value="">/</option>
+      <option value="">%</option>
+      <option value="">**</option>
+    </select>
+    <input type="text">
+    =
+    <input type="text" disabled> <!--정렬되어있음음-->
+  </div>
+</div>
+
+<script>
+    const txt1 = document.querySelector("input[type=text]:first-of-type");
+    const txt2 = document.querySelector("input[type=text]:nth-of-type(2)");
+    const txt3 = document.querySelector("input[type=text]:last-of-type");
+    const op = document.querySelector("#operator");
+
+    // 숫자패드, 키보드 상단(1,2,3,4...)
+    txt1.onkeydown = function(){
+
+        const allowedKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", ".", "Enter"];
+
+        // [숫자 키 확인인]
+        const isNumberKey = (event.key >= "0" && event.key <= "9")
+                            || 
+                             (event.code.startsWith("Numpad") &&  !isNaN(event.key) );
+
+                                
+
+
+        //       숫자 !         !허락된 key
+        if (!isNumberKey && !allowedKeys.includes(event.key)) {
+            alert("입력잘못")
+            event.preventDefault();
+        } else{
+               if (event.key == 'Enter') {
+                        txt2.select();
+                }
+        }
+        
+    }
+
+     txt2.onkeydown = function(){
+      if (event.key == 'Enter') {
+                op.focus();
+                }
+     
+     }
+
+     op.onchange = function () {
+      let result;
+
+      switch (this.value) {
+        case "+":
+          result = parseFloat(txt1.value) + parseFloat(txt2.value);
+          break;
+        case "-":
+          result = parseFloat(txt1.value) - parseFloat(txt2.value);
+          break;
+        case "*":
+          result = parseFloat(txt1.value) * parseFloat(txt2.value);
+          break;
+        case "/":
+          result = parseFloat(txt1.value) / parseFloat(txt2.value);
+          break;
+        case "**":
+          result = parseFloat(txt1.value) ** parseFloat(txt2.value);
+          break;
+        case "%":
+          result = parseFloat(txt1.value) % parseFloat(txt2.value);
+          break;
+      
+        default:
+          break;
+      }
+
+      txt3.value = result;
+      txt1.select();
+     }
+
+
+</script>
+</body>
+</html>
