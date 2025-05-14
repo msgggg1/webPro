@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ 문자열 검색 함수 ]
+    indexOf()
+    lastIndexOf()
+    search()
+
+    startsWith()
+    endsWith()
+
+    match() : 정규표현식을 기준으로 일치하는 배열을 반환하는 함수
+    matchAll() : 정규표현식을 기준으로 일치하는 반복자(iterator)를 반환하는 함수
+                IE 에서 사용 불가
+
+    includes() : 지정된 값이 문자열에 포함 여부 true/false
+
+    `` (벡틱연산자 사용한 문자열) : Template String(템플릿 문자열)
+  </xmp>
+</div>
+
+<script>
+    let text = "The rain in SPAIN stays mainly in the plain";
+    // alert (text.indexOf("ain") ); // 5 찾은 위치값을 반환
+    // alert (text.search(/ain/i)); // 찾은 위치값을 반환 5
+    // indexOF, search 차이점
+    // text.indexOf(string, 찾을 위치), regexp 사용 가능 여부부
+    // search는 못함. 
+    
+    // array 반환
+    // console.log(text.match(/ain/ig));
+
+    alert(text.includes("rain")); // true
+
+</script>
+
+<script>
+    let url = "http://www.naver.com";
+    alert(url.startsWith("http://")); // true
+    alert(url.endWith(".com")); // true
+</script>
+</body>
+</html>

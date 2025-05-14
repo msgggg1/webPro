@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    js split(구분자) 함수
+      ㄴ 구분자를 사용해서 문자열 잘라내고
+      ㄴ 배열로 반환하는 함수
+  </xmp>
+
+  <input type="text" class="full" value="박지웅  , 김유미,   김예지, 서재웅   ">
+
+  <p id="demo"></p>
+</div>
+
+<script>
+    // input[type=text] == :text jquery selector
+    $(":text").on("keydown", function(){
+        if (event.which == 13) {
+            let data = $(this).val();
+
+            const nameArr = data.split(/\s*,\s*/);
+            let ul = $("<ul></ul>");
+            nameArr.forEach((n) => {
+                ul.append($(`<li>${n}</li>`));
+            });
+
+            $("#demo").empty().append(ul);
+        }
+    });
+</script>
+</body>
+</html>

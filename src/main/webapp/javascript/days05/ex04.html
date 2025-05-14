@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 숫자 -> 문자열 변환 함수 ]
+    toString()
+    toExpotential()
+    toFixed()
+    toPrecision()
+  </xmp>
+</div>
+
+<script>
+    let a = 10 ;
+    // 가장 쉬운 방법
+    //      a + "" => "10"
+
+    // alert(typeof a.toString()); // "10" string
+
+    // 2. toExpoential()
+    //       ㄴ "지수 표기법"을 사용하여 문자열 반환
+    //       ㄴ 매개변수 : 소수점 뒤에 있는 문자의 수를 정의
+    let x = 9.656;
+    document.write(x.toExponential() + "<br>");
+    document.write(x.toExponential(2) + "<br>");
+    document.write(x.toExponential(4) + "<br>");
+    document.write(x.toExponential(6) + "<br>");
+   
+    // 지수표기법 X + 소수점 이하 자릿수를 지정정
+    document.write(x.toFixed() + "<br>"); // 9.656  반올림 10
+    document.write(x.toFixed(2) + "<br>"); // 소수점 2자리
+    document.write(x.toFixed(4) + "<br>"); // 
+    document.write(x.toFixed(6) + "<br>"); 
+
+    // 지수표기법 X + 전체자리수
+    document.write(x.toPrecision() + "<br>");
+    document.write(x.toPrecision(2) + "<br>");
+    document.write(x.toPrecision(4) + "<br>");
+    document.write(x.toPrecision(6) + "<br>");
+   
+
+</script>
+</body>
+</html>

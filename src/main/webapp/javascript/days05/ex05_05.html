@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+<script>
+    // js 2차원 배열
+    /*
+    const m = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ];
+    
+    document.write(m.toString() + "<br>");
+    document.write(m[0].toString() + "<br>");
+    document.write(m[1].toString() + "<br>");
+    document.write(m[2].toString() + "<br>");
+
+    document.write(m[0][0] + "<br>");
+    document.write(m.flat() + "<br>");
+    document.write(Array.isArray(m) + "<br>"); // true
+    document.write(Array.isArray(m[0]) + "<br><hr>"); // true
+    // => js도 2차원배열은 배열의 배열이다. 
+    */
+
+    //java 모두 출력시
+    /*
+    for (let i = 0; i < m.length; i++) { //행
+        for (let j = 0; j < m[i].length; j++) {//열
+            document.write(`[${m[i][j]}]`);
+        } // j
+        document.write("<br>");
+    }// i
+    */
+   /*
+   m.forEach((arr) =>{
+    arr.forEach((element)=>{
+        document.write(`<${element}>`);
+    });
+        document.write("<br>");
+   });
+   */
+   
+</script>
+<script>
+    /*
+    //copyWithin() : 배열의 요소를 배열의 다른 위치에 복사(덮어쓰기) 함수
+    const m = [3,5,2,4,1];
+    document.write(m.toString() + "<br>");
+            //복사 시작할 위치, 복사할 값 start, end
+    m.copyWithin(2,0,2); // 35351
+    m.copyWithin(2,0); // 35353
+    document.write(m.toString() + "<br>");
+    */
+</script>
+<script>
+    /*
+    const n = [1,2,3];
+    const m = [4,5,6];
+    const s = [7,8,9];
+
+    // 위의 3개의 배열을 병홥 - concat()
+    // const nm = n.concat(m);
+    // const nms = nm.concat(s);
+    const nms = n.concat(m,s);
+    document.write(nms.toString()+"<br>");
+    */
+</script>
+
+<p id="demo"></p>
+
+<script>
+    /*
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    // ES2022: at()추가
+    document.write(fruits[1]+"/"+fruits.at(1)+"<br>");
+    document.write(fruits[fruits.length-1]+"/"+fruits.at(-1)+"<br>");
+    */
+    // 
+    /* [1]
+    let content = "<ul>";
+    fruits.forEach(()=>{
+        content += `<li>${element}</li>`;
+    });
+    content += "</ul>";
+
+    $("#demo").html(content);
+    */
+   /*
+   // [2]
+   const ul = $(`<ol></ol>`);
+    fruits.forEach((element)=>{
+    ul.append($(`<ul>${element}</ul>`));
+    })
+   $("#demo").append(ul);
+   */
+
+   /*
+   // [3] js array.join() ***
+   // Join() 메서드는 배열의 모든 요소를 
+   // 쉼표나 지정된 구분 문자열로 구분하여 연결한 새 문자열을 만들어 반환
+   document.write(fruits.join()+"<br>");
+   document.write( "<ul><li>"+ fruits.join("</li><li>")+"</li></ul>"+"<br>");
+   */
+
+</script>
+
+<script>
+    /*
+    const m = [1,2,3]
+    document.write(m.toString() + "<br>");
+    // 배열에 4 추가
+    // m[m.length] = 4;
+    // m[m.length] = 5;
+
+    m.push(100);
+    m.push(200); // 배열의 마지막 요소로 자동으로 추가, index값 찾아올 필요 없음음
+    m.push(300); // 배열의 마지막 요소로 자동으로 추가, index값 찾아올 필요 없음음
+    document.write(m.toString() + "<br>");
+
+    // java pop() 큐~
+    let last = m.pop(); // 배열의 마지막 요소를 제거하고 출력
+    document.write(m.toString()+" / " + last + "<br>");
+
+    // m[0] = 5 추가
+    // unshift();
+    let 배열크기 = m.unshift(5); // 첫 번째 요소에 5를 추가하고
+                    // 모든 요소를 한 칸씩 뒤로 이동시키는 함수
+    document.write(m.toString() + "<br>");
+
+    // shift() 첫 번째 요소를 제거하고
+    // 모든 요소를 한 칸씩 앞으로 이동시키는 함수
+    m.shift();
+    document.write(m.toString() + "<br>");
+    */
+</script>
+
+<script>
+    // js 배열
+    const person = [] ;
+    person[0] = "admin";
+    person[1] = 20;
+    person[2] = new Date();
+    
+    // 배열인지 확인
+    // [1] Array.isArray
+    // alert(Array.isArray(person));
+    // [2] instanceof
+    alert(person instanceof Array); 
+    
+
+</script>
+</body>
+</html>

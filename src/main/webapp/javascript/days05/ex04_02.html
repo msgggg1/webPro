@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 문자열 -> 숫자 변환 함수 ] 
+    1. Number()
+    2. parseInt() / parseFloat()
+    3. eval()
+
+  </xmp>
+</div>
+<script>
+    /*
+    let n = "10";
+    document.write(Number(n)+ "<br>"); // 모두 number 10
+    document.write(parseInt(n)+ "<br>");
+    document.write(parseFloat(n)+ "<br>"); // number 10  / 내부 저장현태 같기 때문
+    document.write(eval(n)+ "<br>");
+    */
+
+    /*
+    let n = "   10             " ;
+    document.write(Number(n)+ "<br>"); // 모두 number 10
+    document.write(parseInt(n)+ "<br>");
+    document.write(parseFloat(n)+ "<br>"); // number 10  / 내부 저장현태 같기 때문
+    document.write(eval(n)+ "<br>");
+    */
+
+    /*
+    let n = "10  20     30";
+    document.write(Number(n)+ "<br>"); // NaN
+    document.write(parseInt(n)+ "<br>"); // 10
+    document.write(parseFloat(n)+ "<br>"); // 10
+    document.write(eval(n)+ "<br>"); // 처리 못함함
+    */
+
+    /*
+       let n = "10.33";
+    document.write(Number(n)+ "<br>"); // 10.33
+    document.write(parseInt(n)+ "<br>"); // 10
+    document.write(parseFloat(n)+ "<br>"); // 10.33
+    document.write(eval(n)+ "<br>"); // 10.33
+    */
+   /*
+   let n = "10,20,30";
+    document.write(Number(n)+ "<br>"); // NaN
+    document.write(parseInt(n)+ "<br>"); // 10
+    document.write(parseFloat(n)+ "<br>"); // 10
+    document.write(eval(n)+ "<br>"); // 30
+    */
+
+    /*
+     let n = true;
+    document.write(Number(n)+ "<br>"); // 1
+    document.write(parseInt(n)+ "<br>"); // NaN
+    document.write(parseFloat(n)+ "<br>"); // NaN
+    document.write(eval(n)+ "<br>"); // true
+    */
+
+    /*
+     let n = "123abcd";
+    document.write(parseInt(n)+ "<br>"); // 123
+    document.write(parseFloat(n)+ "<br>"); // 123
+    */
+    // 1970.1.1. 0:0:0 ~ ms
+    // Number(날짜) -> 숫자 출력(변환)
+    // document.write(Number(new Date())+"<br>"); // 1747194112513 밀리세컨드 값
+
+    // (기억) 문자열 -> 숫자 변환할 때 변환할 수 없는 경우네는 NaN값을 반환
+
+    // window.alert();
+    // alert();
+    // window.parseInt();
+    // parseInt();
+
+    // Number.parseInt // 같은기능이지만 Number 것
+
+    document.write(eval(3+5-4)+"<br>"); // eval은 수식줄 수 있음 문자열로부터 eval() 을 실행하는 것은 엄청나게 위험합니다. eval() 을 사용하면 해커가 위험한 코드를 사용할 수 있습니다. 
+    // eval(string) 문자열 형태의 수식 수행 가능. 
+
+</script>
+</body>
+</html>
