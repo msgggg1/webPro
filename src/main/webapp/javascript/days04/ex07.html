@@ -36,8 +36,8 @@
     <thead>
         <tr>
             <th><input type="checkbox" id="all">모두 선택</th>
-            <th>Distinctio.</th>
-            <th>Reprehenderit?</th>
+            <th>이름</th>
+            <th>지역</th>
         </tr>
     </thead>
     <tbody>
@@ -64,7 +64,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3"><button></button></td>
+            <td colspan="3" align="center"><button>선택확인</button></td>
         </tr>
     </tfoot>
   </table>
@@ -77,9 +77,8 @@
     const ckbAll = document.querySelector("#tblDept > thead > tr > th:nth-child(1) > input");
     // const totalckb  = document.querySelectorAll("input[type=checkbox][id^='ck']");
     const ckbs = document.querySelectorAll("#tblDept > tbody input[id^='ck']");
-    const btn = document.querySelector("#tblDept > tfoot > tr > td > button");
-
-
+    
+    
     console.log(ckbs.length);
     ckbAll.onchange = function () { // click도 상관없음
         // alert(this.checked); //true/false
@@ -87,7 +86,7 @@
             ckbs[i].checked = this.checked;
         }
     }
-
+    
     
     // ckbs.onclick = function () {} 이벤트 안걸림
     for (let i = 0; i < ckbs.length; i++) {
@@ -97,12 +96,56 @@
                 isCkbAllChecked = ckbs[i].checked;
                 if (!isCkbAllChecked) break;
             }// for
-
+            
             ckbAll.checked = isCkbAllChecked; 
         }
         
     }
+    
+    
+    const btnOK = document.querySelector("#tblDept > tfoot > tr > td > button");
+    const demo= document.querySelector("#demo");
+    btnOK.onclick = function () {
+        demo.innerHTML = ""; // 초기화
 
+        let content = "<ul>"
+        for (let i = 0; i < ckbs.length; i++) {
+            const ckb = ckbs[i];
+            if (ckb.checked) {
+                /* [1]
+                const tr = ckb.closest('tr'); // 체크박스가 속한 tr 찾기
+                const tds = tr.getElementsByTagName('td'); // tr 내의 모든 td 요소 가져오기
+                let name = tds[1].textContent; // 두 번째 td의 텍스트 추출
+                let region = tds[2].textContent; // 두 번째 td의 텍스트 추출
+                */
+                //[2] DOM 트리 탐색
+                const name = ckb.parentElement.nextElementSibling.textContent; // innerText도 가능
+                const region = ckb.parentElement.nextElementSibling.nextElementSibling.textContent;
+                
+                content += `<li>${ckb.id} / ${name} / ${region}</li>`;
+            }            
+        }
+        content += "</ul>";
+
+        demo.innerHTML = content;
+    }
+
+    for (var i = 0; i < ckbs.length; i++) {
+      const ckb = ckbs[i];
+
+      if ( ckb.checked ) {
+          // <tr>
+          const cktr = document.querySelector(`#tblDept > tbody > tr:nth-of-type(${i+1})`);
+          // children td/td[1] name / td[2] area
+          const name = cktr.children[1].textContent;
+          const area = cktr.children[2].textContent;
+         content += `<li>${ckb.id} / 이름: ${name} / 지역: ${area}</li>`;
+      } // if
+   } // for
+   content += "</ul>";
+
+    /*
+    const btn = document.querySelector("#tblDept > tfoot > tr > td > button");
     btn.onclick = function () {
         document.querySelectorAll("#tblDept > tbody input[id^='ck']:checked")
         .forEach(element => {
@@ -114,7 +157,10 @@
             $("#demo").append(li);
 
         });
+        
     }
+        */
+
 </script>
 </body>
 </html>

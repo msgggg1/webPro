@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 배열(array) ]
+    1. 정의 
+    2. 목적
+    3. 선언 형식
+       int [] m = new int [3];
+       m[0]=1;
+
+       [js]
+       let/var/[const] (권장) 배열명 = [];
+       const 배열명 = new Array(); // 성능저하로 권장 x
+
+  </xmp>
+</div>
+
+<script>
+    const m = [];
+    m[0] = 1;
+    m[2] = 2;
+
+    // alert(m.length); // 배열 크기 3
+    // alert(m[1]); // undefined
+    // console.log(m); // (3) [1, 비어 있음, 2]
+    alert(typeof m); // object
+    
+</script>
+</body>
+</html>

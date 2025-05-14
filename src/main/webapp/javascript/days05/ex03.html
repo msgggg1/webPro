@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 숫자(number) ]
+      항상 64비트 부동소수점 형태 저장
+
+  </xmp>
+</div>
+<script>
+    // let a = 100; // number
+    // let b = 3.14; // number
+    // alert(typeof b);
+
+    // e 지수 표현식
+    // let c = 123e5; //12300000
+    // let c = 123e-5; // 0.00123
+    // alert(c); 
+
+    // let x = 0.2 ;
+    // let y = 0.1 ;
+    // alert(x+y); //0.30000000000000004     (오차)
+
+    //  alert( ( x * 10 + y * 10 ) / 10 );
+</script>
+<script>
+    /*
+    let x = 1;
+    let y = "2" ;
+    let z = 1 + x + y ;
+    alert(z);
+    */
+</script>
+<script>
+    // let x = "100";
+    // let y = "10";
+    // console.log(x+y); // "10010"
+    // console.log(x-y); // 90 // js 자동으로 숫자 형태의 문자열은 -, *, / 할때 자동 형 변환
+    // console.log(x*y); // 1000
+    // console.log(x/y); // 10
+</script>
+
+<script>
+    // 2 / 0  => infinity
+    // -2 / 0 => infinity
+    // alert(typeof Infinity); // number
+
+    // NaN + 5   => NaN
+    // NaN + "5" => "NaN5"
+
+    // let a = 100/"admin";
+    // alert(isNaN(a)); // NaN == Not a Number , true
+</script>
+
+<script>
+    // let x = 0x11; //16진수 11
+    // let y = 012; //8진수 12
+</script>
+<script>
+    // let x = 10;
+    // x.toString(); "10"
+    // x.toString(2); "1010"
+    // x.toString(8);   "12"
+    // x.toString(16);  "a"
+</script>
+
+<script>
+    // let x = new Number(10); //권장 x
+    // let x = 10;
+
+    // let x1 = new Number(10);
+    // let x2 = 10;
+    // console.log(x1 == x2 ); //true
+    // console.log(x1 === x2 ); //false  타입 비교 (object, number)
+
+</script>
+
+<script>
+    // Number.isInteger(10); // true
+    // Number.isInteger(3.14); // false
+
+    // Number.isSafeInteger(1234567890123456789012345); // false
+
+    console.log(Number.MAX_SAFE_INTEGER);
+    console.log(Number.MIN_SAFE_INTEGER);
+    // js 정수는 15자리가 최대 (정확도 떨어짐)
+    // 15자리 이상의 정확한 정수를 사용하고자 한다면 => BIGINT 자료형 사용
+    // let x = 12;
+
+    // let x = BigInt(1234567890123456789012345);
+    // alert(typeof x);
+</script>
+</body>
+</html>

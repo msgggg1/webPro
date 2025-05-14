@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<script>
+    let msg = "abCDefGH"
+    // 1. 문자열 길이 속성 - length
+    // alert(msg.length); // 8
+
+    // 2. 한 문자
+    // alert(msg.charAt(0)); //"a"
+
+    // 3. 문자코드값
+    // alert(msg.charCodeAt(0)); // 97
+
+    // 4. ES2022 추가 - at()
+    // alert(msg.at(0)); // 'a'
+    // charAt()과 at() 차이점 : 음수 위치값 사용 가능능
+    // alert(msg.charAt(-1)); // X
+    // alert(msg.charAt(msg.length-1)); // H
+    // alert(msg.at(-1)); // H
+
+    // alert(msg[0]); // 'a'
+    // msg[0] = 'x' ; // ==> 사용불가, 읽기전용이므로 값 할당은 못한다.
+
+    // 5. 문자열 속에서 일부 문자열을 추출하는 함수
+    // java: substring()
+    // js  : 3개
+    //      string slice(start, end), 
+    //      string substring(start, end), 
+    //      string substr(from, length) 비슷한 함수 3개
+    let rrn = "891223-1700014";
+    // 출생년도 2자리 
+    // let year = rrn.slice(0, 2); // "89"
+    // let year = rrn.substring(0,2); // "89"
+    // alert(year); // "89"
+
+    // let last = rrn.slice(rrn.length-1);
+    // let last = rrn.slice(-1);
+    // let last = rrn.substring(rrn.length-1 );
+    // alert(last);
+
+
+    // let year = rrn.substr(0,2);
+    // alert(year);
+
+    // 주민등록번호 뒷자리 7자리 출력
+    // let rrnp2 = rrn.slice(-7);
+    // let rrnp2 = rrn.substring(rrn.length-7);
+    // let rrnp2 = rrn.substr(-7,7);
+    alert(rrnp2);
+
+
+</script>
+</body>
+</html>

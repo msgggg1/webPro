@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 문자열 메서드 ]
+  </xmp>
+</div>
+
+<script>
+    // "" , ' ' 문자열 모두 가능 but 내부쓰인것과 다르게
+    let name = "kim's \"msg\" "; 
+    let addr = 'kim"s';
+    // ES6(2016) 추가 : 벡틱 연산자 - 여러줄의 문자열 사용 가능
+    let msg = `
+                    hello's 
+                    "world"
+                    ~~
+                `;
+
+    // 객체 생성자를 사용해서 선언할 수 있다.
+    let name2 = new String("홍길동"); //가능하지만 성능때문에 권장 X
+    alert(typeof name2); // object
+    // let name2 = "홍길동"; // 권장 O
+    // alert(typeof name2); // string
+
+    // 특수문자 ( \b \n \r \t 등등 )
+
+    // 두 문자열 비교 연산자 : ==  ===  
+    //                         !=  !==
+
+</script>
+</body>
+</html>

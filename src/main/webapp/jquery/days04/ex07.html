@@ -94,19 +94,23 @@
   $("#tblDept > tfoot > tr > td > button").onclick
 //   $("#demo").
 
-const btn = $("#tblDept > tfoot > tr > td > button");
 
-  btn.on("click" , function () {
-        $("#tblDept > tbody input[id^='ck']:checked")
-        .each(function(){
-            const td = $(this).closest("td");
-            const name = td.next().text();
-            const region = td.next().next().text();
+    
+    // 선택확인 버튼 클릭
+    $("#tblDept > tfoot > tr > td > button").on("click", function(){
+      const  ul = $("<ul></ul>")
+      // 체크된 체크박스만 얻어와서 반복 처리
+      $(":checkbox:not(.all):checked").each(function(index, element){ // element : 제이쿼리객체 아님, 그냥 요소임
+        let name = $(element).parent().next().text();
+        let region = $(element).parent().next().next().text();
+        ul.append($(`<li> ${element.id} / ${name} / ${region}</li>`));
+      });
 
-            const li = $("<li></li>").text(`이름: ${name}, 지역: ${region}`);
-            $("#demo").append(li);
-        });
+      $("#demo").empty().append(ul);
     });
+    
+
+    
 </script>
 </body>
 </html>
