@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    js 배열
+    js Set, List X => []
+    Map : 키-값 쌍과 키의 원래 삽입 순서를 기억합니다. 모든 값(객체 및 원시 값 모두)은 키 또는 값으로 사용될 수 있습니다.
+  </xmp>
+</div>
+
+<script>
+    const m = new Map([
+        // ["1번(Key)", "Value"]
+        ["1번", "홍길동"]
+        ,["2번", "박지웅"]
+    ]);
+
+    // alert(m.size); // 2
+    m.set("3번", "안준호");
+    m.set("3번", "안우혁"); // 덮어써진다.
+
+    if (m.has("3번")) {
+        let entryValue = m.get("3번");
+        // alert(entryValue); // 안우혁
+        // m.set("3번", "김유미");
+        m.delete("3번");
+    }
+    // m.clear(); // 모두 삭제
+
+    // 모든 엔트리 출력
+    /*//[1]
+    m.forEach((value, key)=>{
+        document.write(`${key}-${value}<br>`);
+    })
+        */
+    
+    for (const entry of m.entries()) {
+        document.write(`${entry}/${entry[0]}-${entry[1]}<br>`);
+    }
+
+    // 모든 key값 출력
+    for (const key of m.keys()) {
+        
+    }
+
+    // 모든 value값 출력
+    for (const value of m.values) {
+        
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    버튼을 클릭하면 로또번호 1,2,3,4,5,6개가
+    오름차순으로 정렬해서 
+    demo  요소에 출력
+    (중복체크)
+
+    ex02.html     const lotto = [];
+    ex02_02.html  Set - 자동으로 중복체크, 허용X + 순서 유지 X 
+  </xmp>
+
+  <button>로또 번호 발생기</button>
+  <p id="demo"></p>
+
+</div>
+
+<script>
+    function getRndInt(min, max) {
+        // css > days04 > Ex03.html
+        return Math.floor(Math.random()*(max - min + 1)) + min;
+    }
+
+    // 중복체크 함수
+    function isDuplicateLotto(lotto, n) {
+        for (let i = 0; i < lotto.length; i++) {
+            if (lotto[i] == n) true ; // 중복
+        }
+    }
+
+    $("button").on("click", function () {
+        /* //테스트
+       // let n = Math.random();
+       let n = getRndInt(1, 45);
+       
+       $("#demo").html($("#demo").html()+"<br>" + n );
+        });
+        
+        
+        $("#demo").html(function(index, oldhtml){
+            return oldhtml + "<br>" + n ;
+        });
+        */
+
+        // 배열 선언
+        // java int [] lotto = new int [6] ;
+        // js 배열 선언
+        /*
+        const lotto = [] ;
+        let n ;
+        while (lotto.length < 6 ) {
+            n = getRndInt(1, 45);
+            // every(), some(), includes()
+            // indexOf(), lastIndexOf -> 찾은값 돌림. 없으면 -1
+            // if (lotto.includes(n)) continue;
+            if (!lotto.includes(n)) {
+                lotto.push(n); // 배열에 추가
+            } 
+        } // while
+        */
+
+        // Set 이용
+        const lotto = new Set();
+        while (lotto.size < 6) {
+          let n = getRndInt(1, 45);
+          lotto.add(n);
+        }
+
+        // lotto.sort((a,b) => a-b);// 순서 유지 안됨. 정렬 의미 없음
+        // Set -> [] 변환 Array.from(lotto) -> 오름차순 정렬
+
+        let content = "<ul>";
+        for (const v of lotto) {
+          content += `<li>${v}</li>`;
+        }
+        content += "</ul>";
+
+        $("#demo").html(content);
+});
+</script>
+
+</body>
+</html>
