@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 함수 정리 ]
+    1. function 함수명 ([매개변수...]){
+        // 코딩
+        // 코딩
+        [return 리턴값;]
+    }
+    2. function 함수명 (자료형 매개변수, 자료형 매개변수){ X
+       function test (a, b, c){  +) 매개변수 개수를 확인하지 않음. test(1,2); 함수호출, 오류x
+        // 코딩
+        // 코딩
+        [return 리턴값;]
+    }
+    3. ES6(2015) 매개변수의 초기값 설정
+    functiontest(a,b,c = 100){}
+    test(1,2);// c=100 자동 초기화
+    4. 익명함수 선언 -> 변수로 받아서 사용 가능.
+        const func = function (a,b){
+            return a+b ;
+        }
+        호출하려면 변수로 받아야함
+        func();
+        alert (typeof func); // function
+    5. ...args 가변 인자 사용할 수 있다. 
+        sum(1,2);
+        sum(1,2,3);
+        sum(1,2,3,4);
+
+        function sum(...args){  [] args (가변인자. 길이가 정해지지않은 매개변수 사용할 수 있다.)
+            // 
+        }
+    6. Function 객체 생성자를 사용해서 함수 선언할 수 있다. 
+    const sum = new Function("a", "b", "return a+b");
+    let result = sum(1,2);
+
+    7. 맨 위로 선언부가 올라가는 것 : [ js 호이스팅 ]
+        변수, 함수 선언
+
+        (주의)람다식은 호이스팅 되지 않는다. 
+        let sum = (a,b)=>a+b ; 호이스팅X
+
+    8. 함수 클로저 -> 자체호출함수
+        function test(){} // 함수 선언 부분
+        test(); // 함수호출부분
+        test();
+        test();
+
+        // 자체호출함수
+        (function(){
+            // 코딩
+        })(); // 호출부분
+  </xmp>
+</div>
+
+<script>
+    // 전역 범위 변수
+    let name;
+
+    function test(a){
+        alert("xxx");
+    }
+
+    // 전역범위 변수 선언 -> window 객체의 멤버가 됨. window 객체의 자식이 됨
+    window.name; 
+    window.test(10);
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 변수 접근 범위 정리 ]
+    js 3가지 범위
+     1) 전역 범위   global scope
+     2) 함수 범위   function scope
+     3) 블록 범위   block scope
+  </xmp>
+</div>
+
+<script>
+    // 전역 범위(전역변수)
+    // 브라우저가 닫히면 전역변수 제거된다.
+    let firstName = "aaa";
+    var lastName;
+    const xx = 'abc'; // 상수
+
+    {
+        // 블럭 범위(지역 변수)
+        let x = 30;
+    }
+
+    //            함수호출이 끝나면 함수 범위 지역변수 제거
+    //            매개변수도 함수 범위 (지역변수)
+    function test(param1, param2){
+        // age 변수는 전역 범위(전역 변수) (선언없이 사용 시)
+        age = 20;
+
+        {
+            // 블럭 범위 (지역 변수)
+            let t = 20;
+        }
+
+        // 함수 범위 ( 지역 변수 )
+        let name = "xxx";
+        var age = 20;
+        const gender = true;
+    }
+</script>
+</body>
+</html>

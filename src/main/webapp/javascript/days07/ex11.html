@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    1. apply() : 다른 객체의 메서드를 불러서 처리할수 있는 함수
+        예)
+        // 배열안에 있는 가장 큰값
+        Math.max.apply(null,m)
+    2. call() : 다른 객체의 메서드를 불러서 처리할 수 있는 함수
+
+    기능은 같음
+    차이점: 매개변수가 있을 경우
+     ㄴ apply(): 매개변수를 배열
+     ㄴ call(): 매개변수, 매개변수 ... 나열
+
+  </xmp>
+</div>
+
+<script>
+    let person1 = {
+        name : "hong",
+        age: 22
+        /*,
+        print : function(){
+            return this.name + " / " + this.age;
+        }
+            */ //중복된 함수 선언언
+    };
+    let person2 = {
+        name : "admin",
+        age: 42
+        /*,
+        print : function(){
+            return this.name + " / " + this.age;
+        }
+            */
+    };
+    
+    let person100 = {
+        name : "kim",
+        age: 32
+        /*,
+        print : function(){
+            return this.name + " / " + this.age;
+        }
+            */
+    };
+
+    // js 다른 객체 안에 print() 선언
+    // 중복해서 선언할 필요 없음. 다른 객체에서 빌려와서 쓰겠다.
+    let person = {
+         print:function(){
+            return this.name + " / " + this.age;
+        },
+         printf:function(city, color){
+            return `${this.name}  / ${this.age} / ${city} / ${color}`;
+        }
+    };
+
+    // call() "seoul",  "red" 나열
+    document.write(person.printf.call(person1, "seoul", "red")+"<br>");
+    document.write(person.printf.apply(person1, ["seoul", "red"]));
+
+    const m = [3,5,2,4,1];
+    // let max = Math.max.apply(null, m); // 객체 없어서 null
+    // let max = Math.max.call(null, 3,5,2,4,1); // 객체 없어서 null
+
+    /*
+    document.write(person1.print()+"<br>");
+    document.write(person2.print()+"<br>");
+    // :
+    document.write(person100.print()+"<br>");
+    */
+
+    // person1.print() --> X
+    // 다른 객체 person의 print() 함수를 호출해서 처리
+    /*
+   document.write(person.print.call(person1)+"<br>");
+   document.write(person.print.call(person2)+"<br>");
+   document.write(person.print.call(person100)+"<br>");
+   */
+
+   /*
+   document.write(person.print.apply(person1)+"<br>");
+   document.write(person.print.apply(person2)+"<br>");
+   document.write(person.print.apply(person100)+"<br>");
+   */ 
+  //call(), apply() 둘다 가능
+</script>
+</body>
+</html>

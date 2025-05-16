@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ JSON ] (JavaScript Object Notation) 
+    json.org - 한 페이지가 문법 끝
+    데이터를 주고받기 위한 표준
+
+    가족 정보   데이터 교환
+    1) 텍스트 형식의 문자열     ex08_family.txt
+    2) jtml 형식의 문자열       ex08_family.html // 데이터 주고 받기 가능하나 잘 안함
+    2) xml 형식의 문자열       ex08_family.xml
+
+    [JSON 선언 형식]
+    { 
+        String(이름) :값, 
+        이름 :값
+        ...
+    }
+    같은정보를 표현해도 용량이 반 이상 줄어듦
+
+  </xmp>
+</div>
+
+<script>
+    // js 객체
+    let person = {
+        name: "홍길동",
+        age: 20
+    };
+
+    // alert ( typeof person ); // object
+
+    // [ js object -> json 변환 방법 ]
+    const jsonPerson = JSON.stringify(person);
+    alert(jsonPerson); // '{"name":"홍길동","age":20}'' 
+
+    // 데이터 교환 (전송 -> 수신) : JSON 값 "문자열"임 JSON은 string 받는 쪽에서는 js로 다시 parsing해서 사용
+    const parsePerson = JSON.parse(jsonPerson);
+    alert(jsonPerson.name + " / " + parsePerson.age);
+</script>
+</body>
+</html>

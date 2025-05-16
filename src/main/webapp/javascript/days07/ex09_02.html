@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+
+<script>
+    const person = {
+        // 필드, 속성
+        firstname: "길동",
+        lastname:"홍",
+        age: 20,
+        // 속성값을 객체 배열로
+        cars: [
+            { name:"K9", year: 2022 },
+            { name:"K7", year: 2022 },
+            { name:"K5", year: 2022 }
+        ],
+        // 메서드
+        print : function () {
+            return this.firstname + " / " + this.lastname
+        }
+    };
+
+    // 기존 객체에 새로운 속성 추가 O 
+    // 객체 생성자에 속성, 메서드 추가 시 prototype 사용해서 추가
+    // 객체 생성자가 아닌, 객체에 속성을 추가할때는 객체명.속성명, 객체명.메서드이름
+    person.gender = true;
+    person.name = function () {
+        return (this.firstname + " " + this.lastname).toUpperCase();
+    }
+
+    // 기존 객체에서 속성 제거
+    delete person.age;
+
+    const car = person.cars[0];
+    // car.name
+    // car.year
+
+    // js 객체 -> 배열 변환 : Object.values()
+    const personArr = Object.values(person);
+</script>
+</body>
+</html>
