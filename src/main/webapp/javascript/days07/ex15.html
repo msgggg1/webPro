@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+  #out{
+    background-color: coral;
+    padding : 50px;
+  }
+  #in{
+    background-color: white;
+    font-size: 20px;
+    border: 1px solid;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    1. 이벤트 버블링
+     ㄴ 자식 요소에서 발생한 이벤트가 부모 요소에 이벤트가 전달되는 것.
+    2. 이벤트 캡쳐링 (설명X)
+     ㄴ 부모 요소에 발생하는 이벤트가 자식 요소에 이벤트가 전달되는 것
+    </xmp>
+
+    <div id="out">
+       <h2>이벤트 버블링 체크</h2>
+       <p id="in">자식 p태그</p>
+    </div>
+</div>
+
+<script>
+    $("#in").on("click", function(){
+        alert("in");
+        $("#out").css("background-color", "blue");
+
+        // event.preventDefault(); 이거아님, <a>
+        event.stopPropagation(); // 전파를 막음 = 이벤트 전파를 막겠다. jquery
+
+        // js
+        // event.calcelBubble = true;
+    });
+    $("#out").on("click", function(){
+        alert("out"); // 둘다 이벤트 일어남
+        $("#out").css("background-color", "red");
+    });
+</script>
+</body>
+</html>

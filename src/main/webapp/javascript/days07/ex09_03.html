@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    ES6(2015) Getter/Setter 도입 / 자바와 개념 동일 
+  </xmp>
+</div>
+
+<script>
+    const person = {
+        // 속성
+        firstname : "길동",
+        lastname : "홍",
+        // 메서드
+        /*
+        fullname : function(){
+            return this.firstname + " " +this.lastname;
+        }
+            */
+        get fullname(){
+            return this.firstname + " " +this.lastname;
+        },
+
+        language: "kr",
+        get lang(){
+            return this.language;
+        },
+        set lang(language){
+            this.language = language;
+        },
+
+        counter: 0
+    };
+
+    person.lang = "en"; // set lang(language ){} 호출
+    console.log(person.lang); // get lang(){} 호출
+</script>
+
+<script>
+    // add 속성 추가
+    Object.defineProperty(person, "add", { 
+        set: function(value){this.counter += value;}
+     }); //defineProperty 메서드 사용해서 추가 가능
+
+    person.add = 10;
+</script>
+</body>
+</html>

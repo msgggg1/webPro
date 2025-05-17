@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+</div>
+<script>
+    //문제
+    const rrn = "990515-1700001";
+    //생일 지났다/ 지나지 않았다./오늘이다. 출력
+
+    // slice() / subString() / substr
+    const b_md = Number(rrn.substring(2, 6)); // 숫자 515 변환
+    // document.write(b_md+"<br>");
+
+    const d = new Date();
+    // d.getMonth() + d.getDate()
+    let n_md =Number( d.toLocaleDateString().substring(5).replace(/[.\s]/g,""));
+    document.write(n_md+"<br>");
+
+    if(b_md == n_md){
+        // 오늘
+        document.write("오늘이 생일이다.");
+    }else if(b_md > n_md){
+        // 지나지X
+        document.write("생일이 지나지 않았다.");
+    }else{
+        // 지났다.
+        document.write("생일이 지났다.");
+    }
+
+    /* //[내 풀이]
+    const now = new Date();
+    now.setHours(0);
+    now.setMinutes(0);
+    now.setSeconds(0);
+    now.setMilliseconds(0);
+
+    const month = parseInt(rrn.substr(2,2));
+    const date = parseInt(rrn.substr(4,2));
+    const birthday = new Date(now.getFullYear(), month-1, date,0 ,0 ,0);
+    if ( birthday > now ) {
+        document.write("생일이 지나지 않았다.");
+    } else if (birthday < now ){
+        document.write("생일이 지났다.");
+    } else {
+        document.write("오늘이 생일이다.");
+    }
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <link rel="stylesheet" href="../../resources/cdn-main/example.css"> -->
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+<style>
+  body{
+    margin: 0;
+    font-size: 28px;
+  }
+  .header{
+    position: fixed;
+    top:0;
+    z-index: 1;
+    width:100%;
+    background-color: #f1f1f1;
+  }
+  .header h2 { text-align: center;}
+  .process-container{
+    width:100%;
+    height:8px;
+    background:#ccc;
+  }
+  .progress-bar{
+    height:8px;
+    background-color: red;
+    width: 0;
+  }
+   .content{
+    padding:100px 0;
+    margin:50px auto 0 auto;
+    width:80%;
+  }
+  
+  #btnTop{
+    position: fixed;
+    bottom:20px;
+    right:30px;
+    
+    z-index: 99;
+    
+    outline: none;
+    background: red;
+    color:white;
+    padding:15px;
+    border-radius: 10px;
+    
+    display:none; 
+    border:none;   /* 버튼은  기본적으로 테두리가 있다.. */
+  }
+  #btnTop:hover{
+    background: #555;
+  }
+</style>
+</head>
+<body>
+  
+  <div class="header">
+   <h2>스크롤 표시하기</h2>
+   <div class="process-container">
+      <div class="progress-bar" id="myBar"></div>
+   </div>
+  </div>
+  
+  <div class="content">
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+   <p>Atque libero maiores ut sit facilis voluptate asperiores.</p>
+   <p>Architecto incidunt molestias itaque at totam dignissimos tempore.</p>
+   <p>Facilis quam a cupiditate magni eius odit obcaecati.</p>
+   <p>Quam alias ratione hic incidunt aliquid tempora repellat.</p>
+   <p>Sint neque vel eos quae delectus voluptatem distinctio.</p>
+   <p>Quae eligendi voluptates repellat quam id quas veniam.</p>
+   <p>Cupiditate earum omnis laborum adipisci reprehenderit libero obcaecati.</p>
+   <p>Quia illo quo veniam cumque non sint sapiente.</p>
+   <p>Commodi minima voluptatem et voluptates odit modi vitae.</p>
+   <p>Voluptatibus impedit ducimus in magnam omnis animi illum.</p>
+   <p>Neque optio ipsa sequi eaque numquam doloribus fugit.</p>
+   <p>Consequuntur maxime voluptas earum quis in recusandae aperiam.</p>
+   <p>Hic fugiat animi deleniti culpa repudiandae sapiente quaerat.</p>
+   <p>Doloribus quo tempora itaque officia nesciunt labore iure.</p>
+   <p>Officiis eaque incidunt distinctio repellendus adipisci fugiat voluptate.</p>
+   <p>Assumenda accusantium voluptatibus quisquam alias facilis dolorem consequuntur.</p>
+   <p>Fugit iure officiis error dolorem nisi deleniti ut.</p>
+   <p>Provident consequatur eum neque ullam architecto inventore reprehenderit?</p>
+   <p>Nulla tempore commodi eveniet accusantium qui quasi praesentium.</p>
+   <p>Unde quibusdam natus itaque aliquam sequi debitis delectus.</p>
+   <p>Voluptate tempore error sint possimus cupiditate molestias nisi.</p>
+   <p>Animi doloribus harum dolorum aliquam minima vero ut.</p>
+   <p>Suscipit quas vero itaque quaerat tempore soluta quia.</p>
+   <p>Fugiat minima sit quis sed similique itaque placeat.</p>
+   <p>Maxime nemo ad itaque doloremque nisi repudiandae quibusdam.</p>
+   <p>Deleniti vel ipsum ipsam harum reprehenderit alias error!</p>
+   <p>Tenetur voluptate voluptatibus cupiditate sequi rem labore illum!</p>
+   <p>Dignissimos pariatur ad voluptatem maiores minima odio id?</p>
+   <p>Saepe amet illo voluptates earum repudiandae blanditiis voluptate?</p>
+   <p>Mollitia eligendi inventore sed vero modi animi nisi.</p>
+   <p>Ducimus id quas mollitia suscipit eum rerum placeat?</p>
+   <p>Eaque consequatur odio earum perspiciatis obcaecati deleniti eveniet.</p>
+   <p>Nobis nesciunt ex cupiditate perferendis voluptate. Est maxime?</p>
+   <p>Nisi mollitia sint voluptatibus totam veritatis facilis illum?</p>
+   <p>Sapiente mollitia praesentium maxime repellendus et id error.</p>
+   <p>Ullam omnis doloremque impedit quam eveniet eos modi?</p>
+   <p>Asperiores vero delectus adipisci id quaerat voluptatum assumenda!</p>
+   <p>Accusantium ut dolor eveniet itaque eius ipsa eaque!</p>
+   <p>Tenetur officiis ut maiores iste eum a rerum.</p>
+  </div> 
+  
+  <button id="btnTop" title="Go  To Top">Top</button>
+
+  <script>
+    /*
+    //document.documentElement == <html>
+    let clientHeight = document.documentElement.clientHeight ;
+    let scrollHeight = document.documentElement.scrollHeight ;
+    let scrollTop;
+
+    window.onscroll = function(){
+        scrollTop = document.documentElement.scrollTop || document.body.scrollTop ;
+
+        console.log(`${scrollTop} / ${clientHeight} / ${scrollHeight}`);
+
+        // top 버튼 처리
+        if(scrollTop > clientHeight){
+            $("#btnTop").css("display", "block");
+        }else{
+            $("#btnTop").css("display", "none");
+        }
+
+        let hiddenHeight = scrollHeight - clientHeight;
+
+        // hH:sT = 100:x
+        // 100 * sT = hH*x
+        // x = 100*sT/hH
+        let barWidth = 100 *scrollTop/hiddenHeight;
+        $("#myBar").css("width", barWidth+"%");
+    }
+    */
+  </script>
+
+  <script>
+    $(document).ready(function () {
+  let $btnTop = $("#btnTop");
+  let $myBar = $("#myBar");
+
+  $(window).on("scroll", function () {
+    let clientHeight = $(window).height();
+    let scrollTop = $(window).scrollTop();
+    let scrollHeight = $(document).height();
+
+    console.log(`${scrollTop} / ${clientHeight} / ${scrollHeight}`);
+
+    let hiddenHeight = scrollHeight - clientHeight;
+
+    // top 버튼 표시/숨김
+    if (scrollTop > clientHeight) {
+      $btnTop.css("display", "block");
+    } else {
+      $btnTop.css("display", "none");
+    }
+
+    // 스크롤 비율 계산
+    let barWidth = (100 * scrollTop) / hiddenHeight;
+    $myBar.css("width", barWidth + "%");
+  });
+});
+  </script>
+</body>
+</html>

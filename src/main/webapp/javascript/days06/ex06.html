@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+
+  select {
+   width: 100px;
+   text-align: center;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+ul {
+   list-style-type: none;
+}
+
+body {
+   font-family: Verdana, sans-serif;
+}
+
+.month {
+   padding: 70px 25px;
+   width: 100%;
+   background: #1abc9c;
+   text-align: center;
+}
+
+.month ul {
+   margin: 0;
+   padding: 0;
+}
+
+.month ul li {
+   color: white;
+   font-size: 20px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+}
+
+.month .prev {
+   float: left;
+   padding-top: 10px;
+}
+
+.month .next {
+   float: right;
+   padding-top: 10px;
+}
+
+.weekdays {
+   margin: 0;
+   padding: 10px 0;
+   background-color: #ddd;
+}
+
+.weekdays li {
+   display: inline-block;
+   width: 13.6%;
+   color: #666;
+   text-align: center;
+}
+
+.days {
+   padding: 10px 0;
+   background: #eee;
+   margin: 0;
+}
+
+.days li {
+   list-style-type: none;
+   display: inline-block;
+   width: 13.6%;
+   text-align: center;
+   margin-bottom: 5px;
+   font-size: 12px;
+   color: #777;
+}
+
+
+
+.days li .active {
+   padding: 5px;
+   background: #1abc9c;
+   color: white !important
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ 만년달력 ]
+    java    year, month input ? 2025 5
+
+  </xmp>
+
+  <h3>달력 (일정관리)</h3>
+
+  <select name="" id="cmbYear"></select>
+  <select name="" id="cmbMonth"></select>
+  <select name="" id="cmbDate"></select>
+  <br>
+  <br>
+
+  <div class="month">
+    <ul>
+        <li class="prev">&#10094;</li>
+        <li class="next">&#10095;</li>
+        <li>
+            <span id="month">August</span>
+            <span id="year" style="font-size: 18px">2017</span>
+        </li>
+    </ul>
+  </div>
+  <ul class="weekdays">
+      <li>Su</li>
+      <li>Mo</li>
+      <li>Tu</li>
+      <li>We</li>
+      <li>Th</li>
+      <li>Fr</li>
+      <li>Sa</li>
+  </ul>
+  <ul class="days">  
+     <li></li>
+     <li></li>
+     <li>1</li>
+     <li>4</li>
+     <li>5</li>
+     <li>6</li>
+     <li>7</li>
+     <li>8</li>
+     <li>9</li>
+     <li><span class="active">10</span></li>
+     <li>11</li>
+     <li>12</li>
+     <li>13</li>
+     <li>14</li>
+     <li>15</li>
+     <li>16</li>
+     <li>17</li>
+     <li>18</li>
+     <li>19</li>
+     <li>20</li>
+     <li>21</li>
+     <li>22</li>
+     <li>23</li>
+     <li>24</li>
+     <li>25</li>
+     <li>26</li>
+     <li>27</li>
+     <li>28</li>
+     <li>29</li>
+     <li>30</li>
+     <li>31</li>  
+  </ul> 
+
+</div>
+
+<script>
+    const today = new Date();
+
+    let tYear = today.getFullYear(); // 2025
+    let tMonth = today.getMonth()+1; // 5
+    let tDate = today.getDate();     // 15
+
+    // 달력에서 표시도리 년, 월
+    let year = tYear ; // 선택한거 없으면 해당 년/월 출력
+    let month = tMonth ;
+
+    // #cmbYear
+    for (let i = 1970; i <= 2050; i++) {
+        $("#cmbYear").append($(`<option>${i}</option>`));        
+    }
+    $("#cmbYear").val(tYear);
+    // #cmbMonth    2
+    for (let i = 1; i <= 12 ; i++) {
+        $("#cmbMonth").append($(`<option>${i}</option>`));   
+    }
+    $("#cmbMonth").val(tMonth);
+
+    // #cmbDate     1/2/3...28/29
+    // 전역변수
+    let lastDay = getLastDay(year, month);
+    for (let i = 1; i <= lastDay ; i++) {
+        $("#cmbDate").append($(`<option>${i}</option>`));   
+    }
+    $("#cmbDate").val(tDate);
+
+    // 년/월 -> 마지막 날짜 반환하는 함수
+    function getLastDay(year, month) {
+        const d  = new Date(year, month);
+        d.setDate( d.getDate() - 1    ); // 마지막날짜
+        return d.getDate();
+    }
+    // 2. 년/월/일 -> 요일을 반환하는 함수
+    function getDayOfWeek(year, month, date){
+        const d = new Date(year, month-1, date);
+        return d.getDay();
+    };
+
+    $("#cmbYear").on("change", changeDate);
+    $("#cmbMonth").on("change", function(){
+        changeDate();
+    });
+
+    function changeDate() {
+        // 전역변수 저장
+        year = parseInt($("#cmbYear").val());
+        month = parseInt($("#cmbMonth").val());
+
+        $("#cmbDate").empty(); // 초기화
+        lastDay = getLastDay(year, month);
+        for (let i = 1; i <= lastDay; i++) {
+            $("#cmbDate").append($(`<option>${i}</option>`));
+        }
+
+        printCalendar(year, month);
+    }
+
+    // 달력 출력 함수 선언 부분
+    function printCalendar (year, month){
+        $("#month").text(month);
+        $("#year").text(year);
+
+        $("ul.days").empty();// 초기화
+
+        let dayOfWeek = getDayOfWeek(year, month, 1 );
+        let lastDay = getLastDay(year, month);
+        for (let i = 0; i < dayOfWeek; i++) {
+            $("ul.days").append($('<li></li>'))
+            
+        }
+        // 1일 ~ lastDay <li></li>
+        // 오늘날짜 <li><span class="active">10</span></li>
+        // 전역변수 const today = new Date();
+        for (let i = 1; i <= lastDay; i++) {
+            let liday = new Date(year, month-1, i);
+            if (today.toLocaleDateString()==liday.toLocaleDateString()) {// 문자열로 연/월/일 비교
+                $("ul.days").append($(`<li><span class="active">${i}</span></li>`));
+            } else {
+                $("ul.days").append($(`<li>${i}</li>`));
+            }          
+        }
+    }
+
+    // 함수 호출 부분 tYear, tMonth
+    printCalendar(year, month);
+
+    /* 나나
+    $(".prev").on("click", function () {
+        month = parseInt($("#month").text());
+        year = parseInt($("#year").text());
+        if (month == 1) {
+            year -= 1;
+            month = 12;
+        } else {
+            month -= 1;
+        }
+        printCalendar(year, month);
+    });
+  
+    $(".next").on("click", function () {
+        month = parseInt($("#month").text());
+        year = parseInt($("#year").text());
+        if (month == 1) {
+            year -= 1;
+            month = 12;
+        } else {
+            month -= 1;
+        }
+        printCalendar(year, month);
+    });
+    */
+
+//    $("ul > li.prev, ul>li.next").on("click",function(){
+    
+//    });
+   $("ul > li.prev").on("click",function(){
+        changeCalendar(-1);
+   });
+   $("ul > li.next").on("click",function(){
+        changeCalendar(1);
+   });
+
+   function changeCalendar(value) {
+        month += value; // -1  ,   1
+
+        if (month == 13) {
+            year++;
+            month = 1;
+        }else if(month == 0){
+            year--;
+            month = 12;
+        }
+
+        $("#cmbYear").val(year);
+        $("#cmbMonth").val(month);
+        changeDate(); 
+   }
+</script>
+</body>
+</html>

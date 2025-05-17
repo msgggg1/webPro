@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [for-of 문 정리]
+        ㄴ 반복 가능한 객체들(Set, Map, Array, String)을 반복적으로 처리하는 반복문
+        ㄴ let/const/var 키워드 사용할 수 있다.
+  </xmp>
+</div>
+
+<script>
+    // const arr = ["aaa","bbb","ccc"];
+    // for (const s of arr) {
+    //     document.write(`${s}<br>`);
+    // }
+</script>
+<script>
+    // let msg = "Hello World";
+    // for (const c of msg) {
+    //     document.write(`${c}<br>`);
+    // }
+
+</script>
+<script>
+    const m = new Map([
+        [1, "aaa"]
+        ,[2, "bbb"]
+        ,[3,"ccc"]
+    ]);
+    for (const entry of m) {
+        document.write(`${entry[0]}-${entry[1]}<br>`);
+    }
+</script>
+</body>
+</html>

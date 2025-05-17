@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js bind() 함수 - 묶다 ]
+      ㄴ 다른 객체에서 메서드를 빌려와서 사용하는 함수 
+  </xmp>
+  <p id="demo"></p>
+</div>
+<script>
+    const person = {
+        name : "kim",
+        age: 21,
+        print: function(){
+            // alert(this); // person 자기자신 객체 object Object
+            // return this.name + " / " + this.age;
+            $("#demo").html(this.name + " / " + this.age);
+        }
+    };
+
+    person.print();
+
+    person.name = "admin";
+    person.age = 100;
+
+    // 3초 후에 person.print() 함수를 호출
+    //                      /undefinced
+    // setTimeout(person.print,3000); // 함수 등록O, 호출 X 3초 뒤 setTimeout이 실행
+    // 콜백 함수로 등록될 경우에는 this가 손실
+    // -> 바인딩 시켜야 함.
+    let = disp = person.print.bind(person);
+    // setTimeout(person.print.bind(person),3000);
+    setTimeout(disp,3000);
+
+    // person.print(); 
+    /*
+    let disp = person.print.bind(person); // self binding도 가능
+    disp();
+    */
+
+</script>
+</body>
+</html>

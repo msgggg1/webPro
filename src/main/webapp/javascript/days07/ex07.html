@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js ES6(2015) 클래스 도입 ]
+      ㄴ 객체 지향적 프로그램언어
+      ㄴ class 키워드 // 객체 만들기 위한 템플릿
+         constructor 키워드 ( 생성함수 추가 )
+
+  </xmp>
+</div>
+
+<script>
+    class Car{
+        // java 필드        js 필드 (속성) X
+        // public String name; 선언안해도 생성자에 의해 자동 생성됨
+        // public int year
+
+        // java 메서드
+        // java 생성자 -> 이름 항상 constructor
+        constructor(name, year){
+            this.name = name;
+            this.year = year;
+        }
+
+        // js 메서드 선언 / java와 형식 다름름
+        method1(){} // 함수 이름 안들어가도 됨
+        method2(){}
+        age (){
+            const now = new Date();
+            return now.getFullYear()-this.year;
+        }
+
+        // js 오버로딩 가능하다.
+        age(x){
+            return x -this.year
+        }
+    }
+
+    // 객체 생성
+
+    /*
+    // 자바: Car myCar = new Car();
+    const myCar = new Car();
+    alert(myCar); // object Object
+    alert(myCar.name); // undefined
+    */
+
+   const myCar = new Car("BMW", 2022);
+    alert(myCar.age(2050)); // 28
+   /*
+   alert( myCar );
+   alert( myCar.name );
+   alert( myCar.age() );
+   */
+</script>
+</body>
+</html>

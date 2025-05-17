@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    [ js 형 변환 정리 ]
+    1) 문자열 -> 숫자 형변환
+       Number()
+       parseInt()
+       parseFloat()
+       eval(수식)  x 보안상 안좋으니 가능하면 쓰지 X
+
+    2) 숫자   -> 문자열 "
+    3) 날짜   -> 숫자
+    4) 숫자   -> 날짜
+    5) boolean-> 숫자
+    6) 숫자   -> boolean
+
+
+    [ js 자료형 8가지 ]
+    number
+    string
+    boolean
+    bigint
+    null
+    undefined
+    symbol 
+    object - array, set, map, function
+  </xmp>
+</div>
+
+<script>
+    /* "5" -> 5     변환: 단항 연산자 +
+    let x = "5";
+    // alert(typeof x); // string
+    let y = + x ; // 단항연산자 +
+    alert(typeof y); // number
+    */
+
+    /*
+    let x = "admin";
+    let y = + x ;
+    alert(y); // NaN
+    */
+
+</script>
+
+<script>
+    /*
+    let x = 123;
+    // 1)
+    // let y = x + "";
+    // 2)
+    // let y = String(x);
+    // 3)
+    // let y = x.toString(); 
+    alert(typeof y); // string
+    */
+</script>
+<script>
+    /*
+    // 날짜 -> 숫자 변환
+    const d = new Date();
+    //1)
+    // let n = Number(d);
+    //2)
+    // let n = d.getTime();
+
+    alert(n); // 1747355306654 밀리초
+    */
+
+    // 날짜 -> 문자열 변환
+    // Date().toString(); == String(Date());
+
+</script>
+
+<script>
+    // boolean -> 숫자
+    // alert(Number(true)) ; // 1
+    // alert(Number(false)); // 0
+
+    // 0, null, undefined, "", NaN -> false
+    // 위의 값 제외한 모든 값      -> true
+
+    // alert( 5 + null ); // 5
+    // alert( "5" + null ); // "5null"
+
+    // "5" + 2 => "52"
+    // "5" - 2 => 3
+    // "5" * 2 => 10
+    // "5" / 2 => 2.5
+
+    // "5" * "2" => 10
+
+</script>
+</body>
+</html>
