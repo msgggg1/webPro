@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+
+<style>
+  .myDiv{
+    background-color: #f1f1f1;
+    text-align: center;
+    border:1px solid #d3d3d3; 
+    position: absolute; 
+    z-index:9;
+  }
+  .myDiv1Header{
+    padding: 10px;
+    cursor: move;
+    z-index:10;
+    background-color: #2396F3;
+    color:#fff;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+  </xmp>
+
+  <div id="myDiv1" class="myDiv">
+    <div id="myDiv1Header" class="myDiv1Header">Click Here 1</div>
+    <p>Lorem.</p>
+    <p>Voluptatem.</p>
+    <p>Totam?</p>
+  </div>
+  <div id="myDiv2" class="myDiv">
+    <div id="myDiv2Header" class="myDiv1Header">Click Here 2</div>
+    <p>Lorem.</p>
+    <p>Voluptatem.</p>
+    <p>Totam?</p>
+  </div>
+
+</div>
+<script>
+  // 함수 클로저 개념 활용해야함
+  function draggable(elemt){ // 부모함수수
+        // 아래 지역변수인 동시에 전역변수수
+        // 마우스 다운할 떄 클릭 위치를 저장할 변수
+        let elemX = 0, elemY = 0 ;
+        // 마우스를 움직이면 이동할 거리 저장 변수
+        let moveX = 0, moveY = 0 ;
+
+        //div id = "부모ID + Header"
+        if (document.querySelector(`#${elemt.id}Header`)) {
+            document.querySelector(`#${elemt.id}Header`).onmousedown = dragMouseDown
+        }
+
+        // 자식함수(중첩함수)
+        function dragMouseDown(e) {
+            e = window.event || e ;
+            console.log(`[md] ${e.clientX} / ${e.clientY}`);
+
+            elemX = e.clientX;
+            elemY = e.clientY;
+
+            document.onmousemove = dragMouseMove;
+            document.onmouseup = dragMouseUp;
+        }
+        function dragMouseMove(e) {
+             e = window.event || e ;
+            console.log(`>>[md] ${e.clientX} / ${e.clientY}`);
+
+            moveX = elemX - e.clientX;
+            moveY = elemY - e.clientY;
+
+            // elemt.left = "100px";
+            //                          100
+            elemt.style.left = (elemt.offsetLeft - moveX) + "px";
+            elemt.style.top = (elemt.offsetTop - moveY) + "px";
+
+            // 움직인 좌표값이 다시 시작 위치로 설정
+            elemX = e.clientX;
+            elemY = e.clientY;
+        }
+        function dragMouseUp(e) {
+            // 등록된 이벤트 제거
+            document.onmousemove =  null;
+            document.onmouseup = null;
+        }
+        
+
+  }
+  // 자체호출함수 X -> 여기서 한 번 호출
+  draggable( document.querySelector("#myDiv1") );
+  draggable( document.querySelector("#myDiv2") );
+</script>
+</body>
+</html>

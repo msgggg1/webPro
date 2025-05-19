@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <button>count</button>
+  <p id="demo"></p>
+
+</div>
+
+<script>
+    /*
+    // 전역변수
+    let counter = 0;
+
+    function add() {
+        counter += 1 ;
+    }
+
+    add(); //1
+    add(); //2
+    add(); //3
+
+    $("#demo").html(counter);
+
+    */
+</script>
+
+<script>
+    /*
+    // 전역변수(글로벌 범위)
+    let counter = 0;
+
+    // add() 함수 선언
+    function add() {
+        counter += 1 ;
+    }
+
+
+
+    $("button").on("click", function(){
+        // add(); 호출 1 증가
+        //  굳이 add() 함수 호출 X (d/t 전역변수)
+        counter++;
+        $("#demo").html(counter);
+    });
+    */
+</script>
+<script>
+    // 반드시 add() 함수를 호출해야만 counter 1증가 하도록
+    
+    function add() {
+        // 지역변수 (함수범위) + 전역변수 
+        // 함수가 호출할때때만 사용할 수 있는 지역변수 + 전역변수(페이지가 닫힐 때까지는 메모리에 올라가 상태가 유지되게. 다른 데서 접근X, 이 함수를 통해서만 접근)
+        let counter = 0; // 매 호출시마다 새로 생성, 0 초기화
+
+        counter += 1 ;
+        return counter;
+    }
+
+    $("button").on("click", function(){
+        $("#demo").html(add());
+    });
+    
+</script>
+</body>
+</html>

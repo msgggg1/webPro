@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+  <button>0</button>
+
+</div>
+
+<script>
+
+    // [A]
+    /*
+    $("button").on("click", function(){
+        $(this).html(index,oldHtml){
+            return ++oldHtml;
+        }
+    });
+    */
+
+</script>
+
+<script>
+    // button 20개 -> 변수 20개 필요
+    // let countArr = [0,0,0,0,0,0,0,0,0,0,0,0,..]
+    // 이럴 때 함수 closure 사용
+    
+    // [함수 클로저 이용]
+    $("button").on("click", (function () { // each안써도됨. 모든 버튼에 이벤트 걸림
+                    let counter = 0; // 지역변수 자기꺼 각자 만들어짐
+                    return function (){ // 중첩함수 -> 이벤트 함수로 걸리는 함수
+                        $(this).html(++counter);
+                    };
+                })()
+    
+    );
+</script>
+
+<script>
+// 위 코딩과 맥락 같음
+//   $("button").each(function() {
+//     let plus = (function() {
+//       let counter = 0;
+//       return function() {
+//         counter++;
+//         return counter;
+//       };
+//     })();
+
+//     $(this).on("click", function() {
+//       $(this).text(plus());
+//     });
+//   });
+
+</script>
+</body>
+</html>
