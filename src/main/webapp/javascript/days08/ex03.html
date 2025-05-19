@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    ES6 클래스 도입
+  </xmp>
+</div>
+
+<script>
+    // ES6 클래스 도입
+    class Car{
+        // 생성자
+        constructor(brand, year){
+            this.carname = brand;
+            this.year = year;
+        }
+
+        // 메서드
+        present(){
+            return `> carname : ${this.carname}`;
+        }
+    }
+
+    // js 상속  : extends 키워드 , static 메서드 선언 가능
+    class Model extends Car{
+             constructor(brand, year, model){
+                super(brand, year);
+                this.model = model;
+        }
+
+        show(){
+            return this.present() + " / " + this.model;
+        }
+
+        static hello(){
+            return "hello World";
+        }
+    }
+
+    const myCar = new Model ("Ford", 2024, "Mustang");
+    console.log(myCar.show());
+    console.log(Model.hello());
+</script>
+</body>
+</html>

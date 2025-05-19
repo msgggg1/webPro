@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+  </xmp>
+  <!-- item01~21 -->
+  <img src="../images/item01.gif" alt="">
+</div>
+
+<script>
+    function getRandom( min, max){
+       return Math.floor( Math.random()*(max-min+1)+min);
+     }
+
+     document.oncontextmenu = function(){ // contextmenu : 오른쪽 마우스
+        // alert("오른쪽 마우스는 사용할 수 없습니다.");
+        // return false; // 이벤트 취소
+     }
+     document.onmousedown = function(){ // contextmenu : 오른쪽 마우스
+        // alert(event.button); 왼(0), 휠(1), 오(2)
+        if (event.button == 0) { // 왼(0)
+            document.title = event.clientX + ", " + event.clientY + " / " +
+            $("img").width();
+
+            let newImg = document.createElement("img");
+
+            let imgNo = getRandom(1,21).toString().padStart(2,0);
+            newImg.setAttribute("src", `../images/item${imgNo}.gif`);
+
+            let imgLeft= event.clientX - $("img").width()/2;
+            let imgTop = event.clientY - $("img").height()/2 ;
+            newImg.setAttribute("style", `position:absolute;left:${imgLeft}px;top:${imgTop}px`);
+            document.body.appendChild(newImg);
+        } else if(event.button == 1){ // 휠(1)
+            //                        event.srcElement
+            document.body.removeChild(event.target);
+        } else if(event.button == 2){ //오(2)
+            // 모든 이미지 제거
+            var imgs = document.querySelectorAll("img");
+            for (const img of imgs) {
+                // document.
+                img.remove();
+            }
+        }
+    
+     }
+</script>
+</body>
+</html>

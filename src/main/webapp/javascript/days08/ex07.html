@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    ex07.html
+    window.open()
+
+    [문제 제시]
+    새창 열기 버튼 클릭 후 열린 새창에서 닫기(x) 버튼을 클릭하면
+    "새창 열기"버튼은 작동하지 않는다. 
+    그 이유와 해결방법:
+
+  </xmp>
+
+  <button onclick="windowOpen()">새 창 열기</button>
+  <button onclick=" windowClose()">창 닫기</button>
+
+</div>
+<script>
+    let newWin ; // undefined == false
+    function windowOpen() {
+        const windowFeatures = "left=100,top=200,width=600,height=500";
+        if (!newWin) {
+            newWin = window.open("ex07_02.html", "", windowFeatures);
+        }else{
+            newWin.focus();
+        }
+    }
+    function windowClose() {
+        if (newWin) {
+            newWin.close();
+            newWin = undefined;
+        }
+    }
+</script>
+</body>
+</html>

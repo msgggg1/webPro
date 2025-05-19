@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+<style>
+    #container{
+        width: 400px;
+        height: 400px;
+
+        position: relative;
+        background-color: yellow;
+    }
+    .animate{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<script>
+    let no = 1;
+
+    function make() { // 공 만들어서 움직이게 
+        // <div class="animate" id="animate1"></div>
+        let newCircle = document.createElement("div");
+        newCircle.className = "animate";
+        newCircle.setAttribute("id", `animate${no}`);
+
+        document.getElementById("container").appendChild(newCircle);
+
+        myMove(newCircle);
+
+        no++;
+    }
+
+    function myMove(elem) {
+      let posX = 0, posY = 0;
+
+      var x = parseInt(Math.random() * 8 ) + 2;
+      var y = parseInt(Math.random() * 8 ) + 2;
+
+      var timer = setInterval(function() { 
+           
+           if ( posY >= 350 || posY <= 0 )  y *= -1;  // y 방향 바꾼다.
+           if ( posX >= 350 || posX <= 0 )  x *= -1;           
+            
+                posX += x;  // 6
+                posY += y; // 9
+                
+                if(  posX < 0  ) posX = 0;
+                else if( posX > 350 ) posX = 350;
+                if(  posY < 0  ) posY = 0;
+                else if( posY > 350 ) posY = 350;
+                
+                elem.style.left = posX+"px";
+                elem.style.top = posY+"px";
+            
+        }, 10);
+    }
+</script>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+
+  </xmp>
+  <button onclick="make();">Click Me</button>
+  <br><br>
+
+  <div id="container">
+  </div>
+</div>
+</body>
+</html>

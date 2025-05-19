@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost/webPro/images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../resources/cdn-main/example.css">
+<script src="../../resources/cdn-main/example.js"></script>
+<style>
+  span.material-symbols-outlined {
+    vertical-align: text-bottom;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">msg Home</a></h1>
+  <ul>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+  </ul>
+</header>
+<div>
+  <xmp class="code">
+    BOM
+        ㄴ window
+        ㄴ screen
+        ㄴ location
+        ㄴ history
+            브라우저 기록이 포함되어 있는 객체
+            기록 목록에는 이전주소, 다음주소 목록이 들어가있다. 
+                            이동      이동    가능
+
+                            history.back() == history.go(-1) // -2 두페이지 뒤로
+                            history.forward() == history.go(1) // 2 두페이지 앞으로 // 정수값 줄 수 있다.
+  </xmp>                    저장된 값을 이용. 새로 페이지를 요청하는건 아님.
+
+  <a href="ex01.html">ex01.html 이동</a><br>
+  <a href="#">ex01.html 이동</a><br> -> 어딘가에서 이벤트 처리 함. <br>
+  <a href="javascript:history.forward()">다음 페이지 이동</a>
+
+</div>
+
+<script>
+    $("a").on("click", function(){
+        // $(this).attr("href", "ex01.html");
+
+        // ex01.html?name=admin&age=10
+        let name = "admin";
+        let age = 10;
+
+        location.href = `ex01.html?name=${name}&age=${age}`;
+    });
+</script>
+</body>
+</html>
