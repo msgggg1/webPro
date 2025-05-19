@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSP & Servlet 정리</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.1.1/github-markdown.min.css">
+  <style>
+    body{
+      background-color: #070707;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    
+    .markdown-body {
+      background-color: #070707;
+      color: #c9d1d9;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .markdown-body a {
+      color: #58a6ff; 
+    }
+
+    .markdown-body a:hover {
+      color: #8dd6ff;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+      color: #f0f6fc;
+    }
+
+    .markdown-body pre,
+    .markdown-body code {
+      background-color: #0e1012;
+      color: #f8f8f2;
+    }
+
+    .markdown-body blockquote {
+      border-left-color: #6e7681;
+      color: #a1b0b8;
+    }
+    .markdown-body th,
+    .markdown-body td {
+      border-color: #30363d; 
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <h1 id="jsp-servlet-정리-eclipse-oracle-sql-developer-">JSP & Servlet 정리 (Eclipse + Oracle SQL Developer)</h1>
+    <h2 id="목차">📚 목차</h2>
+    <ul>
+      <li><a href="#1-웹-애플리케이션과-서버-사이드-기술-개요">1. 웹 애플리케이션과 서버 사이드 기술 개요</a></li>
+      <li><a href="#2-servlet-심화">2. Servlet 심화</a></li>
+      <li><a href="#3-jsp-심화">3. JSP 심화</a></li>
+      <li><a href="#4-서블릿과-jsp-연동-및-mvc-패턴">4. 서블릿과 JSP 연동 및 MVC 패턴</a></li>
+      <li><a href="#5-데이터베이스-연동-oracle-기준">5. 데이터베이스 연동 (Oracle 기준)</a></li>
+      <li><a href="#6-개발-환경-설정-및-디렉토리-구조-eclipse-기준">6. 개발 환경 설정 및 디렉토리 구조 (Eclipse 기준)</a></li>
+      <li><a href="#7-실습-예제-crud-회원-관리-시스템">7. 실습 예제: CRUD 회원 관리 시스템</a></li>
+      <li><a href="#8-etc">8. etc</a></li>
+      <li><a href="#9-next">9. 로그인/회원가입 & 게시판 구현 예제</a></li>
+    </ul>
+    <hr />
+
+    <h2 id="1-웹-애플리케이션과-서버-사이드-기술-개요">1. 웹 애플리케이션과 서버 사이드 기술 개요</h2>
+    <h3 id="http-프로토콜-개요">🔍 HTTP 프로토콜 개요</h3>
+    <ul>
+        <li> HTTP (HyperText Transfer Protocol)</li>
+        <li>웹에서 클라이언트와 서버 간에 데이터를 주고받기 위한 핵심적인 통신 규약. TCP/IP 프로토콜 스위트 위에서 동작하며, 주로 HTML 문서, 이미지, 동영상, JSON 데이터 등을 전송하는 데 사용된다.</li>
+      <li>요청(Request) → 응답(Response)</li>
+      <li>메서드: GET, POST, PUT, DELETE</li>
+      <li>상태 코드: 200 OK, 302 Redirect, 404 Not Found, 500 Server Error</li>
+    </ul>
+    <h3 id="서버-사이드-기술-개요">💡 서버 사이드 기술 개요</h3>
+    <ul>
+      <li>클라이언트의 요청을 받아아 비즈니스 로직 처리, 데이터베이스와 연동하여 데이터를 저장 및 조회, 그 결과를 클라이언트에 응답으로 전달. 보안, 인증, 권한 관리 등 수행.</li>
+      <li>Servlet, JSP는 자바 기반의 웹 서버 사이드 기술</li>
+      <li>Node.js, PHP, Python(Django/Flask) 등과 비교 가능</li>
+    </ul>
+    <hr />
+
+    <h2 id="2-servlet-심화">2. Servlet 심화</h2>
+    <h3 id="2-1-http-메서드-이해">2.1 HTTP 메서드 이해</h3>
+    <ul>
+      <li><strong>GET</strong>: URL에 데이터를 붙여 요청. 캐시 가능.</li>
+      <li><strong>POST</strong>: 폼 데이터 전송. 보안성↑. 길이 제한 적음.</li>
+    </ul>
+    <h3 id="2-2-servlet-api-주요-클래스">2.2 Servlet API 주요 클래스</h3>
+    <ul>
+      <li><code>HttpServletRequest</code>: 클라이언트의 요청 정보 제공</li>
+      <li><code>HttpServletResponse</code>: 응답 구성, HTML 출력 등</li>
+      <li><code>HttpSession</code>: 사용자 세션 관리</li>
+      <li><code>ServletContext</code>: 전역 애플리케이션 설정 접근</li>
+    </ul>
+    <h3 id="2-3-서블릿-필터">2.3 서블릿 필터(Filter)</h3>
+    <pre><code class="java">@WebFilter("/*")
+public class EncodingFilter implements Filter {
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+        req.setCharacterEncoding("UTF-8");
+        res.setContentType("text/html; charset=UTF-8");
+        chain.doFilter(req, res);
+    }
+}
+</code></pre>
+    <h3 id="2-4-리스너">2.4 리스너(Listener)</h3>
+    <pre><code class="java">@WebListener
+public class AppListener implements ServletContextListener {
+    public void contextInitialized(ServletContextEvent sce) {
+        System.out.println("앱 시작됨");
+    }
+    public void contextDestroyed(ServletContextEvent sce) {
+        System.out.println("앱 종료됨");
+    }
+}
+</code></pre>
+    <h3 id="2-5-비동기-서블릿">2.5 비동기 서블릿</h3>
+    <pre><code class="java">@WebServlet(value="/async", asyncSupported=true)
+public class AsyncServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        AsyncContext asyncCtx = req.startAsync();
+        asyncCtx.start(() -> {
+            try {
+                Thread.sleep(2000);
+                resp.getWriter().write("Async Response");
+                asyncCtx.complete();
+            } catch(Exception e) { e.printStackTrace(); }
+        });
+    }
+}
+</code></pre>
+    <h3 id="2-6-예제-helloservlet">2.6 예제: HelloServlet</h3>
+    <p><strong>HelloServlet.java</strong></p>
+    <pre><code class="java">@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String name = req.getParameter("name");
+        req.setAttribute("greeting", name);
+        req.getRequestDispatcher("/WEB-INF/views/hello.jsp").forward(req, resp);
+    }
+}
+</code></pre>
+    <p><strong>hello.jsp</strong></p>
+    <pre><code class="jsp">&lt;%@ page contentType="text/html; charset=UTF-8" %&gt;
+&lt;h1&gt;Hello, ${greeting}!&lt;/h1&gt;
+</code></pre>
+    <hr />
+
+    <h2 id="3-jsp-심화">3. JSP 심화</h2>
+    <h3 id="3-1-el">3.1 EL(Expression Language)</h3>
+    <pre><code class="jsp">&lt;p&gt;사용자 이름: ${param.name}&lt;/p&gt;
+</code></pre>
+    <h3 id="3-2-jstl">3.2 JSTL</h3>
+    <pre><code class="jsp">&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;
+&lt;c:forEach var="user" items="${userList}"&gt;
+  &lt;p&gt;${user.name}&lt;/p&gt;
+&lt;/c:forEach&gt;
+</code></pre>
+    <h3 id="3-3-webxml">3.3 예외 처리 설정(web.xml)</h3>
+    <pre><code class="xml">&lt;error-page&gt;
+  &lt;error-code&gt;404&lt;/error-code&gt;
+  &lt;location&gt;/WEB-INF/error/404.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+</code></pre>
+    <h3 id="3-4-실습-사용자-입력-폼">💻 간단 실습: 사용자 입력 폼</h3>
+    <pre><code class="jsp">&lt;form action="submit" method="post"&gt;
+  이름: &lt;input type="text" name="name"/&gt;
+  &lt;button type="submit"&gt;제출&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+    <hr />
+
+    <h2 id="4-서블릿과-jsp-연동-및-mvc-패턴">4. 서블릿과 JSP 연동 및 MVC 패턴</h2>
+    <ul>
+      <li><strong>Model</strong>: JavaBean, DAO 클래스</li>
+      <li><strong>View</strong>: JSP + EL/JSTL</li>
+      <li><strong>Controller</strong>: Servlet</li>
+    </ul>
+    <h3 id="4-실습-포워딩">💻 실습: 포워딩</h3>
+    <pre><code class="java">request.setAttribute("msg", "Hello MVC");
+request.getRequestDispatcher("/WEB-INF/views/msg.jsp").forward(request, response);
+</code></pre>
+    <hr />
+
+    <h2 id="5-데이터베이스-연동-oracle-기준">5. 데이터베이스 연동 (Oracle 기준)</h2>
+    <h3 id="5-1-jdbc-설정">📥 JDBC 설정</h3>
+    <ol>
+      <li>Oracle JDBC 드라이버 다운로드 (`ojdbc8.jar`)</li>
+      <li>Eclipse → 프로젝트 → Build Path → Add External JAR 등록</li>
+    </ol>
+    <h3 id="5-2-oracle-실습">💻 실습: Oracle 접속 예제</h3>
+    <pre><code class="java">Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "username", "password");
+PreparedStatement stmt = conn.prepareStatement("SELECT * FROM member");
+ResultSet rs = stmt.executeQuery();
+while(rs.next()) {
+    System.out.println(rs.getString("name"));
+}
+rs.close(); stmt.close(); conn.close();
+</code></pre>
+    <hr />
+
+    <h2 id="6-개발-환경-설정-및-디렉토리-구조-eclipse-기준">6. 개발 환경 설정 및 디렉토리 구조 (Eclipse 기준)</h2>
+    <ul>
+      <li><strong>Dynamic Web Project 생성</strong>: New → Dynamic Web Project</li>
+      <li><strong>디렉토리 구조</strong>:</li>
+    </ul>
+    <ul>
+      <li><code>src/</code> → Java 소스</li>
+      <li><code>WebContent/</code> → 정적 파일, JSP</li>
+      <li><code>WEB-INF/</code> → JSP 보호 디렉토리, <code>web.xml</code> 포함</li>
+    </ul>
+    <ul>
+      <li><strong>톰캣 서버 추가 방법</strong>:</li>
+      <ol>
+        <li>Eclipse 하단 Servers 탭에서 톰캣 추가</li>
+        <li>프로젝트 우클릭 → Run As → Run on Server</li>
+      </ol>
+    </ul>
+    <hr />
+
+    <h2 id="7-실습-예제-crud-회원-관리-시스템">7. 실습 예제: CRUD 회원 관리 시스템</h2>
+    <h3 id="7-1-요구사항">📌 요구사항</h3>
+    <ul>
+      <li>회원 등록, 조회, 수정, 삭제</li>
+    </ul>
+    <h3 id="7-2-테이블-생성-sql-developer">🧱 테이블 생성(SQL Developer)</h3>
+    <pre><code class="sql">CREATE TABLE member (
+  id NUMBER PRIMARY KEY,
+  name VARCHAR2(100),
+  email VARCHAR2(100)
+);
+</code></pre>
+    <h3 id="7-3-단계별-구현">단계별 구현</h3>
+    <ol>
+      <li>DAO 클래스 작성 (insert, select, update, delete)</li>
+      <li>Servlet으로 요청 처리</li>
+      <li>JSP: <code>form.jsp</code>, <code>list.jsp</code>, <code>detail.jsp</code>, <code>edit.jsp</code></li>
+      <li>트랜잭션 처리 및 예외 처리 추가</li>
+    </ol>
+    <hr />
+
+    <h2 id="8-etc">8. etc</h2>
+    <ul>
+      <li><strong>세션 설정</strong>: <code>request.getSession()</code></li>
+      <li><strong>UTF-8 설정</strong>: 필터 또는 <code>web.xml</code> 설정</li>
+      <li><strong>CSRF 방지</strong>: 토큰 생성 및 hidden input 처리</li>
+      <li><strong>응답 최적화</strong>: GZIP 압축, 정적 자원 캐싱 설정</li>
+      <li><strong>동시성 주의</strong>: Servlet은 싱글톤 → 인스턴스 변수 사용 주의</li>
+    </ul>
+    <hr />
+    <h2 id="9-next">9. 로그인/회원가입 & 게시판 구현 예제</h2>
+    <ul>
+       <li><a href="./login_board.html"> 로그인/회원가입 & 게시판 구현 예제 보기 </a></li>
+    </ul>
+    <hr />
+
+  </article>
+</body>
+</html>

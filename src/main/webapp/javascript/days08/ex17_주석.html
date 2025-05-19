@@ -1,0 +1,101 @@
+<script> // HTML 문서 내에 JavaScript 코드를 삽입하기 위한 태그입니다.
+  $( function() { // jQuery의 DOM(Document Object Model) 로딩 완료 후 실행되는 함수입니다. $(document).ready(function() { ... }); 와 동일한 의미입니다.
+    var dialog, form, // dialog와 form 변수를 선언합니다. 이 변수들은 나중에 jQuery UI dialog 위젯과 HTML form 요소를 참조하게 됩니다.
+
+      // From https://html.spec.whatwg.org/multipage/input.html#e-mail-state-%28type=email%29 // 이메일 정규 표현식의 출처를 나타내는 주석입니다.
+      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, // 이메일 주소의 유효성을 검사하기 위한 정규 표현식입니다.
+      name = $( "#name" ), // HTML 문서에서 id가 "name"인 요소를 선택하여 jQuery 객체로 만듭니다 (사용자 이름 입력 필드).
+      email = $( "#email" ), // HTML 문서에서 id가 "email"인 요소를 선택하여 jQuery 객체로 만듭니다 (이메일 입력 필드).
+      password = $( "#password" ), // HTML 문서에서 id가 "password"인 요소를 선택하여 jQuery 객체로 만듭니다 (비밀번호 입력 필드).
+      allFields = $( [] ).add( name ).add( email ).add( password ), // name, email, password jQuery 객체들을 하나의 jQuery 객체 컬렉션으로 합칩니다. 입력 필드 전체를 쉽게 다루기 위함입니다.
+      tips = $( ".validateTips" ); // HTML 문서에서 class가 "validateTips"인 요소를 선택하여 jQuery 객체로 만듭니다 (유효성 검사 메시지를 표시할 영역).
+
+    function updateTips( t ) { // 유효성 검사 메시지를 화면에 표시하는 함수입니다.
+      tips // tips jQuery 객체 (메시지 표시 영역)
+        .text( t ) // t 매개변수로 받은 텍스트를 메시지 영역에 설정합니다.
+        .addClass( "ui-state-highlight" ); // 메시지 영역에 "ui-state-highlight" CSS 클래스를 추가하여 시각적으로 강조합니다 (jQuery UI 스타일).
+      setTimeout(function() { // 일정 시간 후에 특정 동작을 실행하는 함수입니다.
+        tips.removeClass( "ui-state-highlight", 1500 ); // 0.5초(500ms) 후에 "ui-state-highlight" 클래스를 1.5초(1500ms)에 걸쳐 서서히 제거합니다 (애니메이션 효과).
+      }, 500 ); // 500밀리초 (0.5초) 후에 실행합니다.
+    }
+
+    function checkLength( o, n, min, max ) { // 입력 값의 길이를 검사하는 함수입니다.
+                                             // o: 검사할 jQuery 객체 (예: name, email, password)
+                                             // n: 필드 이름 (예: "username", "email", "password") - 오류 메시지에 사용됨
+                                             // min: 최소 길이
+                                             // max: 최대 길이
+      if ( o.val().length > max || o.val().length < min ) { // 입력 값의 길이가 최대 길이보다 크거나 최소 길이보다 작으면
+        o.addClass( "ui-state-error" ); // 해당 입력 필드에 "ui-state-error" CSS 클래스를 추가하여 오류 상태임을 표시합니다 (jQuery UI 스타일).
+        updateTips( "Length of " + n + " must be between " + // updateTips 함수를 호출하여 오류 메시지를 표시합니다.
+          min + " and " + max + "." );                        // 예: "Length of username must be between 3 and 16."
+        return false; // 유효성 검사 실패를 반환합니다.
+      } else {
+        return true; // 유효성 검사 성공을 반환합니다.
+      }
+    }
+
+    function checkRegexp( o, regexp, n ) { // 입력 값을 정규 표현식으로 검사하는 함수입니다.
+                                        // o: 검사할 jQuery 객체
+                                        // regexp: 검사에 사용할 정규 표현식
+                                        // n: 오류 메시지 (정규 표현식 불일치 시 표시)
+      if ( !( regexp.test( o.val() ) ) ) { // 정규 표현식으로 입력 값을 테스트했을 때 일치하지 않으면
+        o.addClass( "ui-state-error" ); // 해당 입력 필드에 "ui-state-error" CSS 클래스를 추가합니다.
+        updateTips( n ); // updateTips 함수를 호출하여 n 매개변수로 받은 오류 메시지를 표시합니다.
+        return false; // 유효성 검사 실패를 반환합니다.
+      } else {
+        return true; // 유효성 검사 성공을 반환합니다.
+      }
+    }
+
+    function addUser() { // 사용자 추가 로직을 처리하는 함수입니다. 폼 유효성 검사 및 데이터 처리를 담당합니다.
+      var valid = true; // 유효성 상태를 저장하는 변수, 기본값은 true(유효함)입니다.
+      allFields.removeClass( "ui-state-error" ); // 모든 입력 필드에서 "ui-state-error" 클래스를 제거하여 이전 오류 상태를 초기화합니다.
+
+      // 각 필드에 대해 유효성 검사를 수행합니다. && 연산자를 사용하여 하나라도 실패하면 valid는 false가 됩니다.
+      valid = valid && checkLength( name, "username", 3, 16 ); // 사용자 이름 길이 검사 (3자 이상, 16자 이하).
+      valid = valid && checkLength( email, "email", 6, 80 ); // 이메일 길이 검사 (6자 이상, 80자 이하).
+      valid = valid && checkLength( password, "password", 5, 16 ); // 비밀번호 길이 검사 (5자 이상, 16자 이하).
+
+      // 각 필드에 대해 정규 표현식 유효성 검사를 수행합니다.
+      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." ); // 사용자 이름 형식 검사: 알파벳으로 시작하고, 알파벳(대소문자 무시), 숫자, 밑줄, 공백만 포함 가능.
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" ); // 이메일 형식 검사: 미리 정의된 emailRegex 사용. 오류 시 "eg. ui@jquery.com" 메시지 표시.
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" ); // 비밀번호 형식 검사: 알파벳(대소문자)과 숫자만 허용.
+
+      if ( valid ) { // 모든 유효성 검사를 통과했다면 (valid가 true이면)
+        $( "#users tbody" ).append( "<tr>" + // HTML 문서에서 id가 "users"인 테이블의 tbody에 새로운 행(<tr>)을 추가합니다.
+          "<td>" + name.val() + "</td>" + // 첫 번째 셀(<td>)에 사용자 이름 입력 값을 넣습니다.
+          "<td>" + email.val() + "</td>" + // 두 번째 셀(<td>)에 이메일 입력 값을 넣습니다.
+          "<td>" + password.val() + "</td>" + // 세 번째 셀(<td>)에 비밀번호 입력 값을 넣습니다 (실제로는 비밀번호를 이렇게 평문으로 저장/표시하면 안 됩니다).
+        "</tr>" );
+        dialog.dialog( "close" ); // 사용자 추가 후 jQuery UI dialog를 닫습니다.
+      }
+      return valid; // 최종 유효성 검사 결과를 반환합니다 (성공 시 true, 실패 시 false).
+    }
+
+    dialog = $( "#dialog-form" ).dialog({ // HTML 문서에서 id가 "dialog-form"인 요소를 jQuery UI dialog 위젯으로 만듭니다.
+      autoOpen: false, // dialog가 자동으로 열리지 않도록 설정합니다 (버튼 클릭 시 열리도록).
+      height: 400, // dialog의 높이를 400px로 설정합니다.
+      width: 350, // dialog의 너비를 350px로 설정합니다.
+      modal: true, // dialog를 모달(modal) 형태로 설정합니다. 모달 dialog는 dialog 외부의 다른 내용과 상호작용할 수 없게 만듭니다.
+      buttons: { // dialog 하단에 표시될 버튼들을 정의합니다.
+        "Create an account": addUser, // "Create an account" 버튼을 만들고, 클릭 시 addUser 함수를 실행합니다.
+        Cancel: function() { // "Cancel" 버튼을 만들고, 클릭 시 익명 함수를 실행합니다.
+          dialog.dialog( "close" ); // dialog를 닫습니다.
+        }
+      },
+      close: function() { // dialog가 닫힐 때 실행될 콜백 함수입니다.
+        form[ 0 ].reset(); // dialog 내부의 폼(form) 요소의 입력 값들을 초기화합니다. form[0]은 jQuery 객체가 아닌 순수 DOM 요소를 의미합니다.
+        allFields.removeClass( "ui-state-error" ); // 모든 입력 필드에서 "ui-state-error" 클래스를 제거하여 오류 상태를 초기화합니다.
+      }
+    });
+
+    form = dialog.find( "form" ).on( "submit", function( event ) { // dialog 위젯 내부의 form 요소를 찾아서 submit 이벤트를 처리합니다.
+      event.preventDefault(); // form의 기본 제출 동작(페이지 새로고침 등)을 막습니다.
+      addUser(); // addUser 함수를 호출하여 사용자 추가 로직을 실행합니다.
+    });
+
+    $( "#create-user" ).button().on( "click", function() { // HTML 문서에서 id가 "create-user"인 요소를 jQuery UI 버튼으로 만들고, 클릭 이벤트를 처리합니다.
+      dialog.dialog( "open" ); // 해당 버튼을 클릭하면 dialog를 엽니다.
+    });
+  } );
+  </script> // JavaScript 코드 블록의 끝입니다.
